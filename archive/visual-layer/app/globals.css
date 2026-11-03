@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── DESIGN.md palette ── */
+  --color-white: #ffffff;
+  --color-tint-white: #f7fdf8; /* very light green-tinted white (alternate sections) */
+  --color-brand-green: #00c853; /* vibrant green — brand */
+  --color-brand-red: #fc0000; /* bright red — brand, large graphics only */
+  --color-deep-green: #0b4f3c; /* deep forest green — dark sections, body text */
+  --color-mint-tint: #d1fae5; /* mint tint — minor accent */
+  --color-blush-red-tint: #fee2e2; /* blush-red tint — minor accent */
+  --color-darker-red: #b91c1c; /* darker red — small text only */
+  --color-ink: #0b2a1e; /* green-tinted near-black ink — body text */
+
+  /* ── DESIGN.md typography ── */
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  /* ── Spacing / layout ── */
+  --spacing-section: 160px; /* gap between sections, clearly larger than intra-section gaps */
+  --spacing-section-mobile: 80px;
+  --radius-arch: 9999px;
+
+  /* ── Motion easing (CSS) ── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Alternate section tint — applied via .section-tint */
+.section-tint {
+  background: var(--color-tint-white);
+}
+
+/* Custom selection colour in green (DESIGN.md) */
+::selection {
+  background: var(--color-brand-green);
+  color: #ffffff;
+}
+
+/* Header scroll-driven states (set via data attributes by Lenis onFrame) */
+header[data-scrolled="true"] {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+@supports (backdrop-filter: blur(12px)) {
+  header[data-scrolled="true"] {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+header[data-hide="true"] {
+  transform: translateY(-100%);
+}
+
+/* Subtle global film-grain overlay (DESIGN.md imagery) */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

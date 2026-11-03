@@ -1,0 +1,51 @@
+// Featured programmes from content.md (lines 26–42 / 221–235).
+// Schedules flagged confirmed per content.md; Alpha Worship time and House
+// Fellowship are unconfirmed (content.md gives conflicting / missing times).
+
+export const PROGRAMMES = [
+  {
+    id: "svm",
+    name: "Sonship and Victory Ministry (SVM)",
+    description:
+      "A ministry dedicated to nurturing children and young people in the knowledge of God, spiritual identity, and Christian living.",
+    day: "Sunday",
+    time: "8:00 AM – 9:30 AM",
+    confirmed: true,
+  },
+  {
+    id: "combined-celebration",
+    name: "Combined Celebration Service",
+    description:
+      "A gathering of worship, the Word, fellowship, and celebration of the life and grace of God.",
+    day: "Sunday",
+    time: "9:30 AM",
+    confirmed: true,
+  },
+  {
+    id: "midweek-prophetic-prayer",
+    name: "Midweek Prophetic Prayer and Faith Building",
+    description:
+      "An opportunity to strengthen faith, grow in spiritual understanding, and participate in corporate prayer.",
+    day: "Thursday",
+    time: "5:45 PM",
+    confirmed: true,
+  },
+  {
+    id: "alpha-worship",
+    name: "Alpha Worship – Pulling Down the Jericho Wall",
+    description:
+      "A special monthly worship and prayer gathering focused on worship, spiritual growth, and the manifestation of God’s grace.",
+    day: "First Thursday of the month",
+    time: "Details coming soon", // content.md: one section says 5:00 PM, another gives none — unconfirmed
+    confirmed: false,
+  },
+  {
+    id: "house-fellowship",
+    name: "House Fellowship and Evangelism",
+    description:
+      "Connecting believers through fellowship, discipleship, evangelism, and community outreach.",
+    day: "Details coming soon",
+    time: "Details coming soon",
+    confirmed: false,
+  },
+] as const;

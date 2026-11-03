@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── DESIGN.md palette ── */
+  --color-white: #ffffff;
+  --color-night: #04180f;
+  --color-forest: #0b3b24;
+  --color-ink: #07130d;
+  --color-brand-green: #00c853;
+  --color-dawn-mint: #c9f5da;
+  --color-mist: #f2f8f3;
+  --color-blush: #ffe3de;
+  --color-crimson-text: #b80000;
+  --color-signal-red: #fc0000;
+  --color-tint-white: #f7fdf8;
+
+  /* ── DESIGN.md typography ── */
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  /* ── Fluid type scale ── */
+  --type-t0: clamp(4rem, 14vw, 14rem);
+  --type-t1: clamp(2.5rem, 8vw, 5rem);
+  --type-t2: clamp(1.75rem, 5vw, 3rem);
+  --type-t3: clamp(1.25rem, 3vw, 1.75rem);
+  --type-t4: 17px;
+  --type-t5: 15px;
+  --type-t6: 12px;
+
+  /* ── Tracking ── */
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.05em;
+  --tracking-wider: 0.08em;
+  --tracking-tighter: -0.02em;
+
+  /* ── Leading ── */
+  --leading-loose: 1.55;
+  --leading-normal: 1.4;
+  --leading-tight: 1.05;
+  --leading-title: 0.95;
+
+  /* ── Spacing / layout ── */
+  --spacing-section: 160px;
+  --spacing-section-mobile: 80px;
+
+  /* ── Motion easing (CSS) ── */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* In-rag layout needs room in both directions. */
+@custom-variant roomy (@media (min-width: 1280px) and (min-height: 780px));
+/* Short viewports: laptops at 125-150% scaling. */
+@custom-variant short (@media (max-height: 779px));
+
+/* ──────────────────────────────────────────────────────────────
+   Scroll foundation.
+   Lenis drives smooth scrolling on precise pointers; native scroll
+   everywhere else. Nothing may set overflow:hidden on html/body.
+   ────────────────────────────────────────────────────────────── */
+html {
+  overflow-x: clip;
+  overflow-y: auto;
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  /* The document opens at night, as the hero does: no white flash before
+     hydration, and overscroll stays on-brand. */
+  background: var(--color-night);
+  color: var(--color-white);
+  font-family: var(--font-sans);
+  font-size: var(--type-t4);
+  line-height: var(--leading-loose);
+  overflow-x: clip;
+  overflow-y: auto;
+  min-height: 100vh;
+  display: block;
+}
+
+/* Returning visitors: the curtain is in the HTML but must never paint. */
+html[data-pre-seen] [data-pre-root] {
+  display: none !important;
+}
+
+/* Lenis-recommended rules. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ── Selection ── */
+::selection {
+  background: var(--color-brand-green);
+  color: var(--color-ink);
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--color-brand-green);
+  outline-offset: 3px;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Grain — the printed-paper tooth used on every dark composition.
+   Static SVG, no filters on moving elements.
+   ────────────────────────────────────────────────────────────── */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Hero typography.
+   Fraunces axes: wght reacts to cursor proximity, SOFT softens,
+   WONK switches the italic wildness on.
+   ────────────────────────────────────────────────────────────── */
+.hero-word {
+  font-variation-settings:
+    "wght" var(--wght, 420),
+    "SOFT" var(--soft, 24),
+    "WONK" var(--wonk, 0);
+  transition: font-variation-settings 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: font-variation-settings;
+}
+
+.hero-line-italic {
+  --wonk: 1;
+  font-style: italic;
+}
+
+/* Hero masthead type. The --fit multiplier is set by HomeHero from the
+   measured natural size and the space actually available in the band. */
+.hero-h1 {
+  font-size: calc(clamp(2.9rem, 18.4vw, 9rem) * var(--fit, 1));
+  line-height: 0.84;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-wrap: nowrap;
+}
+
+@media (min-width: 768px) {
+  .hero-h1 {
+    font-size: calc(clamp(3rem, min(12.4vw, 20svh), 13rem) * var(--fit, 1));
+    line-height: 0.82;
+  }
+}
+
+/* The ghost masthead: outlined type revealed only under the cursor light. */
+.hero-ghost {
+  opacity: var(--ghost, 0);
+  transition: opacity 280ms cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-mask-image: radial-gradient(
+    circle 210px at var(--px, 62%) var(--py, 42%),
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 46%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    circle 210px at var(--px, 62%) var(--py, 42%),
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 46%,
+    transparent 72%
+  );
+  transform: translate3d(0.045em, -0.028em, 0);
+}
+
+.hero-ghost .hero-word {
+  color: transparent;
+  -webkit-text-stroke: 0.014em rgba(201, 245, 218, 0.9);
+  transition: none;
+}
+
+/* Cursor light on the hero. */
+.hero-spotlight {
+  background: radial-gradient(
+    340px circle at var(--px, 62%) var(--py, 42%),
+    rgba(0, 200, 83, 0.24) 0%,
+    rgba(0, 200, 83, 0.1) 38%,
+    transparent 72%
+  );
+  mix-blend-mode: screen;
+}
+
+/* Outlined marquee type. */
+.type-outline-ink {
+  color: transparent;
+  -webkit-text-stroke: 0.017em var(--color-ink);
+}
+
+.type-outline-night {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.55);
+}
+
+/* Arch — the signature shape. */
+.arch-top {
+  border-radius: 999px 999px 0 0;
+}
+
+/* ── Small motion loops ── */
+@keyframes hero-ray-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.hero-rays {
+  animation: hero-ray-spin 260s linear infinite;
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  55%,
+  100% {
+    transform: translateY(220%);
+  }
+}
+.scroll-cue-dot {
+  animation: scroll-cue 2.4s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@keyframes live-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.82);
+  }
+}
+.live-dot {
+  animation: live-dot 2.2s ease-in-out infinite;
+}
+
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.caret-blink {
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-rays,
+  .scroll-cue-dot,
+  .live-dot,
+  .caret-blink {
+    animation: none !important;
+  }
+
+  .hero-word {
+    transition: none !important;
+  }
+}
