@@ -1,4 +1,3 @@
-import { CHURCH } from "@/data/church";
 import { HomeHero } from "@/components/sections/home-hero";
 import { SignatureMarquee } from "@/components/sections/signature-marquee";
 import { HomeVision } from "@/components/sections/home/home-vision";
@@ -8,11 +7,11 @@ import { HomeWeek } from "@/components/sections/home/home-week";
 import { HomeBuilding } from "@/components/sections/home/home-building";
 import { HomeNextStep } from "@/components/sections/home/home-next-step";
 import { HomeEvents } from "@/components/sections/home/home-events";
+import { homeMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: CHURCH.name,
-  description: `${CHURCH.identityLine} — ${CHURCH.tagline}`,
-};
+export const metadata = homeMetadata(
+  "A House of Grace. A People of Purpose. We Get Better Every Day! — Resurrection Ground, Gwarinpa, Abuja, Nigeria."
+);
 
 /**
  * Home — the Daybreak Edition.

@@ -19,16 +19,11 @@ export function CursorSpotlight({
   className,
 }: {
   className?: string;
-}): React.ReactElement | null {
-  const [enabled, setEnabled] = React.useState(false);
+}): React.ReactElement {
   const light = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setEnabled(canUseRichMotion() && window.innerWidth >= 1024);
-  }, []);
-
-  useEffect(() => {
-    if (!enabled) return undefined;
+    if (!canUseRichMotion() || window.innerWidth < 1024) return undefined;
     const el = light.current;
     if (!el) return undefined;
 
@@ -84,9 +79,7 @@ export function CursorSpotlight({
       document.removeEventListener("pointerleave", onLeave);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, [enabled]);
-
-  if (!enabled) return null;
+  }, []);
 
   return (
     <div

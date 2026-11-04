@@ -19,25 +19,19 @@ import { canUseRichMotion } from "@/lib/motion";
  * - text fields keep the native caret (the class only hides it on controls);
  * - one rAF loop that parks itself when the pointer stops.
  */
-export function CustomCursor(): React.ReactElement | null {
-  const [enabled, setEnabled] = React.useState(false);
+export function CustomCursor(): React.ReactElement {
   const dot = useRef<HTMLDivElement>(null);
   const ring = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (!canUseRichMotion() || window.innerWidth < 1024) return undefined;
-    setEnabled(true);
-    document.documentElement.classList.add("has-custom-cursor");
-    return () => document.documentElement.classList.remove("has-custom-cursor");
-  }, []);
-
-  useEffect(() => {
-    if (!enabled) return undefined;
     const dotEl = dot.current;
     const ringEl = ring.current;
     const labelEl = labelRef.current;
     if (!dotEl || !ringEl || !labelEl) return undefined;
+
+    document.documentElement.classList.add("has-custom-cursor");
 
     let targetX = window.innerWidth / 2;
     let targetY = window.innerHeight / 2;
@@ -46,7 +40,6 @@ export function CustomCursor(): React.ReactElement | null {
     let raf = 0;
     let visible = false;
     let lastLabel = "";
-    let pressed = false;
 
     const render = () => {
       ringX += (targetX - ringX) * 0.18;
@@ -102,12 +95,10 @@ export function CustomCursor(): React.ReactElement | null {
     };
 
     const onDown = () => {
-      pressed = true;
       ringEl.dataset.pressed = "true";
       dotEl.dataset.pressed = "true";
     };
     const onUp = () => {
-      pressed = false;
       ringEl.dataset.pressed = "false";
       dotEl.dataset.pressed = "false";
     };
@@ -134,11 +125,9 @@ export function CustomCursor(): React.ReactElement | null {
       document.removeEventListener("pointerleave", onLeave);
       window.removeEventListener("blur", onBlur);
       if (raf) cancelAnimationFrame(raf);
-      void pressed;
+      document.documentElement.classList.remove("has-custom-cursor");
     };
-  }, [enabled]);
-
-  if (!enabled) return null;
+  }, []);
 
   return (
     <div className="custom-cursor" aria-hidden="true">

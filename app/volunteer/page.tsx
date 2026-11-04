@@ -2,19 +2,14 @@ import { VolunteerAfter } from "@/components/sections/volunteer/after";
 import { VolunteerAreas } from "@/components/sections/volunteer/areas";
 import { VolunteerFormSection } from "@/components/sections/volunteer/form-section";
 import { VolunteerHero } from "@/components/sections/volunteer/hero";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `Volunteer — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "Volunteer",
   description:
     "Join the mission. Reach lives. Build disciples. Register to serve in evangelism, discipleship, prayer, visitor welcome, or digital outreach at Forever Life and Grace Mission.",
-  openGraph: {
-    title: "Volunteer — Forever Life and Grace Mission",
-    description:
-      "Five ways to serve, a three-step registration, and a clear path from orientation to placement.",
-    type: "website" as const,
-  },
-};
+  path: "/volunteer",
+});
 
 /**
  * Volunteer — the mission issue.

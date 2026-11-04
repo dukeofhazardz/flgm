@@ -1,105 +1,175 @@
-# LAUNCH_CHECKLIST.md — FLGM Website Launch Checklist
+# LAUNCH_CHECKLIST.md — FLGM Website
 
-**Source:** all internal notes extracted from content.md.  
-**Rule:** nothing in this file may appear on the public site. This includes anything starting "Editorial note", "Important", "Technical note", "Note:", "Website development notes", the readiness checklist, the "Date Correction" block, "Website implementation recommendation", the Executive Secretary responsibility table, x-apple-data-detectors links, image links, and button labels such as "Prepare Enquiry", "Prepare Registration", "Prepare Prayer Request", "Prepare Follow-up Request", "Prepare Sermon Archive Template", "Copy Checklist".
+**Internal document. Nothing in this file may be published on the public site.**
+It contains the outstanding confirmations behind `content.md` §16, plus the
+operational checks that must pass before launch.
 
----
-
-## Part 1 — Internal notes moved here (never public)
-
-| Item | Location in content.md | Disposition |
-|---|---|---|
-| Editorial note: founding year, founder, milestones, achievements to be added after Chief Pastor verification | Line 61 | Moved to checklist Part 2 |
-| Note: programme schedules should be confirmed by church leadership before publication | Line 42 | Moved to checklist Part 2 |
-| Important Website Development Notes — verification list before publishing | Lines 154–165 | Moved to checklist Part 2 |
-| Technical note: prayer request form is a layout sample, not a secure submission system | Line 566 | Moved to checklist Part 2 |
-| Date Correction block — First Fruit end date corrected to 8 January 2027; needs Chief Pastor or committee confirmation | Lines 469–471 | Moved to checklist Part 2 |
-| Website implementation recommendation — volunteer database, admin dashboard, team assignment, notifications, privacy protection | Lines 1006–1017 | Moved to checklist Part 2 |
-| Church Executive Secretary's website implementation responsibilities table | Lines 748–767 | Moved to checklist Part 2 |
-| Recommended Website Administration Structure | Lines 769–779 | Internal reference |
-| Website Readiness Checklist — 17 tasks, 0% complete | Lines 782–804 | Moved to checklist Part 2 |
-| Copy Checklist button label | Line 804 | Removed from public copy |
-| Important Information to Confirm Before Launch table | Lines 805–824 | Moved to checklist Part 2 |
-| x-apple-data-detectors embedded links | Lines 224, 227, 230, 432, 465 | Stripped; dates shown as plain text |
-| Image link (openai.com static-rsc, sosove customer reviews) | Lines 585–586 | Removed; no invented photos |
-| Button labels "Prepare Enquiry", "Prepare Registration", "Prepare Prayer Request", "Prepare Follow-up Request", "Prepare Sermon Archive Template" | Lines 139, 975, 558, 618, 419 | Replaced with plain action labels in public copy |
+**Owner:** Church Executive Secretary, with the Chief Pastor's final approval.
+**Last reviewed:** 4 November 2026.
 
 ---
 
-## Part 2 — Pre-launch verification checklist
+## 1. What is already in place
 
-### A. Church identity and doctrine
-
-- [ ] Obtain Chief Pastor's approval of all website content — line 787
-- [ ] Confirm official name, slogan, vision, mission, and approved church description — line 754
-- [ ] Approve official doctrinal statement (currently a proposed summary only — confirmed:false) — lines 94 / 278
-- [ ] Confirm church identity slogan "We Get Better Every Day!" and identity line "A House of Grace. A People of Purpose." — lines 1, 202
-
-### B. History and leadership
-
-- [ ] Confirm church history, founding date, and founding pastor — lines 788, 755
-- [ ] Collect founding year, major milestones, original location, establishment of Resurrection Ground — lines 253–259 (confirmed:false)
-- [ ] Obtain Chief Pastor's name, biography, and photograph — lines 758, 812 (confirmed:false)
-- [ ] Obtain complete leadership directory — approved names, titles, biographies, photographs, responsibilities — lines 756, 814 (confirmed:false)
-- [ ] Obtain Church Executive Secretary-approved department and ministry leader names — lines 300–310
-
-### C. Programmes and events
-
-- [ ] Confirm all service schedules and programme times — lines 757, 790
-- [ ] Resolve Alpha Worship time conflict (line 39 states 5:00 PM; another section gives none — confirmed:false) — line 790
-- [ ] Confirm Carol Service time (Thursday 17 December 2026 — to be confirmed — confirmed:false) — lines 456–459, 817
-- [ ] Confirm First Fruit Worship daily schedule (31 December 2026 – 8 January 2027 — to be confirmed — confirmed:false) — lines 464–468, 818
-- [ ] Confirm the Date Correction (end date 8 January 2027) with the Chief Pastor or programme committee — lines 469–471
-
-### D. Watch and Pray
-
-- [ ] Confirm Watch and Pray programme themes (proposed framework only — confirmed:false) — lines 791, 816
-- [ ] Confirm daily prayer duration and detailed programme sequence — line 339
-- [ ] Obtain official YouTube channel URL (confirmed:false) — lines 792, 815
-- [ ] Approve publication of Watch and Pray Media Team names — lines 369–382
-
-### E. Media and giving
-
-- [ ] Obtain official church logo and approved brand colours — lines 789, 810 (NOTE: official palette is set in DESIGN.md; the file's blue/gold suggestion is not used)
-- [ ] Verify church account information — Moniepoint MFB, 6023762744 — lines 509–519
-- [ ] Approve online payment provider before integration; gateway must not be presented as operational until approved, integrated, and tested — lines 530–539, 762 (confirmed:false)
-- [ ] Obtain church building project approved images; auditorium images must carry a visible "Architectural concept" label — line 819
-
-### F. Contact and location
-
-- [ ] Confirm official telephone numbers — lines 761, 573–577
-- [ ] Insert official church email address — line 124 (currently missing)
-- [ ] Approve social media links — Facebook, Instagram, TikTok — lines 763, 578–591
-- [ ] Verify Google Maps location pin and correct church entrance — lines 798, 820
-
-### G. Forms and personal data
-
-- [ ] Set up secure prayer and counselling request management (authorised personnel only, confidentiality statement) — lines 763, 559–565, 566
-- [ ] Set up visitor registration and follow-up workflow — lines 764, 619–638
-- [ ] Set up volunteer database, admin dashboard, team assignment, follow-up tracking, notifications, privacy protection — lines 1006–1017
-- [ ] Publish privacy policy, terms of use, giving policy, safeguarding and confidentiality policy before collecting personal data — lines 743–747, 823
-
-### H. Technical and legal
-
-- [ ] Set up website hosting, domain, SSL, and backup — lines 800, 822
-- [ ] Test website on mobile phones, tablets, and computers — line 801
-- [ ] Confirm permission to use photographs, testimonies, and ministry videos — line 164
-- [ ] Obtain final Chief Pastor approval before launch — lines 803, 836
+- [x] Production build succeeds and ESLint is clean.
+- [x] Every public route has a canonical URL, Open Graph and Twitter metadata.
+- [x] Brand Open Graph images generated per route; arch favicon and Apple icon.
+- [x] `sitemap.xml` and `robots.txt` generated; `/styleguide` and `/api/` disallowed.
+- [x] `Church` JSON-LD site-wide; `Event` JSON-LD for confirmed events only.
+- [x] Security headers: CSP, HSTS (production), nosniff, frame denial,
+      referrer policy, permissions policy, COOP; `X-Powered-By` disabled.
+- [x] Draft Privacy, Terms, Giving, and Safeguarding policies published,
+      noindexed, and excluded from the sitemap.
+- [x] Forms fail closed: without `RESEND_API_KEY`, `FORM_EMAIL_FROM`, and
+      `FORM_EMAIL_TO`, a submission is never reported as sent.
+- [x] Unconfirmed content hidden or shown as "Details coming soon".
 
 ---
 
-## Part 3 — Launch priority order (from content.md Final Recommendation)
+## 2. §16 — Information to confirm before launch
 
-1. Home  
-2. About Us  
-3. Watch and Pray  
-4. Events and Programmes  
-5. Sermons and Messages  
-6. Contact and Location  
-7. Online Giving  
-8. Prayer Requests and Counselling  
-9. New Members and Follow-up  
+Every row is a launch blocker. Tick only when the evidence is attached to the
+launch record.
 
-Remaining features (full sermon archive, media gallery, leadership directory, advanced visitor follow-up) developed progressively after launch — lines 836–836.
+| # | Item | Status | Evidence required |
+| --- | --- | --- | --- |
+| 1 | Official church logo | **Required** | Approved vector or high-resolution transparent artwork. The current white-ground raster is a placeholder. |
+| 2 | Founding year and historical milestones | **Required** | Chief Pastor's written confirmation of the year and the milestones that may be published. |
+| 3 | Chief Pastor's name, biography, and photograph | **Required** | Signed-off name, short biography, and a photograph with permission to publish. |
+| 4 | Approved doctrinal statement | **Required** | The statement approved by the Chief Pastor, replacing the proposed summary. |
+| 5 | Complete leadership directory | **Required** | Names, titles, responsibilities, and photographs, each approved by the individuals named. |
+| 6 | YouTube channel URL | **Required** | The official channel URL. Until then the YouTube item stays hidden. |
+| 7 | Watch and Pray daily themes | **Schedule needed** | The official daily theme list for 11 November – 30 December 2026. |
+| 8 | Carol Service time | **To be confirmed** | Time and venue for 17 December 2026. Remains "Details coming soon". |
+| 9 | First Fruit Worship daily schedule | **To be confirmed** | Daily schedule for 31 December 2026 – 8 January 2027, including the corrected end date. |
+| 10 | Church building project approved images | **Required** | Approved images. Anything unbuilt must stay labelled "Architectural concept". |
+| 11 | Google Maps church pin | **Requires verification** | Confirm the pin and the correct entrance before removing the unverified state. |
+| 12 | Secure payment gateway | **Requires approval and integration** | Written approval, integration, and a tested end-to-end flow. No checkout may be presented before then. |
+| 13 | Website hosting and domain | **To be confirmed** | Domain, DNS access, SSL, and backup ownership recorded. |
+| 14 | Privacy and safeguarding policies | **Required before collecting personal data** | Formal adoption by the church, a named safeguarding lead, and a published reporting route. |
 
-**Central message to keep consistent on every page:** FOREVER LIFE AND GRACE MISSION — A House of Grace. A People of Purpose. Revealing God's Grace. Manifesting His Life. Advancing His Kingdom. WE GET BETTER EVERY DAY! — lines 837–841.
+---
+
+## 3. Giving account re-verification
+
+The account shown on `/give` and in the footer must be re-verified in person
+with the church's finance signatories before launch and at every details change.
+
+- [ ] Confirm the account name exactly: **Forever Life And Grace Mission**.
+- [ ] Confirm the bank: **Moniepoint MFB**.
+- [ ] Confirm the account number: **6023762744**.
+- [ ] Confirm the account is the church's official receiving account and is
+      still open.
+- [ ] Confirm who may authorise a change of account details, and record it.
+- [ ] Make a small test transfer and confirm the credit appears in the church's
+      statement.
+- [ ] Confirm no payment gateway, card checkout, or USSD flow is described as
+      live anywhere on the site.
+- [ ] Agree the wording for reporting a transfer made in error.
+- [ ] Re-check the published details against the footer and `/give` after any
+      update.
+
+**Do not publish a second account, a personal account, or a "new" account sent
+by message without in-person verification with a known signatory.**
+
+---
+
+## 4. Name and identity approvals
+
+Publishing a person's name is a separate approval from publishing the church's
+copy. Record each approval.
+
+- [ ] Chief Pastor — full name, title, biography, and photograph approved.
+- [ ] Leadership directory — every name, title, and photograph approved by the
+      person named.
+- [ ] Department and ministry leaders — approved by the Executive Secretary.
+- [ ] Watch and Pray Media Team names — approved for publication.
+- [ ] Testimonies — written consent for the words and the attribution.
+- [ ] Photographs — permission recorded for every image, including children.
+- [ ] Social handles — confirm the official Instagram, Facebook, and TikTok
+      accounts, and the YouTube channel once supplied.
+- [ ] Confirm the public church name, identity line, and tagline are exactly:
+      **Forever Life and Grace Mission**, **A House of Grace. A People of
+      Purpose.**, **We Get Better Every Day!**
+
+---
+
+## 5. Programme and event confirmations
+
+- [ ] Confirm Sunday Sonship and Victory Ministry at 8:00 AM.
+- [ ] Confirm Sunday Combined Celebration Service at 9:30 AM.
+- [ ] Confirm Thursday Prophetic Prayer and Faith Building at 5:45 PM.
+- [ ] Resolve the Alpha Worship time (the source material gives conflicting
+      times) and confirm the first-Thursday rhythm.
+- [ ] Confirm Watch and Pray runs 11 November – 30 December 2026, daily at
+      5:30 AM WAT.
+- [ ] Confirm the Business and Career Summit on 28 November 2026 at 10:00 AM.
+- [ ] Confirm the Annual Harvest Thanksgiving, Building Fundraising and
+      Ordination Service on 5 December 2026 at 10:00 AM.
+- [ ] Confirm the Carol Service time (17 December 2026).
+- [ ] Confirm First Fruit Worship (31 December 2026 – 8 January 2027).
+- [ ] Confirm House Fellowship details before removing "Time to be confirmed".
+- [ ] Re-check every calendar download after any time change.
+
+---
+
+## 6. Forms, privacy, and safeguarding
+
+- [ ] Set `RESEND_API_KEY`, `FORM_EMAIL_FROM`, and `FORM_EMAIL_TO` in the
+      hosting project and send one test of each form.
+- [ ] Confirm the receiving inbox is monitored by the right team.
+- [ ] Agree who may read prayer and counselling submissions.
+- [ ] Confirm the retention period for form submissions and who deletes them.
+- [ ] Confirm the safeguarding lead and the reporting route, then update the
+      draft Safeguarding policy.
+- [ ] Have the Privacy, Terms, and Giving policies reviewed and formally
+      adopted; remove the draft note and the noindex directive only after that.
+- [ ] Confirm the church's official email address before publishing one. The
+      site currently publishes phone lines only.
+
+---
+
+## 7. Technical launch checks
+
+- [ ] Set `NEXT_PUBLIC_SITE_URL` to the live origin and redeploy.
+- [ ] Confirm HTTPS and the HSTS header on the production domain.
+- [ ] Confirm `/robots.txt` and `/sitemap.xml` use the live domain.
+- [ ] Confirm the sitemap contains only public pages (no policies, no styleguide).
+- [ ] Confirm `/privacy`, `/terms`, `/giving-policy`, and `/safeguarding` return
+      `noindex` and are absent from the sitemap.
+- [ ] Confirm each route's Open Graph image loads at 1200×630.
+- [ ] Validate the `Church` and `Event` structured data.
+- [ ] Confirm the favicon and Apple touch icon appear on a real device.
+- [ ] Confirm the map embed loads and the directions link opens the right place.
+- [ ] Confirm no console errors and no CSP violations on every page.
+- [ ] Confirm the header has exactly two states and no grey-green tint at any
+      width, including mid-transition.
+- [ ] Confirm the site scrolls by wheel, trackpad, keyboard, and touch, and that
+      `scrollWidth <= clientWidth` at 360, 768, 1440, and 1920 px.
+- [ ] Confirm the site is usable with reduced motion enabled.
+- [ ] Test on a real Android phone and a real iPhone, not only a desktop
+      emulator.
+- [ ] Record the rollback deployment in Vercel before announcing the launch.
+
+---
+
+## 8. Final approval and launch
+
+- [ ] Chief Pastor reviews the site in full and approves publication.
+- [ ] Executive Secretary signs off this checklist with dates and evidence.
+- [ ] Launch announcement approved (site, social, WhatsApp).
+- [ ] Monitor forms, uptime, and analytics-free error reports for the first 48
+      hours.
+- [ ] Schedule the first post-launch content review at 30 days: events, sermon
+      library, giving details, and policy status.
+
+---
+
+## 9. Deliberately not published
+
+These remain internal and must never appear on the public site: anything
+starting "Editorial note", "Important", "Technical note", "Note:", "Website
+development notes", the readiness checklist, the Date Correction block, the
+website implementation recommendation, the Executive Secretary responsibility
+table, `x-apple-data-detectors` links, image source links, and tool-style button
+labels such as "Prepare Enquiry", "Prepare Registration", or "Copy Checklist".

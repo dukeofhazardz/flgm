@@ -3,19 +3,14 @@ import { GiveCategories } from "@/components/sections/give/categories";
 import { GiveClose } from "@/components/sections/give/close";
 import { GiveHero } from "@/components/sections/give/hero";
 import { HomeBuilding } from "@/components/sections/home/home-building";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `Giving — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "Giving",
   description:
     "Giving with grace and building for generations: the official FLGM church account, approved giving categories, and the 1,000-capacity auditorium vision in Gwarinpa, Abuja.",
-  openGraph: {
-    title: "Giving with Grace — Forever Life and Grace Mission",
-    description:
-      "The official church account, approved giving categories, and the Church Building Project.",
-    type: "website" as const,
-  },
-};
+  path: "/give",
+});
 
 /**
  * Giving — the stewardship issue.

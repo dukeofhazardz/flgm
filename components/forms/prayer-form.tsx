@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { PRAYER } from "@/data/forms";
 import { prayerSchema, type PrayerValues } from "@/lib/forms/schemas";
 import { submitForm, useFormDelivery, type SubmitErrorCode } from "@/lib/forms/client";
@@ -34,7 +34,7 @@ export function PrayerForm(): React.ReactElement {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     reset,
     setError,
     formState: { errors, isSubmitting },
@@ -48,7 +48,7 @@ export function PrayerForm(): React.ReactElement {
     },
   });
 
-  const values = watch();
+  const values = useWatch({ control });
   const done = [
     Boolean(values.requestType),
     Boolean(values.message?.trim() && values.message.trim().length >= 10),

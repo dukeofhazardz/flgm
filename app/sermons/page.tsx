@@ -1,19 +1,14 @@
 import { FeaturedMessage } from "@/components/sections/sermons/featured";
 import { SermonsHero } from "@/components/sections/sermons/hero";
 import { SermonLibrary } from "@/components/sections/sermons/library";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `Sermons & Messages — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "Sermons & Messages",
   description:
     "Teachings, sermons, worship sessions, testimonies, and messages from Forever Life and Grace Mission — establishing believers in grace, eternal life, sonship, and Kingdom influence.",
-  openGraph: {
-    title: "Sermons & Messages — Forever Life and Grace Mission",
-    description:
-      "The teaching library of the house: eight categories, published messages, and the featured word of the week.",
-    type: "website" as const,
-  },
-};
+  path: "/sermons",
+});
 
 /**
  * Sermons — the library issue.

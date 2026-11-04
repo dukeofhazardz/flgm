@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { CONTACT_FORM } from "@/data/forms";
 import { contactSchema, type ContactValues } from "@/lib/forms/schemas";
 import { submitForm, useFormDelivery, type SubmitErrorCode } from "@/lib/forms/client";
@@ -33,7 +33,7 @@ export function ContactForm(): React.ReactElement {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     reset,
     setError,
     formState: { errors, isSubmitting },
@@ -46,7 +46,7 @@ export function ContactForm(): React.ReactElement {
     },
   });
 
-  const values = watch();
+  const values = useWatch({ control });
   const done = [
     Boolean(values.name?.trim()),
     Boolean(values.email?.trim()),

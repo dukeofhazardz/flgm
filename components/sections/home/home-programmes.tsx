@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,6 +16,7 @@ import {
   upcomingWeeklyDate,
 } from "@/lib/time";
 import { cn } from "@/lib/utils";
+import { useHydrated } from "@/lib/use-hydrated";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,9 +34,14 @@ export function HomeProgrammes(): React.ReactElement {
   const track = useRef<HTMLDivElement>(null);
   const progress = useRef<HTMLSpanElement>(null);
   const counter = useRef<HTMLSpanElement>(null);
-  const [next, setNext] = useState<Record<string, string>>({});
+  const hydrated = useHydrated();
 
-  useEffect(() => {
+  // Occurrence labels depend on the current clock, so they are computed once
+  // hydration is complete — never during the prerender, and never through a
+  // state-setting effect.
+  const next = useMemo<Record<string, string>>(() => {
+    if (!hydrated) return {};
+
     const from = new Date();
     const labels: Record<string, string> = {};
 
@@ -53,8 +59,8 @@ export function HomeProgrammes(): React.ReactElement {
       }
     }
 
-    setNext(labels);
-  }, []);
+    return labels;
+  }, [hydrated]);
 
   useEffect(() => {
     const section = root.current;

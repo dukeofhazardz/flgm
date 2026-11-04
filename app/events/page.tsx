@@ -1,19 +1,15 @@
 import { AnnualWeek } from "@/components/sections/events/annual";
 import { EventsCalendar } from "@/components/sections/events/calendar";
 import { EventsHero } from "@/components/sections/events/hero";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
+import { eventsJsonLd } from "@/lib/structured-data";
 
-export const metadata = {
-  title: `Events & Programmes — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "Events & Programmes",
   description:
     "Upcoming worship services, conferences, special celebrations, and ministry activities at Forever Life and Grace Mission, Gwarinpa, Abuja.",
-  openGraph: {
-    title: "Events & Programmes — Forever Life and Grace Mission",
-    description:
-      "Five gatherings across 2026–2027, plus the annual programme of the house.",
-    type: "website" as const,
-  },
-};
+  path: "/events",
+});
 
 /**
  * Events — the calendar issue.
@@ -23,10 +19,17 @@ export const metadata = {
  */
 export default function EventsPage() {
   return (
-    <main>
-      <EventsHero />
-      <EventsCalendar />
-      <AnnualWeek />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        // Confirmed events only; Carol Service and First Fruit remain unset.
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsJsonLd()) }}
+      />
+      <main>
+        <EventsHero />
+        <EventsCalendar />
+        <AnnualWeek />
+      </main>
+    </>
   );
 }

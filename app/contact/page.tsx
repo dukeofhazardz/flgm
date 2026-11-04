@@ -2,19 +2,14 @@ import { ContactDetails } from "@/components/sections/contact/details";
 import { ContactFormSection } from "@/components/sections/contact/form-section";
 import { ContactHero } from "@/components/sections/contact/hero";
 import { ContactMap } from "@/components/sections/contact/map";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `Contact & Location — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "Contact & Location",
   description:
     "Church address, three enquiry lines, service times, a Google Maps card with directions, and a message form for Forever Life and Grace Mission, Gwarinpa, Abuja.",
-  openGraph: {
-    title: "Contact & Location — Forever Life and Grace Mission",
-    description:
-      "Resurrection Ground, Gwarinpa, Abuja. Three enquiry lines, service times, and a map to plan your visit.",
-    type: "website" as const,
-  },
-};
+  path: "/contact",
+});
 
 /**
  * Contact — the location issue.

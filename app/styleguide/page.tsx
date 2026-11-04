@@ -10,11 +10,14 @@ import { Magnetic } from "@/components/motion/magnetic";
 import { CursorSpotlight } from "@/components/motion/cursor-spotlight";
 import { HorizonDivider } from "@/components/motion/horizon-divider";
 import { KineticHeading } from "@/components/motion/kinetic-heading";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Styleguide — FLGM",
+export const metadata = pageMetadata({
+  title: "Styleguide",
   description: "Design system styleguide for Forever Life and Grace Mission.",
-};
+  path: "/styleguide",
+  noIndex: true,
+});
 
 /**
  * Styleguide — shows colours, type scale, buttons, and every motion primitive.

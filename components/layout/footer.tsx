@@ -222,9 +222,21 @@ export function Footer(): React.ReactElement {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col gap-5 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
-            © {year ?? 2026} {CHURCH.name}
-          </p>
+          <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+              © {year ?? 2026} {CHURCH.name}
+            </p>
+            <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 md:block" />
+            <a
+              href="https://www.dukehouse.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Site by Dukehouse Tech (opens in a new tab)"
+              className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors hover:text-white/80"
+            >
+              Site by Dukehouse Tech
+            </a>
+          </div>
           <nav aria-label="Policies" className="flex flex-wrap gap-x-6 gap-y-2">
             {[
               ["Privacy Policy", "/privacy"],

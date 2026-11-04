@@ -1,4 +1,4 @@
-import { launch, newPage, setup, go, shot, scrollTo, evaluate, sleep } from "./cdp.mjs";
+import { launch, newPage, setup, go, shot, scrollTo, evaluate } from "./cdp.mjs";
 
 const BASE = "http://localhost:3000";
 const PAGES = process.argv.slice(2).length ? process.argv.slice(2) : ["/"];

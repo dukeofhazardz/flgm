@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { NEW_MEMBERS } from "@/data/forms";
 import { newMemberSchema, type NewMemberValues } from "@/lib/forms/schemas";
 import { submitForm, useFormDelivery, type SubmitErrorCode } from "@/lib/forms/client";
@@ -32,7 +32,7 @@ export function NewMemberForm(): React.ReactElement {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     reset,
     setError,
     formState: { errors, isSubmitting },
@@ -47,7 +47,7 @@ export function NewMemberForm(): React.ReactElement {
     },
   });
 
-  const values = watch();
+  const values = useWatch({ control });
   const done = [
     Boolean(values.fullName?.trim()),
     Boolean(values.phone?.trim()),

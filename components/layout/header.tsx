@@ -38,19 +38,65 @@ const CONNECT = [
 ] as const;
 
 /**
+ * Routes whose first screen is a Night/Forest hero. The header opens in its
+ * transparent white state there and in the solid white state everywhere else.
+ * This is only the initial value for a route: once mounted, the section probe
+ * below is the single source of truth.
+ */
+const DARK_HERO_ROUTES = new Set<string>([
+  "/",
+  "/about",
+  "/watch-and-pray",
+  "/sermons",
+  "/events",
+  "/give",
+  "/prayer",
+  "/new-members",
+  "/volunteer",
+  "/contact",
+]);
+
+function routeTheme(pathname: string): Theme {
+  return DARK_HERO_ROUTES.has(pathname) ? "dark" : "light";
+}
+
+/**
  * Header — editorial masthead.
  *
- * Sits over the dark hero as transparent type, then resolves into a blurred
- * white bar once a `[data-header-theme="light"]` section reaches the top.
+ * Exactly two states, never a blend:
+ *   over dark  → transparent bar, white type, white logo, Night live strip
+ *   over light → solid white bar, Ink type, Mist live strip
+ *
+ * The section under the header is read with a one-pixel IntersectionObserver
+ * band at the header's own height. No cached scroll maths survives a route
+ * change, so a new page can never inherit the previous page's theme.
  * Hides on scroll down, returns on scroll up. One live Abuja clock, one
  * Connect dropdown, one full-screen mobile menu. Never creates a second Lenis.
  */
 
 export function Header({ className }: { className?: string }): React.ReactElement {
   const pathname = usePathname();
-  const [theme, setTheme] = useState<Theme>("dark");
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  // Theme and hidden state are keyed by the route they were measured on. During
+  // the render that sees a new `pathname`, the stale value simply cannot apply:
+  // the header opens in the new page's own state, never the previous page's.
+  const [themeState, setThemeState] = useState<{ path: string; theme: Theme }>({
+    path: pathname,
+    theme: routeTheme(pathname),
+  });
+  const [scrollState, setScrollState] = useState<{
+    path: string;
+    hidden: boolean;
+    scrolled: boolean;
+  }>({
+    path: pathname,
+    hidden: false,
+    scrolled: false,
+  });
+  const theme = themeState.path === pathname ? themeState.theme : routeTheme(pathname);
+  const hidden = scrollState.path === pathname ? scrollState.hidden : false;
+  // Clear at the very top, frosted once the page has moved. Keyed by route so
+  // a navigation always opens on the clear state before the first scroll tick.
+  const scrolled = scrollState.path === pathname ? scrollState.scrolled : false;
   // Open state is tied to the route it was opened on. Navigating changes
   // `pathname`, so both panels close themselves without a reset effect.
   const [connectOn, setConnectOn] = useState<string | null>(null);
@@ -63,8 +109,6 @@ export function Header({ className }: { className?: string }): React.ReactElemen
   const menuPanelRef = useRef<HTMLDivElement>(null);
   const lastY = useRef(0);
   const raf = useRef(0);
-  // Cached document ranges: [top, bottom, theme] per themed section.
-  const ranges = useRef<Array<{ top: number; bottom: number; theme: Theme }>>([]);
 
   const activeId = React.useMemo(() => {
     const hit =
@@ -73,47 +117,89 @@ export function Header({ className }: { className?: string }): React.ReactElemen
     return hit?.id ?? null;
   }, [pathname]);
 
-  // One scroll reader for the whole header. Native scroll position is the
-  // source of truth (Lenis scrolls the document natively), so this works with
-  // or without the smooth-scroll layer.
+  // One probe for the whole header.
   //
-  // Section geometry is measured once per layout change (route, resize,
-  // ScrollTrigger refresh, fonts) and then only looked up from the cache on
-  // scroll — no getBoundingClientRect in the scroll path, so no forced reflow.
+  // A one-pixel IntersectionObserver band sits at the header's own height and
+  // reports whichever `[data-header-theme]` section is under it. Intersection
+  // entries are always measured against the live viewport, so a stale
+  // `scrollY` from the page we just left cannot set the theme. On a route
+  // change the state above already holds the new page's opening theme, then
+  // this probe refines it once the new tree has painted.
   useEffect(() => {
-    const themeFor = (y: number): Theme => {
-      const list = ranges.current;
-      if (!list.length) return "dark";
-      let lo = 0;
-      let hi = list.length - 1;
-      let hit: Theme = list[0].theme;
-      while (lo <= hi) {
-        const mid = (lo + hi) >> 1;
-        if (list[mid].top <= y) {
-          hit = list[mid].theme;
-          lo = mid + 1;
-        } else {
-          hi = mid - 1;
-        }
-      }
-      return hit;
+    const route = pathname;
+    const rafs: number[] = [];
+    let observer: IntersectionObserver | null = null;
+    let settling = true;
+    let rebuildTimer = 0;
+
+    const commit = (next: Theme) => {
+      setThemeState((current) =>
+        current.path === route && current.theme === next
+          ? current
+          : { path: route, theme: next }
+      );
     };
 
-    const measure = () => {
-      const scroll = window.scrollY;
-      ranges.current = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-header-theme]")
-      )
-        .map((el) => {
-          const rect = el.getBoundingClientRect();
-          return {
-            top: rect.top + scroll,
-            bottom: rect.bottom + scroll,
-            theme: (el.dataset.headerTheme === "dark" ? "dark" : "light") as Theme,
-          };
-        })
-        .sort((a, b) => a.top - b.top);
-      read();
+    const sections = () =>
+      Array.from(document.querySelectorAll<HTMLElement>("[data-header-theme]"));
+
+    const probeHeight = () =>
+      Math.max(1, Math.round(headerRef.current?.getBoundingClientRect().height ?? 104));
+
+    const ownerAt = (list: HTMLElement[], probe: number): HTMLElement | undefined => {
+      let owner: HTMLElement | undefined;
+      for (const el of list) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= probe + 1 && rect.bottom > probe + 1) owner = el;
+      }
+      return owner;
+    };
+
+    const sync = () => {
+      const list = sections();
+      if (!list.length) {
+        commit("light");
+        return;
+      }
+      const owner = ownerAt(list, probeHeight());
+      if (owner) commit(owner.dataset.headerTheme === "dark" ? "dark" : "light");
+    };
+
+    const build = () => {
+      observer?.disconnect();
+      observer = null;
+      const list = sections();
+      if (!list.length) {
+        commit("light");
+        return;
+      }
+      if (typeof IntersectionObserver === "undefined") {
+        sync();
+        return;
+      }
+      const probe = probeHeight();
+      // A 1px band from the header's bottom edge to the next pixel. Sections
+      // are always taller than the band, so exactly one owns the line.
+      const bottomInset = Math.max(0, window.innerHeight - probe - 1);
+      observer = new IntersectionObserver(
+        () => {
+          // The first callback can arrive before the page transition has reset
+          // the document to the top. Ignore that one; sync() runs once the
+          // route has settled and the scroll event catches anything after.
+          if (settling && window.scrollY > 8) return;
+          sync();
+        },
+        {
+          rootMargin: `-${probe}px 0px -${bottomInset}px 0px`,
+          threshold: 0,
+        }
+      );
+      list.forEach((section) => observer?.observe(section));
+    };
+
+    const scheduleBuild = () => {
+      window.clearTimeout(rebuildTimer);
+      rebuildTimer = window.setTimeout(build, 140);
     };
 
     const read = () => {
@@ -122,74 +208,64 @@ export function Header({ className }: { className?: string }): React.ReactElemen
       const delta = y - lastY.current;
       lastY.current = y;
 
-      setScrolled(y > 8);
-
-      if (y <= 96) {
-        setHidden(false);
-      } else if (delta > 3) {
-        setHidden(true);
-      } else if (delta < -3) {
-        setHidden(false);
-      }
-
-      // Which section owns the 46px probe line under the header?
-      setTheme(themeFor(y + 46));
+      const nextHidden = y <= 96 ? false : delta > 3 ? true : delta < -3 ? false : null;
+      const nextScrolled = y > 8;
+      setScrollState((current) => {
+        const next = nextHidden ?? current.hidden;
+        return current.path === route &&
+          current.hidden === next &&
+          current.scrolled === nextScrolled
+          ? current
+          : { path: route, hidden: next, scrolled: nextScrolled };
+      });
     };
 
     const onScroll = () => {
       if (!raf.current) raf.current = requestAnimationFrame(read);
     };
 
-    let resizeTimer = 0;
-    const onResize = () => {
-      window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(measure, 140);
-      onScroll();
-    };
-
-    measure();
     lastY.current = window.scrollY;
 
-    // Late layout: fonts, images, pinned spacers and route transitions all
-    // move sections. Re-measure rather than trusting the first paint.
-    const late = [180, 600, 1400].map((ms) => window.setTimeout(measure, ms));
-    document.fonts?.ready.then(measure).catch(() => {});
+    // Let the new page paint, re-measure every ScrollTrigger, then settle the
+    // probe. The header has already rendered the correct opening state.
+    rafs.push(
+      requestAnimationFrame(() => {
+        // Reloading mid-page must not leave the header clear over content.
+        read();
+        build();
+        ScrollTrigger.refresh();
+        rafs.push(
+          requestAnimationFrame(() => {
+            settling = false;
+            sync();
+          })
+        );
+      })
+    );
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    window.addEventListener("load", measure);
+    window.addEventListener("resize", scheduleBuild);
+    window.addEventListener("load", scheduleBuild);
 
-    // Pinned sections inject spacers during ScrollTrigger.refresh, which moves
-    // every section below them. Re-measure once that settles instead of
-    // trusting the pre-pin geometry.
-    let refreshRaf = 0;
-    const onRefresh = () => {
-      if (refreshRaf) cancelAnimationFrame(refreshRaf);
-      refreshRaf = requestAnimationFrame(measure);
-    };
+    // Pinned sections inject spacers during refresh and fonts/images change the
+    // document height; rebuild the band whenever the layout moves.
+    const onRefresh = () => scheduleBuild();
     ScrollTrigger.addEventListener("refresh", onRefresh);
 
-    // Images, late content and route transitions change document height too.
-    let roRaf = 0;
-    const observer =
-      typeof ResizeObserver !== "undefined"
-        ? new ResizeObserver(() => {
-            if (roRaf) cancelAnimationFrame(roRaf);
-            roRaf = requestAnimationFrame(measure);
-          })
-        : null;
-    if (observer) observer.observe(document.body);
+    const ro =
+      typeof ResizeObserver !== "undefined" ? new ResizeObserver(scheduleBuild) : null;
+    if (ro && headerRef.current) ro.observe(headerRef.current);
+    document.fonts?.ready.then(scheduleBuild).catch(() => { });
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      window.removeEventListener("load", measure);
+      window.removeEventListener("resize", scheduleBuild);
+      window.removeEventListener("load", scheduleBuild);
       ScrollTrigger.removeEventListener("refresh", onRefresh);
       observer?.disconnect();
-      if (refreshRaf) cancelAnimationFrame(refreshRaf);
-      if (roRaf) cancelAnimationFrame(roRaf);
-      window.clearTimeout(resizeTimer);
-      late.forEach((t) => window.clearTimeout(t));
+      ro?.disconnect();
+      window.clearTimeout(rebuildTimer);
+      rafs.forEach((id) => cancelAnimationFrame(id));
       if (raf.current) cancelAnimationFrame(raf.current);
     };
   }, [pathname]);
@@ -273,24 +349,37 @@ export function Header({ className }: { className?: string }): React.ReactElemen
         data-theme={theme}
         className={cn(
           "fixed inset-x-0 top-0 z-[70] transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
-          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0",
+          // No transform at all while visible: a transformed ancestor can
+          // become a backdrop root and drop the glass in some browsers.
+          hidden && !menuOpen ? "-translate-y-full" : "",
           className
         )}
       >
+        {/*
+          One glass surface spanning the nav bar AND the live strip. At the very
+          top it is fully clear; once scrolled it becomes a frosted pane so the
+          giant footer type cannot run through the nav. Background and
+          backdrop-filter ease together over 300ms.
+        */}
         <div
+          data-header-glass
           className={cn(
-            "border-b transition-[background-color,border-color,color] duration-400",
-            dark ? "text-white" : "text-ink",
+            "transition-[background-color,backdrop-filter,-webkit-backdrop-filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]",
             scrolled
               ? dark
-                ? "border-white/10 bg-night/75 backdrop-blur-xl supports-[backdrop-filter]:bg-night/60"
-                : "border-ink/10 bg-white/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/75"
+                ? "bg-night/70 text-white backdrop-blur-xl backdrop-saturate-150"
+                : "bg-white/80 text-ink backdrop-blur-xl backdrop-saturate-150"
               : dark
-                ? "border-white/10 bg-transparent"
-                : "border-ink/5 bg-white/45 backdrop-blur-md"
+                ? "bg-transparent text-white backdrop-blur-[0px] backdrop-saturate-100"
+                : "bg-transparent text-ink backdrop-blur-[0px] backdrop-saturate-100"
           )}
         >
-          <div className="mx-auto flex h-[66px] max-w-[1680px] items-center gap-6 px-5 md:px-8 lg:h-[74px] lg:px-10">
+          <div
+            className={cn(
+              "mx-auto flex h-[66px] max-w-[1680px] items-center gap-6 border-b px-5 md:px-8 lg:h-[74px] lg:px-10",
+              dark ? "border-white/10" : "border-ink/10"
+            )}
+          >
             {/* Wordmark — official logo still to be supplied. */}
             <Link
               href="/"
@@ -301,10 +390,9 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                 src={logo}
                 alt=""
                 priority
-                sizes="(min-width: 1024px) 160px, 128px"
-                className="h-9 w-auto lg:h-10"
+                sizes="60px"
+                className="h-9 w-auto shrink-0 object-contain lg:h-10"
               />
-              <span className="sr-only">{CHURCH.name}</span>
               {/* <svg
                 viewBox="0 0 26 32"
                 aria-hidden="true"
@@ -345,14 +433,21 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                         : undefined
                   }
                   className={cn(
-                    "relative py-2 font-mono text-[10.5px] uppercase tracking-[0.16em] transition-opacity",
-                    activeId === item.id ? "opacity-100" : "opacity-65 hover:opacity-100"
+                    "relative py-2 font-mono text-[10.5px] uppercase tracking-[0.16em] transition-colors duration-200",
+                    activeId === item.id
+                      ? dark
+                        ? "text-white"
+                        : "text-ink"
+                      : dark
+                        ? "text-white/70 hover:text-white"
+                        : "text-forest/75 hover:text-forest"
                   )}
                   trailing={
                     <span
                       aria-hidden="true"
                       className={cn(
-                        "absolute inset-x-0 -bottom-[1px] h-[2px] origin-left bg-signal-red transition-transform duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]",
+                        "absolute inset-x-0 -bottom-[1px] h-[2px] origin-left transition-transform duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]",
+                        dark ? "bg-signal-red" : "bg-brand-green",
                         activeId === item.id ? "scale-x-100" : "scale-x-0"
                       )}
                     />
@@ -368,7 +463,16 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                   onClick={toggleConnect}
                   aria-expanded={connectOpen}
                   aria-controls="connect-menu"
-                  className="flex items-center gap-1 py-2 font-mono text-[10.5px] uppercase tracking-[0.16em] opacity-65 transition-opacity hover:opacity-100"
+                  className={cn(
+                    "flex items-center gap-1 py-2 font-mono text-[10.5px] uppercase tracking-[0.16em] transition-colors duration-200",
+                    connectOpen
+                      ? dark
+                        ? "text-white"
+                        : "text-ink"
+                      : dark
+                        ? "text-white/70 hover:text-white"
+                        : "text-forest/75 hover:text-forest"
+                  )}
                 >
                   Connect
                   <ChevronDown
@@ -408,7 +512,10 @@ export function Header({ className }: { className?: string }): React.ReactElemen
             <div className="ml-auto flex shrink-0 items-center gap-4 lg:ml-6">
               <LiveClock
                 showZone
-                className="hidden text-[10px] uppercase tracking-[0.14em] opacity-70 md:block"
+                className={cn(
+                  "hidden text-[10px] uppercase tracking-[0.14em] md:block",
+                  dark ? "text-white/75" : "text-forest/75"
+                )}
               />
               <span
                 aria-hidden="true"
@@ -436,9 +543,8 @@ export function Header({ className }: { className?: string }): React.ReactElemen
               </button>
             </div>
           </div>
+          <LiveStrip theme={theme} />
         </div>
-
-        <LiveStrip theme={theme} />
       </header>
 
       {/* Mobile menu — full-screen Night-green, staggered serif lines. */}

@@ -2,19 +2,14 @@ import { NewMembersClose } from "@/components/sections/new-members/close";
 import { NewMembersFormSection } from "@/components/sections/new-members/form-section";
 import { NewMembersHero } from "@/components/sections/new-members/hero";
 import { NewMembersJourney } from "@/components/sections/new-members/journey";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `New Members — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "New Members",
   description:
     "Your journey with Forever Life and Grace Mission begins here. Register your visit, request membership information, and see how the church follows up.",
-  openGraph: {
-    title: "New Members — Forever Life and Grace Mission",
-    description:
-      "A first visit, a returning faith, a church family. Register and let the church walk with you.",
-    type: "website" as const,
-  },
-};
+  path: "/new-members",
+});
 
 /**
  * New Members — the welcome issue.

@@ -4,18 +4,14 @@ import { AboutHistory } from "@/components/sections/about/history";
 import { AboutLeadership } from "@/components/sections/about/leadership";
 import { AboutMission } from "@/components/sections/about/mission";
 import { AboutVision } from "@/components/sections/about/vision";
-import { CHURCH } from "@/data/church";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: `About — ${CHURCH.name}`,
+export const metadata = pageMetadata({
+  title: "About",
   description:
     "Who we are, the vision we carry, the mission we serve, the convictions we hold, and the leadership of Forever Life and Grace Mission.",
-  openGraph: {
-    title: `About — ${CHURCH.name}`,
-    description: CHURCH.identityLine,
-    type: "website" as const,
-  },
-};
+  path: "/about",
+});
 
 /**
  * About — the identity issue.

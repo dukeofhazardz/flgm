@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { useRef, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { ArrowLeft } from "lucide-react";
 import { VOLUNTEER } from "@/data/forms";
 import { volunteerSchema, type VolunteerValues } from "@/lib/forms/schemas";
@@ -46,7 +46,7 @@ export function VolunteerForm(): React.ReactElement {
   const {
     register,
     handleSubmit,
-    watch,
+    control,
     reset,
     setError,
     clearErrors,
@@ -68,7 +68,7 @@ export function VolunteerForm(): React.ReactElement {
     },
   });
 
-  const values = watch();
+  const values = useWatch({ control });
 
   const stepChecks: boolean[][] = [
     [

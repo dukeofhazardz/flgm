@@ -4,6 +4,7 @@ import * as React from "react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { CHURCH } from "@/data/church";
+import { cn } from "@/lib/utils";
 
 /**
  * HorizonWipe — the page transition.
@@ -103,7 +104,12 @@ export function HorizonWipe({
   return (
     <div
       ref={root}
-      className="pointer-events-none fixed inset-0 z-[9999] overflow-hidden"
+      className={cn(
+        "pointer-events-none fixed inset-0 z-[60] overflow-hidden",
+        // Parked transitions are fully transparent as well as off-screen, so
+        // they can never tint the masthead or intercept a click.
+        phase === "idle" ? "opacity-0" : "opacity-100"
+      )}
       aria-hidden="true"
       data-wipe-phase={phase}
     >

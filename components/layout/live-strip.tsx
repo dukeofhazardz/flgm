@@ -72,9 +72,10 @@ export function LiveStrip({ theme, className }: LiveStripProps): React.ReactElem
     <div
       className={cn(
         "flex h-[30px] items-center gap-3 border-b px-5 md:px-8",
+        // Transparent: the header's glass surface paints both rows as one pane.
         theme === "dark"
-          ? "border-white/10 bg-night/55 text-dawn-mint backdrop-blur-md"
-          : "border-ink/10 bg-tint-white text-forest",
+          ? "border-white/10 text-white"
+          : "border-ink/10 text-ink",
         className
       )}
       role="status"
@@ -89,7 +90,7 @@ export function LiveStrip({ theme, className }: LiveStripProps): React.ReactElem
       <span
         className={cn(
           "hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.16em] sm:block",
-          theme === "dark" ? "text-white/40" : "text-ink/40"
+          theme === "dark" ? "text-white/60" : "text-forest/70"
         )}
       >
         Abuja · WAT
@@ -101,8 +102,8 @@ export function LiveStrip({ theme, className }: LiveStripProps): React.ReactElem
         className={cn(
           "-mr-1 flex h-6 w-6 shrink-0 items-center justify-center transition-opacity",
           theme === "dark"
-            ? "text-white/45 hover:text-white"
-            : "text-ink/45 hover:text-ink"
+            ? "text-white/60 hover:text-white"
+            : "text-ink/60 hover:text-ink"
         )}
       >
         <X className="h-3 w-3" strokeWidth={1.5} />

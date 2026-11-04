@@ -5,7 +5,6 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "
 import gsap from "gsap";
 import { CHURCH } from "@/data/church";
 import { noopSubscribe } from "@/lib/use-hydrated";
-import { useHydrated } from "@/lib/use-hydrated";
 
 const SESSION_KEY = "flgm:preloader:seen";
 
@@ -32,7 +31,6 @@ const serverSeen = () => false;
  */
 
 export function Preloader(): React.ReactElement | null {
-  const hydrated = useHydrated();
   const seen = useSyncExternalStore(noopSubscribe, readSeen, serverSeen);
   const [skipped, setSkipped] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);

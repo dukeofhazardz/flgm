@@ -7,18 +7,14 @@ import { WatchThemes } from "@/components/sections/watch-and-pray/themes";
 import { WatchJoin } from "@/components/sections/watch-and-pray/join";
 import { WatchCommunity } from "@/components/sections/watch-and-pray/community";
 import { WatchRecordings } from "@/components/sections/watch-and-pray/recordings";
-import { WATCH_AND_PRAY } from "@/data/watchAndPray";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata = {
-  title: "Watch and Pray — 11 November to 30 December 2026",
+export const metadata = pageMetadata({
+  title: "Watch and Pray",
   description:
     "Fifty mornings of strategic prayer, worship, testimony, and digital outreach. Daily at 5:30 AM WAT, 11 November — 30 December 2026.",
-  openGraph: {
-    title: "Watch and Pray — Fifty mornings of prayer and outreach",
-    description: WATCH_AND_PRAY.theme,
-    type: "website" as const,
-  },
-};
+  path: "/watch-and-pray",
+});
 
 /**
  * Watch and Pray — a fifty-day prayer and testimony outreach.
