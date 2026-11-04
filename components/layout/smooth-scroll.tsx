@@ -18,6 +18,11 @@ gsap.registerPlugin(ScrollTrigger);
  * destroyed — never merely stopped — on unmount, which restores native scroll.
  */
 
+// iOS collapses its toolbar on scroll; re-measuring on every address-bar tick
+// makes pinned scenes jump. ScrollTrigger is told to ignore that resize and
+// relies on our own debounced refresh instead.
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 declare global {
   interface Window {
     __lenis?: Lenis;
@@ -35,10 +40,23 @@ export function SmoothScroll({
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarse = window.matchMedia("(pointer: coarse)").matches;
 
-    // Native scroll on touch / reduced motion. Nothing to drive.
+    // Native scroll on touch / reduced motion. Nothing to drive, but the
+    // address bar still changes the viewport: re-measure once it settles.
     if (reduced || coarse) {
       document.documentElement.classList.add("lenis-native");
-      return undefined;
+      let settle = 0;
+      const onResize = () => {
+        window.clearTimeout(settle);
+        settle = window.setTimeout(() => ScrollTrigger.refresh(), 220);
+      };
+      window.addEventListener("resize", onResize);
+      window.addEventListener("orientationchange", onResize);
+      return () => {
+        document.documentElement.classList.remove("lenis-native");
+        window.clearTimeout(settle);
+        window.removeEventListener("resize", onResize);
+        window.removeEventListener("orientationchange", onResize);
+      };
     }
 
     if (!instance) {

@@ -9,6 +9,7 @@ import { CHURCH } from "@/data/church";
 import { CONTACT } from "@/data/contact";
 import { GIVING } from "@/data/giving";
 import { NAV_ITEMS } from "@/data/nav";
+import { RollLink } from "@/components/ui/roll-link";
 import { useHydrated } from "@/lib/use-hydrated";
 import { cn } from "@/lib/utils";
 
@@ -76,7 +77,10 @@ export function Footer(): React.ReactElement {
   }, []);
 
   return (
-    <footer className="relative overflow-hidden bg-night text-white">
+    <footer
+      data-header-theme="dark"
+      className="relative overflow-hidden bg-night text-white"
+    >
       <div className="grain pointer-events-none absolute inset-0 z-0" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto max-w-[1680px] px-5 pb-8 pt-20 md:px-8 lg:px-10 lg:pt-28">
@@ -84,6 +88,7 @@ export function Footer(): React.ReactElement {
         <div className="overflow-hidden pb-[0.06em]">
           <h2
             ref={taglineRef}
+            data-velocity
             className="font-serif text-[clamp(2.7rem,10.4vw,11rem)] font-medium italic leading-[0.86] tracking-[-0.045em]"
           >
             {CHURCH.tagline}
@@ -124,12 +129,12 @@ export function Footer(): React.ReactElement {
             <ul className="mt-5 space-y-2.5">
               {NAV_ITEMS.slice(0, 6).map((item) => (
                 <li key={item.id}>
-                  <Link
+                  <RollLink
                     href={item.href}
                     className="inline-flex min-h-[28px] items-center font-sans text-[14px] text-white/65 transition-colors hover:text-white"
                   >
                     {item.label}
-                  </Link>
+                  </RollLink>
                 </li>
               ))}
             </ul>

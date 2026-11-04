@@ -89,7 +89,8 @@ function Lines({
           className={cn(
             "flex w-max items-baseline gap-[0.1em] whitespace-nowrap",
             line.lineClass,
-            line.italic && "hero-line-italic"
+            line.italic && "hero-line-italic",
+            desktop && index === 1 && "short:-mt-[0.76em]"
           )}
           style={
             desktop && line.scale ? { fontSize: `${line.scale}em` } : undefined

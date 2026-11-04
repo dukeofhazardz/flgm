@@ -4,54 +4,67 @@ import * as React from "react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { canUseRichMotion } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * ParallaxLayer — slow drift/scale on scroll.
- * Transform + opacity only. Respects prefers-reduced-motion (static).
- * Cleans up ScrollTrigger on unmount.
+ * ParallaxLayer — a considered drift, with a ceiling.
+ *
+ * The layer travels at most `max` pixels either way across its whole pass
+ * through the viewport, so art never breaks its frame or collides with the
+ * copy next to it. Transform only, scrubbed, recalculated on resize.
+ *
+ * Off on touch, below 1024px, and under reduced motion — art then sits still.
  */
 
 interface ParallaxLayerProps {
   children?: React.ReactNode;
   className?: string;
-  speed?: number; // 0.05–0.2 subtle
+  /** Maximum travel in px in each direction. Never exceed 24 in this build. */
+  max?: number;
+  /** 0 (stationary) → 1 (full max). */
+  amount?: number;
 }
 
 export function ParallaxLayer({
   children,
   className,
-  speed = 0.1,
+  max = 16,
+  amount = 1,
 }: ParallaxLayerProps): React.ReactElement {
   const ref = useRef<HTMLDivElement>(null);
-  const reduced =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const limit = Math.min(Math.abs(max), 24) * gsap.utils.clamp(0, 1, amount);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || reduced) return;
+    if (!el) return undefined;
+    if (!canUseRichMotion() || window.innerWidth < 1024 || limit === 0) return undefined;
 
     const ctx = gsap.context(() => {
-      gsap.to(el, {
-        yPercent: -50 * speed,
-        ease: "none",
-        scrollTrigger: {
-          trigger: el,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    });
+      gsap.fromTo(
+        el,
+        { y: limit },
+        {
+          y: -limit,
+          ease: "none",
+          scrollTrigger: {
+            trigger: el,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        }
+      );
+    }, el);
 
     return () => ctx.revert();
-  }, [speed, reduced]);
+  }, [limit]);
 
   return (
-    <div ref={ref} className={cn("will-change-transform", className)}>
+    <div ref={ref} className={cn("h-full w-full", className)} data-parallax-max={limit}>
       {children}
     </div>
   );

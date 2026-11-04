@@ -72,6 +72,7 @@ export function LiteYouTube({
               type="button"
               onClick={() => setActive(true)}
               aria-label={`Play ${title}`}
+              data-cursor="Play"
               className="group flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-green text-ink transition-transform duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:scale-105 active:scale-95"
             >
               <Play className="ml-0.5 h-5 w-5" fill="currentColor" strokeWidth={1.2} aria-hidden="true" />

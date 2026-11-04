@@ -45,7 +45,9 @@ function HeroActions({ stacked }: { stacked?: boolean }): React.ReactElement {
         </Link>
       </Button>
       <Button asChild size="md" variant="outline-light" className={stacked ? "w-full" : undefined}>
-        <Link href="/watch-and-pray">Join Watch and Pray</Link>
+        <Link href="/watch-and-pray" data-cursor="Watch">
+          Join Watch and Pray
+        </Link>
       </Button>
     </div>
   );
@@ -55,6 +57,7 @@ function HeroSupportLink({ className }: { className?: string }): React.ReactElem
   return (
     <Link
       href="/give"
+      data-cursor="Give"
       className={`inline-flex items-center gap-2 whitespace-nowrap border-b border-signal-red pb-1.5 font-mono text-[9px] uppercase leading-none tracking-[0.14em] text-white/70 transition-colors hover:text-white ${className ?? ""}`}
     >
       Support the Church Building Project
@@ -99,8 +102,11 @@ export function HomeHero(): React.ReactElement {
         if (!availableW || !availableH) return;
         const lines = Array.from(h1.querySelectorAll<HTMLElement>("[data-line]"));
         // Lines are w-max, so offsetWidth is the true width of the set type.
+        const shortRow = window.matchMedia("(min-width: 768px) and (max-height: 779px)").matches;
         const naturalW = lines.length
-          ? Math.max(...lines.map((line) => line.offsetWidth))
+          ? shortRow && lines.length >= 3
+            ? Math.max(lines[0].offsetWidth + lines[1].offsetWidth + 32, lines[2].offsetWidth)
+            : Math.max(...lines.map((line) => line.offsetWidth))
           : h1.scrollWidth;
         const naturalH = h1.offsetHeight;
         if (!naturalW || !naturalH) return;
@@ -151,16 +157,16 @@ export function HomeHero(): React.ReactElement {
         .from("[data-hero-sun-body]", { scale: 0.94, opacity: 0.5, duration: 1.4, ease: "power2.out" }, 0);
 
       // ── Scroll: the sunrise ──
-      const build = (distance: number) => {
+      const build = (distance: number, pin: boolean) => {
         const tl = gsap.timeline({
           defaults: { ease: "none" },
           scrollTrigger: {
             trigger: stage,
-            start: "top top",
-            end: () => `+=${window.innerHeight * distance}`,
-            pin: true,
-            scrub: 0.7,
-            anticipatePin: 1,
+            start: pin ? "top top" : "top top",
+            end: pin ? () => `+=${window.innerHeight * distance}` : "bottom top",
+            pin,
+            scrub: pin ? 0.7 : 0.6,
+            anticipatePin: pin ? 1 : 0,
             invalidateOnRefresh: true,
           },
         });
@@ -203,8 +209,11 @@ export function HomeHero(): React.ReactElement {
       };
 
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 1024px)", () => build(1.8));
-      mm.add("(max-width: 1023px)", () => build(1.05));
+      // Desktop pins the sunrise for a full scene. Below 1024px there is no
+      // pin at all — iOS Safari's collapsing toolbar makes pinned full-height
+      // scenes jump, and the copy still reads while the hero scrolls out.
+      mm.add("(min-width: 1024px)", () => build(1.8, true));
+      mm.add("(max-width: 1023px)", () => build(1, false));
 
       return () => {
         mm.revert();

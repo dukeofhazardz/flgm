@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { ParallaxLayer } from "@/components/motion/parallax-layer";
 import { cn } from "@/lib/utils";
 
 export type ArtName = "sun" | "stairs" | "doorway" | "book" | "rays" | "hands";
@@ -171,23 +172,23 @@ export function ArtSlot({
       className={cn("relative overflow-hidden", className)}
       style={{ width: size, height: size }}
     >
-      <svg
-        viewBox="0 0 200 200"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        aria-hidden="true"
-        className={cn("h-full w-full", COLOR_MAP[color])}
-        style={
-          {
-            width: size,
-            height: size,
-            "--art-accent": color === "white" ? "#C9F5DA" : "#0B3B24",
-          } as React.CSSProperties
-        }
-      >
-        {ART[name]}
-      </svg>
+      <ParallaxLayer max={10}>
+        <svg
+          viewBox="0 0 200 200"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+          className={cn("h-full w-full", COLOR_MAP[color])}
+          style={
+            {
+              "--art-accent": color === "white" ? "#C9F5DA" : "#0B3B24",
+            } as React.CSSProperties
+          }
+        >
+          {ART[name]}
+        </svg>
+      </ParallaxLayer>
     </div>
   );
 }

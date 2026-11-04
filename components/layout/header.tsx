@@ -8,14 +8,18 @@ import logo from "@/assets/FLGM-Logo.png";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CHURCH } from "@/data/church";
 import { CONTACT } from "@/data/contact";
 import { Button } from "@/components/ui/button";
 import { LiveClock } from "@/components/ui/live-clock";
+import { RollLink } from "@/components/ui/roll-link";
 import { LiveStrip } from "@/components/layout/live-strip";
 import { cn } from "@/lib/utils";
 
 type Theme = "dark" | "light";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const NAV = [
   { id: "home", label: "Home", href: "/" },
@@ -59,6 +63,8 @@ export function Header({ className }: { className?: string }): React.ReactElemen
   const menuPanelRef = useRef<HTMLDivElement>(null);
   const lastY = useRef(0);
   const raf = useRef(0);
+  // Cached document ranges: [top, bottom, theme] per themed section.
+  const ranges = useRef<Array<{ top: number; bottom: number; theme: Theme }>>([]);
 
   const activeId = React.useMemo(() => {
     const hit =
@@ -70,7 +76,46 @@ export function Header({ className }: { className?: string }): React.ReactElemen
   // One scroll reader for the whole header. Native scroll position is the
   // source of truth (Lenis scrolls the document natively), so this works with
   // or without the smooth-scroll layer.
+  //
+  // Section geometry is measured once per layout change (route, resize,
+  // ScrollTrigger refresh, fonts) and then only looked up from the cache on
+  // scroll — no getBoundingClientRect in the scroll path, so no forced reflow.
   useEffect(() => {
+    const themeFor = (y: number): Theme => {
+      const list = ranges.current;
+      if (!list.length) return "dark";
+      let lo = 0;
+      let hi = list.length - 1;
+      let hit: Theme = list[0].theme;
+      while (lo <= hi) {
+        const mid = (lo + hi) >> 1;
+        if (list[mid].top <= y) {
+          hit = list[mid].theme;
+          lo = mid + 1;
+        } else {
+          hi = mid - 1;
+        }
+      }
+      return hit;
+    };
+
+    const measure = () => {
+      const scroll = window.scrollY;
+      ranges.current = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-header-theme]")
+      )
+        .map((el) => {
+          const rect = el.getBoundingClientRect();
+          return {
+            top: rect.top + scroll,
+            bottom: rect.bottom + scroll,
+            theme: (el.dataset.headerTheme === "dark" ? "dark" : "light") as Theme,
+          };
+        })
+        .sort((a, b) => a.top - b.top);
+      read();
+    };
+
     const read = () => {
       raf.current = 0;
       const y = window.scrollY;
@@ -87,32 +132,67 @@ export function Header({ className }: { className?: string }): React.ReactElemen
         setHidden(false);
       }
 
-      // Which section owns the top of the viewport?
-      const probe = 46;
-      const sections = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-header-theme]")
-      );
-      const active = sections.find((el) => {
-        const rect = el.getBoundingClientRect();
-        return rect.top <= probe && rect.bottom > probe;
-      });
-      const owner = active ?? sections[0];
-      setTheme(owner?.dataset.headerTheme === "dark" ? "dark" : "light");
+      // Which section owns the 46px probe line under the header?
+      setTheme(themeFor(y + 46));
     };
 
     const onScroll = () => {
       if (!raf.current) raf.current = requestAnimationFrame(read);
     };
 
-    read();
+    let resizeTimer = 0;
+    const onResize = () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(measure, 140);
+      onScroll();
+    };
+
+    measure();
+    lastY.current = window.scrollY;
+
+    // Late layout: fonts, images, pinned spacers and route transitions all
+    // move sections. Re-measure rather than trusting the first paint.
+    const late = [180, 600, 1400].map((ms) => window.setTimeout(measure, ms));
+    document.fonts?.ready.then(measure).catch(() => {});
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+    window.addEventListener("resize", onResize);
+    window.addEventListener("load", measure);
+
+    // Pinned sections inject spacers during ScrollTrigger.refresh, which moves
+    // every section below them. Re-measure once that settles instead of
+    // trusting the pre-pin geometry.
+    let refreshRaf = 0;
+    const onRefresh = () => {
+      if (refreshRaf) cancelAnimationFrame(refreshRaf);
+      refreshRaf = requestAnimationFrame(measure);
+    };
+    ScrollTrigger.addEventListener("refresh", onRefresh);
+
+    // Images, late content and route transitions change document height too.
+    let roRaf = 0;
+    const observer =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(() => {
+            if (roRaf) cancelAnimationFrame(roRaf);
+            roRaf = requestAnimationFrame(measure);
+          })
+        : null;
+    if (observer) observer.observe(document.body);
+
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("load", measure);
+      ScrollTrigger.removeEventListener("refresh", onRefresh);
+      observer?.disconnect();
+      if (refreshRaf) cancelAnimationFrame(refreshRaf);
+      if (roRaf) cancelAnimationFrame(roRaf);
+      window.clearTimeout(resizeTimer);
+      late.forEach((t) => window.clearTimeout(t));
       if (raf.current) cancelAnimationFrame(raf.current);
     };
-  }, []);
+  }, [pathname]);
 
   // Freeze the smooth scroller while the menu is open, always release it.
   useEffect(() => {
@@ -183,7 +263,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
     [pathname]
   );
 
-  const dark = theme === "dark";
+  const dark = theme === "dark" || menuOpen;
 
   return (
     <>
@@ -254,23 +334,32 @@ export function Header({ className }: { className?: string }): React.ReactElemen
               className="ml-auto hidden items-center gap-6 lg:flex xl:gap-7"
             >
               {NAV.map((item) => (
-                <Link
+                <RollLink
                   key={item.id}
                   href={item.href}
+                  data-cursor={
+                    item.id === "watch-and-pray"
+                      ? "Watch"
+                      : item.id === "give"
+                        ? "Give"
+                        : undefined
+                  }
                   className={cn(
                     "relative py-2 font-mono text-[10.5px] uppercase tracking-[0.16em] transition-opacity",
                     activeId === item.id ? "opacity-100" : "opacity-65 hover:opacity-100"
                   )}
+                  trailing={
+                    <span
+                      aria-hidden="true"
+                      className={cn(
+                        "absolute inset-x-0 -bottom-[1px] h-[2px] origin-left bg-signal-red transition-transform duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]",
+                        activeId === item.id ? "scale-x-100" : "scale-x-0"
+                      )}
+                    />
+                  }
                 >
                   {item.label}
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      "absolute inset-x-0 -bottom-[1px] h-[2px] origin-left bg-signal-red transition-transform duration-400 ease-[cubic-bezier(0.23,1,0.32,1)]",
-                      activeId === item.id ? "scale-x-100" : "scale-x-0"
-                    )}
-                  />
-                </Link>
+                </RollLink>
               ))}
 
               <div ref={connectRef} className="relative">
@@ -337,12 +426,13 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                 aria-expanded={menuOpen}
                 aria-controls="mobile-menu"
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
-                className={cn(
-                  "-mr-2 flex h-11 w-11 items-center justify-center lg:hidden",
-                  menuOpen && "pointer-events-none opacity-0"
-                )}
+                className="-mr-2 flex h-11 w-11 items-center justify-center lg:hidden"
               >
-                <Menu className="h-5 w-5" strokeWidth={1.4} />
+                {menuOpen ? (
+                  <X className="h-5 w-5" strokeWidth={1.4} />
+                ) : (
+                  <Menu className="h-5 w-5" strokeWidth={1.4} />
+                )}
               </button>
             </div>
           </div>
@@ -367,19 +457,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
             : "pointer-events-none -translate-y-full opacity-0"
         )}
       >
-        <div className="flex h-[66px] shrink-0 items-center justify-between px-5">
-          <span className="font-serif text-[17px] font-semibold tracking-[-0.02em]">
-            Forever Life
-          </span>
-          <button
-            type="button"
-            onClick={closeMenu}
-            aria-label="Close menu"
-            className="-mr-2 flex h-11 w-11 items-center justify-center text-white"
-          >
-            <X className="h-5 w-5" strokeWidth={1.4} />
-          </button>
-        </div>
+        <div className="h-[66px] shrink-0" aria-hidden="true" />
 
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-5 pb-8">
           <nav aria-label="Mobile" className="mt-2 flex flex-col">
