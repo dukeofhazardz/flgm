@@ -4,6 +4,7 @@
 // flagged via the `confirmed` field in the data files, not guessed here.
 
 import type { Event, Programme } from "@/lib/types";
+import { wapDayNumber } from "@/lib/watch-and-pray";
 
 const LAGOS = "Africa/Lagos";
 
@@ -123,13 +124,7 @@ export function eventStatus(event: Event): "upcoming" | "live" | "past" {
  * Returns the day number if today is within the period, otherwise null.
  */
 export function watchAndPrayDayNumber(): number | null {
-  const start = new Date("2026-11-11T00:00:00");
-  const end = new Date("2026-12-30T23:59:59");
-  const now = nowLagos();
-  if (now.getTime() < start.getTime() || now.getTime() > end.getTime()) return null;
-  const diffMs = now.getTime() - start.getTime();
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-  return Math.min(diffDays + 1, 50);
+  return wapDayNumber(nowLagos());
 }
 
 /** The five upcoming church events from content.md. Kept in sync with data/events.ts. */
@@ -259,6 +254,69 @@ export function nextSundayService(): NextGathering {
     }),
     timeLabel: "8:00 AM WAT",
   };
+}
+
+/**
+ * Client-safe next occurrence for a weekly programme. Pure date maths on the
+ * viewer's clock; used only for the small "next occurrence" badge, not for any
+ * public claim about a schedule. When the time is unconfirmed, only the date is
+ * computed and the badge omits the clock time.
+ */
+export function upcomingWeeklyDate(
+  weekday: number,
+  time24: string | null,
+  from: Date = new Date()
+): Date {
+  const candidate = new Date(from);
+  if (time24) {
+    const [hours, minutes] = time24.split(":").map(Number);
+    candidate.setHours(hours, minutes, 0, 0);
+  } else {
+    candidate.setHours(0, 0, 0, 0);
+  }
+  while (candidate.getDay() !== weekday) {
+    candidate.setDate(candidate.getDate() + 1);
+  }
+  if (candidate.getTime() <= from.getTime()) {
+    candidate.setDate(candidate.getDate() + 7);
+  }
+  return candidate;
+}
+
+/** Next first Thursday of the month, from a given moment. */
+export function upcomingFirstThursday(
+  time24: string | null,
+  from: Date = new Date()
+): Date {
+  const [hours, minutes] = time24 ? time24.split(":").map(Number) : [0, 0];
+  const candidate = new Date(
+    from.getFullYear(),
+    from.getMonth(),
+    1,
+    hours,
+    minutes,
+    0,
+    0
+  );
+  while (candidate.getDay() !== 4) {
+    candidate.setDate(candidate.getDate() + 1);
+  }
+  if (candidate.getTime() <= from.getTime()) {
+    candidate.setMonth(candidate.getMonth() + 1, 1);
+    while (candidate.getDay() !== 4) {
+      candidate.setDate(candidate.getDate() + 1);
+    }
+  }
+  return candidate;
+}
+
+/** e.g. "Sun 8 Nov" — stable across server/client at day precision. */
+export function occurrenceLabel(date: Date): string {
+  return date.toLocaleDateString("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  });
 }
 
 /** Regular weekly programme times from content.md. */
