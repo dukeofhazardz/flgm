@@ -124,7 +124,7 @@ export const ANNUAL_PROGRAMME: AnnualProgrammeItem[] = [
     label: "Sunday Celebration Services",
     rhythm: "Weekly · Sunday",
     description:
-      "Sonship and Victory Ministry at 8:00 AM, followed by the Combined Celebration Service at 9:30 AM.",
+      "School of Vision and Mission at 8:00 AM, followed by the Combined Celebration Service at 9:30 AM.",
     weekday: 0,
     time: "8:00 AM / 9:30 AM",
     confirmed: true,
@@ -151,7 +151,7 @@ export const ANNUAL_PROGRAMME: AnnualProgrammeItem[] = [
   },
   {
     id: "svm",
-    label: "Sonship and Victory Ministry",
+    label: "School of Vision and Mission",
     rhythm: "Weekly · Sunday",
     description:
       "Nurturing children and young people in the knowledge of God, spiritual identity, and Christian living.",

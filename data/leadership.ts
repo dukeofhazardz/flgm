@@ -32,7 +32,7 @@ export const LEADERSHIP_DEPARTMENTS = [
   "Evangelism and Outreach",
   "In-house Group Fellowship",
   "House Fellowship and Peter's Boat House Fellowship",
-  "Sonship and Victory Ministry",
+  "School of Vision and Mission",
   "Church Media and Communications",
   "Watch and Pray Committee",
   "Ministry and Departmental Coordination",

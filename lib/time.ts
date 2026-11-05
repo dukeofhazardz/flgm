@@ -323,7 +323,7 @@ export function occurrenceLabel(date: Date): string {
 export const PROGRAMME_TIMES: Programme[] = [
   {
     id: "svm",
-    name: "Sonship and Victory Ministry (SVM)",
+    name: "School of Vision and Mission (SVM)",
     description: "Nurturing children and young people in the knowledge of God, spiritual identity, and Christian living.",
     day: "Sunday",
     time: "8:00 AM – 9:30 AM",

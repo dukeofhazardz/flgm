@@ -85,7 +85,7 @@ export const WEEK: WeekDay[] = [
     day: "Sunday",
     short: "Sun",
     services: [
-      { name: "Sonship and Victory Ministry", time: "8:00 AM", confirmed: true },
+      { name: "School of Vision and Mission", time: "8:00 AM", confirmed: true },
       { name: "Combined Celebration Service", time: "9:30 AM", confirmed: true },
     ],
   },

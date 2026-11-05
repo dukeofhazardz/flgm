@@ -16,7 +16,7 @@ export const CONTACT = {
     {
       id: "svm",
       day: "Sunday",
-      name: "Sonship and Victory Ministry",
+      name: "School of Vision and Mission",
       time: "8:00 AM",
       confirmed: true,
     },
@@ -42,7 +42,7 @@ export const CONTACT = {
       {
         id: "choose",
         title: "Choose a gathering",
-        note: "Sunday worship begins at 8:00 AM with Sonship and Victory Ministry, and continues at 9:30 AM with the Combined Celebration Service. Midweek prayer meets on Thursday at 5:45 PM.",
+        note: "Sunday worship begins at 8:00 AM with School of Vision and Mission, and continues at 9:30 AM with the Combined Celebration Service. Midweek prayer meets on Thursday at 5:45 PM.",
       },
       {
         id: "find",

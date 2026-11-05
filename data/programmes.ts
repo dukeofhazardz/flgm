@@ -23,7 +23,7 @@ export interface ProgrammeRecord {
 export const PROGRAMMES: ProgrammeRecord[] = [
   {
     id: "svm",
-    name: "Sonship and Victory Ministry (SVM)",
+    name: "School of Vision and Mission (SVM)",
     description:
       "A ministry dedicated to nurturing children and young people in the knowledge of God, spiritual identity, and Christian living.",
     day: "Sunday",

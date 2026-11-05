@@ -96,7 +96,7 @@ copy. Record each approval.
 
 ## 5. Programme and event confirmations
 
-- [ ] Confirm Sunday Sonship and Victory Ministry at 8:00 AM.
+- [ ] Confirm Sunday School of Vision and Mission at 8:00 AM.
 - [ ] Confirm Sunday Combined Celebration Service at 9:30 AM.
 - [ ] Confirm Thursday Prophetic Prayer and Faith Building at 5:45 PM.
 - [ ] Resolve the Alpha Worship time (the source material gives conflicting

@@ -25,7 +25,7 @@ Thank you for visiting. We look forward to welcoming you in person.
 **Forever Life and Grace Mission — We Get Better Every Day!**  
 **Featured Programmes**  
 Our programmes are designed to help believers grow in grace, understand their identity in Christ, build meaningful relationships, and fulfil their divine purpose.  
-Sonship and Victory Ministry (SVM)  
+School of Vision and Mission (SVM)  
 A ministry dedicated to nurturing children and young people in the knowledge of God, spiritual identity, and Christian living.  
 Sunday: 8:00 AM – 9:30 AM  
 Combined Celebration Service  
@@ -115,7 +115,7 @@ Church Address
 Forever Life and Grace Mission  
 Resurrection Ground, beside Davina Hills Resort, off 1st Avenue, Gwarinpa, Abuja, Nigeria.  
 Sunday Worship  
-Sonship and Victory Ministry: 8:00 AM  
+School of Vision and Mission: 8:00 AM  
 Combined Celebration Service: 9:30 AM  
 Midweek Fellowship  
 Thursday: Prophetic Prayer and Faith Building, 5:45 PM.  
@@ -219,7 +219,7 @@ We invite you to worship with us, participate in our programmes, connect with ou
 Thank you for visiting. We look forward to welcoming you in person.  
 **Forever Life and Grace Mission — We Get Better Every Day!**  
 **D. Featured Programmes**  
-Sonship and Victory Ministry (SVM)  
+School of Vision and Mission (SVM)  
 Nurturing children and young people in the knowledge of God’s Word, spiritual identity, sonship, and victorious Christian living.  
 [Sunday, 8:00 AM – 9:30 AM](x-apple-data-detectors://embedded-result/15467)  
 Combined Celebration Service  
@@ -302,7 +302,7 @@ The church’s ministry structure includes:
 * Evangelism and Outreach  
 * In-house Group Fellowship  
 * House Fellowship and Peter’s Boat House Fellowship  
-* Sonship and Victory Ministry  
+* School of Vision and Mission  
 * Church Media and Communications  
 * Watch and Pray Committee  
 * Ministry and Departmental Coordination  
@@ -474,7 +474,7 @@ The Events page should also feature:
 * Sunday Celebration Services  
 * Thursday Prophetic Prayer and Faith Building  
 * Alpha Worship – Pulling Down the Jericho Wall  
-* Sonship and Victory Ministry  
+* School of Vision and Mission  
 * Evangelism and Outreach  
 * House Fellowship  
 * Church Building Project activities  

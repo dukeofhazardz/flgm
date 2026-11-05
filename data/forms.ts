@@ -56,7 +56,7 @@ export const NEW_MEMBERS = {
       "Sunday worship",
       "Watch and Pray",
       "House fellowship",
-      "Sonship and Victory Ministry",
+      "School of Vision and Mission",
       "Evangelism and outreach",
       "Ministry service",
     ],
