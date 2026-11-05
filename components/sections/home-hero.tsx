@@ -31,10 +31,25 @@ gsap.registerPlugin(ScrollTrigger);
 const HERO_COPY =
   "Where the life of God, the grace of Jesus Christ and the revelation of sonship empower believers to live purposeful, victorious lives.";
 
+/** Compact enough to sit side by side in a landscape phone's right column. */
+const ACTION_COMPACT =
+  "landscape-short:min-h-11 landscape-short:px-2.5 landscape-short:py-2 landscape-short:text-[12px] landscape-short:tracking-normal landscape-short:whitespace-nowrap";
+
 function HeroActions({ stacked }: { stacked?: boolean }): React.ReactElement {
   return (
-    <div className={stacked ? "flex flex-col items-stretch gap-2.5" : "flex flex-wrap items-center gap-3"}>
-      <Button asChild size="md" variant="brand" className={stacked ? "w-full" : undefined}>
+    <div
+      className={
+        stacked
+          ? "flex flex-col items-stretch gap-2.5"
+          : "flex flex-wrap items-center gap-3 landscape-short:flex-nowrap landscape-short:gap-2"
+      }
+    >
+      <Button
+        asChild
+        size="md"
+        variant="brand"
+        className={stacked ? "w-full" : ACTION_COMPACT}
+      >
         <Link href="/contact">
           Plan Your Visit
           <ArrowUpRight
@@ -44,7 +59,12 @@ function HeroActions({ stacked }: { stacked?: boolean }): React.ReactElement {
           />
         </Link>
       </Button>
-      <Button asChild size="md" variant="outline-light" className={stacked ? "w-full" : undefined}>
+      <Button
+        asChild
+        size="md"
+        variant="outline-light"
+        className={stacked ? "w-full" : ACTION_COMPACT}
+      >
         <Link href="/watch-and-pray" data-cursor="Watch">
           Join Watch and Pray
         </Link>
@@ -89,30 +109,74 @@ export function HomeHero(): React.ReactElement {
 
     const ctx = gsap.context(() => {
       const band = root.querySelector<HTMLElement>("[data-masthead-band]");
+      const frames = new Set<number>();
+      let disposed = false;
+
+      const schedule = (fn: () => void) => {
+        const id = requestAnimationFrame(() => {
+          frames.delete(id);
+          if (!disposed) fn();
+        });
+        frames.add(id);
+      };
 
       // ── Fit each visible masthead to the band it actually has ──
-      const fitOne = (host: HTMLElement | null) => {
+      const fitOne = (host: HTMLElement | null, attempt = 0) => {
         if (!host || !band) return;
         const h1 = host.querySelector<HTMLElement>(".hero-h1");
         if (!h1) return;
-        host.style.removeProperty("--fit");
-        if (!h1.offsetWidth) return; // display:none variant
+        // The inactive variant is display:none — leave its --fit alone.
+        if (!h1.offsetParent || !h1.offsetWidth) return;
+
         const availableW = band.clientWidth;
         const availableH = band.clientHeight;
-        if (!availableW || !availableH) return;
+        if (availableW < 8 || availableH < 8) {
+          // The band has not been laid out yet (font swap, grid settle, a
+          // rotation mid-frame). Retry on the next frame, then pin a safe
+          // scale — never fall through to the unconstrained CSS size.
+          if (attempt < 8) {
+            schedule(() => fitOne(host, attempt + 1));
+          } else {
+            host.style.setProperty("--fit", "0.55");
+          }
+          return;
+        }
+
+        // Measure at natural size, then scale the block into the band.
+        host.style.setProperty("--fit", "1");
+
+        const landscapeShort = window.matchMedia(
+          "(orientation: landscape) and (max-height: 520px)"
+        ).matches;
+        const shortRow =
+          !landscapeShort &&
+          window.matchMedia("(min-width: 768px) and (max-height: 779px)").matches;
         const lines = Array.from(h1.querySelectorAll<HTMLElement>("[data-line]"));
         // Lines are w-max, so offsetWidth is the true width of the set type.
-        const shortRow = window.matchMedia("(min-width: 768px) and (max-height: 779px)").matches;
+        // The landscape-short masthead stacks three lines in a narrow column,
+        // so its natural width is the widest single line, not a merged row.
         const naturalW = lines.length
           ? shortRow && lines.length >= 3
             ? Math.max(lines[0].offsetWidth + lines[1].offsetWidth + 32, lines[2].offsetWidth)
             : Math.max(...lines.map((line) => line.offsetWidth))
           : h1.scrollWidth;
         const naturalH = h1.offsetHeight;
-        if (!naturalW || !naturalH) return;
+
+        if (!naturalW || !naturalH) {
+          if (attempt < 8) {
+            schedule(() => fitOne(host, attempt + 1));
+          } else {
+            host.style.setProperty("--fit", "0.55");
+          }
+          return;
+        }
+
         // 0.94 leaves optical air around the block.
         const scale = Math.min(availableW / naturalW, availableH / naturalH) * 0.94;
-        host.style.setProperty("--fit", String(Math.min(scale, 2.4)));
+        const clamped = Number.isFinite(scale)
+          ? Math.max(0.35, Math.min(scale, 2.4))
+          : 0.55;
+        host.style.setProperty("--fit", String(clamped));
       };
 
       const fit = () => {
@@ -122,15 +186,40 @@ export function HomeHero(): React.ReactElement {
 
       fit();
       ScrollTrigger.refresh();
-      const resize = new ResizeObserver(fit);
+
+      const resize = new ResizeObserver(() => fit());
       if (band) resize.observe(band);
+
+      // The band observer misses a rotation that swaps which masthead is
+      // visible, and mobile browsers change the visual viewport when the
+      // toolbar collapses. Re-fit on all three, debounced to one frame.
+      const refit = () => schedule(fit);
+      const remeasure = () =>
+        schedule(() => {
+          fit();
+          ScrollTrigger.refresh();
+        });
+      window.addEventListener("resize", remeasure);
+      window.addEventListener("orientationchange", remeasure);
+      window.visualViewport?.addEventListener("resize", refit);
 
       if (document.fonts?.ready) {
         document.fonts.ready.then(() => {
+          if (disposed) return;
           fit();
           ScrollTrigger.refresh();
         });
       }
+
+      const cleanup = () => {
+        disposed = true;
+        for (const id of frames) cancelAnimationFrame(id);
+        frames.clear();
+        resize.disconnect();
+        window.removeEventListener("resize", remeasure);
+        window.removeEventListener("orientationchange", remeasure);
+        window.visualViewport?.removeEventListener("resize", refit);
+      };
 
       if (reduced) {
         gsap.set("[data-hero-forest], [data-hero-glow], [data-hero-bloom]", { opacity: 1 });
@@ -139,7 +228,7 @@ export function HomeHero(): React.ReactElement {
         gsap.set("[data-hero-sun-lit], [data-hero-sun-halo]", { opacity: 1 });
         gsap.set("[data-hero-sun-dark]", { opacity: 0 });
         gsap.set("[data-hero-town], [data-hero-dawn]", { opacity: 1 });
-        return () => resize.disconnect();
+        return cleanup;
       }
 
       // ── Entrance ──
@@ -212,12 +301,18 @@ export function HomeHero(): React.ReactElement {
       // Desktop pins the sunrise for a full scene. Below 1024px there is no
       // pin at all — iOS Safari's collapsing toolbar makes pinned full-height
       // scenes jump, and the copy still reads while the hero scrolls out.
-      mm.add("(min-width: 1024px)", () => build(1.8, true));
-      mm.add("(max-width: 1023px)", () => build(1, false));
+      //
+      // Queries must not overlap or two timelines build at once:
+      //   pin     → wide and tall enough
+      //   no pin  → narrow but tall (tablet / phone portrait)
+      //   no pin  → anything 520px tall or shorter (landscape phones)
+      mm.add("(min-width: 1024px) and (min-height: 521px)", () => build(1.8, true));
+      mm.add("(max-width: 1023px) and (min-height: 521px)", () => build(1, false));
+      mm.add("(max-height: 520px)", () => build(1, false));
 
       return () => {
         mm.revert();
-        resize.disconnect();
+        cleanup();
       };
     }, root);
 
@@ -230,7 +325,7 @@ export function HomeHero(): React.ReactElement {
         ref={scene}
         data-hero-scene
         data-header-theme="dark"
-        className="relative h-[100svh] w-full overflow-hidden text-white"
+        className="relative min-h-[100svh] w-full overflow-hidden text-white"
         style={{
           background:
             "linear-gradient(180deg, #04180F 0%, #04180F 44%, #051C11 64%, #072215 84%, #082517 100%)",
@@ -238,9 +333,12 @@ export function HomeHero(): React.ReactElement {
       >
         <HeroAtmosphere />
 
-        <div className="relative z-20 flex h-full flex-col px-5 pb-4 pt-[104px] md:px-8 md:pb-6 lg:px-10 lg:pb-6 lg:pt-[120px]">
+        <div
+          data-hero-content
+          className="relative z-20 flex min-h-[100svh] flex-col px-5 pb-4 pt-[104px] md:px-8 md:pb-6 lg:px-10 lg:pb-6 lg:pt-[120px] landscape-short:grid landscape-short:grid-cols-[minmax(0,1.06fr)_minmax(0,0.94fr)] landscape-short:grid-rows-[1fr_1fr] landscape-short:gap-x-4 landscape-short:gap-y-2 landscape-short:px-5 landscape-short:pb-3 landscape-short:pt-[84px]"
+        >
           {/* ── Top rail: identity + tagline ── */}
-          <div data-hero-meta className="flex items-start justify-between gap-6">
+          <div data-hero-meta className="flex items-start justify-between gap-6 landscape-short:hidden">
             <p
               data-meta-inner
               className="font-mono text-[8.5px] uppercase leading-[1.7] tracking-[0.2em] text-white/55 md:text-[10px] md:tracking-[0.22em]"
@@ -270,9 +368,12 @@ export function HomeHero(): React.ReactElement {
           </div>
 
           {/* ── Mobile tagline ── */}
-          <div data-hero-tagline className="mt-3 md:hidden">
+          <div
+            data-hero-tagline
+            className="mt-3 md:hidden landscape-short:col-start-2 landscape-short:row-start-1 landscape-short:mt-0 landscape-short:block landscape-short:self-end"
+          >
             <p className="inline-flex flex-col items-start">
-              <span className="font-serif text-[clamp(1.05rem,4.6vw,1.5rem)] font-medium italic leading-none tracking-[-0.015em] text-brand-green">
+              <span className="font-serif text-[clamp(1.05rem,4.6vw,1.5rem)] font-medium italic leading-none tracking-[-0.015em] text-brand-green landscape-short:text-[clamp(0.95rem,1.7vw,1.3rem)]">
                 {CHURCH.tagline}
               </span>
               <span data-hero-rule className="mt-1.5 block w-[min(210px,54vw)] origin-left">
@@ -291,7 +392,7 @@ export function HomeHero(): React.ReactElement {
           {/* ── Masthead band (+ the copy that lives in its rag, wide screens) ── */}
           <div
             data-masthead-band
-            className="relative mt-2 flex min-h-0 flex-1 flex-col justify-center lg:mt-1"
+            className="relative mt-2 flex min-h-0 flex-1 flex-col justify-center lg:mt-1 landscape-short:col-start-1 landscape-short:row-span-2 landscape-short:row-start-1 landscape-short:mt-0"
           >
             <div
               className="pointer-events-none absolute inset-0 z-30 hidden roomy:grid"
@@ -313,28 +414,36 @@ export function HomeHero(): React.ReactElement {
               </div>
             </div>
 
-            <HeroMasthead variant="mobile" className="md:hidden" />
-            <HeroMasthead variant="desktop" className="hidden md:block" />
+            <HeroMasthead variant="mobile" className="md:hidden landscape-short:hidden" />
+            <HeroMasthead variant="desktop" className="hidden md:block landscape-short:block" />
           </div>
 
           {/* ── Stacked band: tablet and small laptop ── */}
-          <div data-hero-bottom className="shrink-0 roomy:hidden">
-            <div data-bottom-inner className="hidden md:grid md:grid-cols-12 md:items-end md:gap-8">
-              <div className="md:col-span-6">
-                <p className="max-w-[38ch] font-sans text-[15px] leading-[1.5] text-white/75">{HERO_COPY}</p>
-                <HeroAddress className="mt-3 max-w-[48ch] short:hidden" />
+          <div
+            data-hero-bottom
+            className="shrink-0 roomy:hidden landscape-short:col-start-2 landscape-short:row-start-2 landscape-short:mt-0 landscape-short:self-start"
+          >
+            <div
+              data-bottom-inner
+              className="hidden md:grid md:grid-cols-12 md:items-end md:gap-8 landscape-short:grid landscape-short:grid-cols-1 landscape-short:items-start landscape-short:gap-1.5"
+            >
+              <div className="md:col-span-6 landscape-short:col-span-full landscape-short:col-start-1">
+                <p className="max-w-[38ch] font-sans text-[15px] leading-[1.5] text-white/75 landscape-short:max-w-none landscape-short:text-[12.5px] landscape-short:leading-[1.45]">
+                  {HERO_COPY}
+                </p>
+                <HeroAddress className="mt-3 max-w-[48ch] short:hidden landscape-short:hidden" />
                 
               </div>
 
-              <div className="md:col-span-5 md:col-start-8">
-                <NextGathering className="mt-3" />
+              <div className="md:col-span-6 md:col-start-7 xl:col-span-5 xl:col-start-8 landscape-short:col-span-full landscape-short:col-start-1">
+                <NextGathering className="mt-3 landscape-short:mt-0 landscape-short:mb-1.5" />
                 <HeroActions />
-                <HeroSupportLink className="mt-3.5" />
+                <HeroSupportLink className="mt-3.5 landscape-short:hidden" />
               </div>
             </div>
 
             {/* Mobile: thumb-reach actions */}
-            <div data-bottom-inner className="flex flex-col gap-2.5 md:hidden">
+            <div data-bottom-inner className="flex flex-col gap-2.5 md:hidden landscape-short:hidden">
               <NextGathering className="mb-1" />
               <Button asChild size="md" variant="brand" className="w-full">
                 <Link href="/contact">
@@ -349,7 +458,7 @@ export function HomeHero(): React.ReactElement {
             </div>
 
             {/* Folio line */}
-            <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-2.5 lg:mt-5 lg:pt-3">
+            <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-2.5 lg:mt-5 lg:pt-3 landscape-short:hidden">
               <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35 lg:text-[9px] lg:tracking-[0.2em]">
                 No. 01
                 <span className="mx-2 text-white/15" aria-hidden="true">
@@ -371,7 +480,7 @@ export function HomeHero(): React.ReactElement {
           {/* ── Folio line: wide screens ── */}
           <div
             data-hero-bottom
-            className="mt-4 hidden shrink-0 items-center justify-between border-t border-white/10 pt-3.5 roomy:flex"
+            className="mt-4 hidden shrink-0 items-center justify-between border-t border-white/10 pt-3.5 roomy:flex landscape-short:hidden"
           >
             <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/38">
               No. 01
@@ -392,7 +501,7 @@ export function HomeHero(): React.ReactElement {
         {/* ── Closing caption: the day begins ── */}
         <div
           data-hero-dawn
-          className="pointer-events-none absolute inset-x-0 bottom-[9%] z-[9] flex items-center gap-3 px-5 opacity-0 md:px-8 lg:px-10"
+          className="pointer-events-none absolute inset-x-0 bottom-[9%] z-[9] flex items-center gap-3 px-5 opacity-0 md:px-8 lg:px-10 landscape-short:bottom-[4%]"
         >
           <span aria-hidden="true" className="block h-px w-8 bg-dawn-mint/40 md:w-12" />
           <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-dawn-mint/80 md:text-[10px]">

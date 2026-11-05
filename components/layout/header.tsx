@@ -376,7 +376,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
         >
           <div
             className={cn(
-              "mx-auto flex h-[66px] max-w-[1680px] items-center gap-6 border-b px-5 md:px-8 lg:h-[74px] lg:px-10",
+              "mx-auto flex h-[66px] max-w-[1680px] items-center gap-6 border-b px-5 md:px-8 lg:h-[74px] lg:px-10 landscape-short:h-[52px]",
               dark ? "border-white/10" : "border-ink/10"
             )}
           >
@@ -513,18 +513,23 @@ export function Header({ className }: { className?: string }): React.ReactElemen
               <LiveClock
                 showZone
                 className={cn(
-                  "hidden text-[10px] uppercase tracking-[0.14em] md:block",
+                  "hidden text-[10px] uppercase tracking-[0.14em] md:block lg:hidden xl:block landscape-short:hidden",
                   dark ? "text-white/75" : "text-forest/75"
                 )}
               />
               <span
                 aria-hidden="true"
                 className={cn(
-                  "hidden h-4 w-px md:block",
+                  "hidden h-4 w-px md:block lg:hidden xl:block landscape-short:hidden",
                   dark ? "bg-white/20" : "bg-ink/15"
                 )}
               />
-              <Button asChild size="sm" variant="brand" className="hidden md:inline-flex">
+              <Button
+                asChild
+                size="sm"
+                variant="brand"
+                className="hidden md:inline-flex landscape-short:hidden"
+              >
                 <Link href="/contact">Plan Your Visit</Link>
               </Button>
               <button
@@ -563,7 +568,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
             : "pointer-events-none -translate-y-full opacity-0"
         )}
       >
-        <div className="h-[66px] shrink-0" aria-hidden="true" />
+        <div className="h-[66px] shrink-0 landscape-short:h-[52px]" aria-hidden="true" />
 
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-5 pb-8">
           <nav aria-label="Mobile" className="mt-2 flex flex-col">

@@ -55,6 +55,8 @@
 @custom-variant roomy (@media (min-width: 1280px) and (min-height: 780px));
 /* Short viewports: laptops at 125-150% scaling. */
 @custom-variant short (@media (max-height: 779px));
+/* Phones (and small tablets) held sideways: wide, but only ~320-430px tall. */
+@custom-variant landscape-short (@media (orientation: landscape) and (max-height: 520px));
 
 /* ──────────────────────────────────────────────────────────────
    Scroll foundation.
@@ -151,7 +153,9 @@ html.lenis body {
 /* Hero masthead type. The --fit multiplier is set by HomeHero from the
    measured natural size and the space actually available in the band. */
 .hero-h1 {
-  font-size: calc(clamp(2.9rem, 18.4vw, 9rem) * var(--fit, 1));
+  /* Height-capped at every size: on a wide, short phone a pure vw size
+     overflows the band before JS has measured anything. */
+  font-size: calc(clamp(2.9rem, min(18.4vw, 17svh), 9rem) * var(--fit, 1));
   line-height: 0.84;
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -162,6 +166,15 @@ html.lenis body {
   .hero-h1 {
     font-size: calc(clamp(3rem, min(12.4vw, 20svh), 13rem) * var(--fit, 1));
     line-height: 0.82;
+  }
+}
+
+/* Landscape phones: the masthead sits in a narrow left column, so the
+   fallback is capped by width as well as by viewport height. */
+@media (orientation: landscape) and (max-height: 520px) {
+  .hero-h1 {
+    font-size: calc(min(8vw, 20svh) * var(--fit, 1));
+    line-height: 0.8;
   }
 }
 

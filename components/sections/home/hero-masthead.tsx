@@ -90,7 +90,7 @@ function Lines({
             "flex w-max items-baseline gap-[0.1em] whitespace-nowrap",
             line.lineClass,
             line.italic && "hero-line-italic",
-            desktop && index === 1 && "short:-mt-[0.76em]"
+            desktop && index === 1 && "short:-mt-[0.76em] landscape-short:mt-0 landscape-short:ml-0"
           )}
           style={
             desktop && line.scale ? { fontSize: `${line.scale}em` } : undefined
@@ -214,7 +214,9 @@ export function HeroMasthead({
         aria-label="Forever Life and Grace Mission"
         className={cn(
           "hero-h1 relative z-10 font-serif font-medium tracking-[-0.04em] text-white",
-          desktop ? "hidden md:block" : "block md:hidden"
+          desktop
+            ? "hidden md:block landscape-short:block"
+            : "block md:hidden landscape-short:hidden"
         )}
       >
         <Lines lines={lines} desktop={desktop} />
@@ -223,7 +225,7 @@ export function HeroMasthead({
       {desktop ? (
         <div
           aria-hidden="true"
-          className="hero-ghost hero-h1 pointer-events-none absolute inset-0 hidden select-none font-serif font-medium tracking-[-0.04em] md:block"
+          className="hero-ghost hero-h1 pointer-events-none absolute inset-0 hidden select-none font-serif font-medium tracking-[-0.04em] md:block landscape-short:block"
         >
           <Lines lines={lines} ghost desktop />
         </div>
