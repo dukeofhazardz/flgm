@@ -188,8 +188,8 @@ export function Preloader(): React.ReactElement | null {
             className="absolute left-1/2 top-0 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full"
             style={{
               background:
-                "radial-gradient(circle at 40% 34%, #F2FFF7 0%, #C9F5DA 18%, #00C853 62%, #0B7F3B 100%)",
-              boxShadow: "0 0 70px 18px rgba(0,200,83,0.35)",
+                "radial-gradient(circle at 40% 34%, #F8FCEF 0%, #C4D120 18%, #33A402 62%, #408609 100%)",
+              boxShadow: "0 0 70px 18px rgba(51,164,2,0.35)",
             }}
           />
         </div>
@@ -203,7 +203,7 @@ export function Preloader(): React.ReactElement | null {
           <span className="caret-blink ml-1 inline-block h-[0.72em] w-[2px] translate-y-[0.08em] bg-brand-green align-baseline" />
         </p>
 
-        <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.3em] text-white/35">
+        <p className="mt-6 font-mono text-[9px] uppercase tracking-[0.3em] text-white/66">
           Gwarinpa · Abuja · 05:30 WAT
         </p>
       </div>

@@ -141,11 +141,21 @@ export const ANNUAL_PROGRAMME: AnnualProgrammeItem[] = [
   },
   {
     id: "alpha-worship",
-    label: "Alpha Worship — Pulling Down the Jericho Wall",
-    rhythm: "Monthly · First Thursday",
+    label: "Alpha Worship — Falling the Jericho Walls",
+    rhythm: "Monthly · 1st of Every Month",
     description:
       "A monthly worship and prayer gathering focused on worship, spiritual growth, and the manifestation of God’s grace.",
-    weekday: 4,
+    weekday: null,
+    time: "Time to be confirmed",
+    confirmed: false,
+  },
+  {
+    id: "kingdom-advocate",
+    label: "Kingdom Advocate Leadership Training",
+    rhythm: "Monthly · 1st Saturday of Every Month",
+    description:
+      "Leadership training held on the first Saturday of every month.",
+    weekday: 6,
     time: "Time to be confirmed",
     confirmed: false,
   },

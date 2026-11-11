@@ -78,7 +78,7 @@ function HeroSupportLink({ className }: { className?: string }): React.ReactElem
     <Link
       href="/give"
       data-cursor="Give"
-      className={`inline-flex items-center gap-2 whitespace-nowrap border-b border-signal-red pb-1.5 font-mono text-[9px] uppercase leading-none tracking-[0.14em] text-white/70 transition-colors hover:text-white ${className ?? ""}`}
+      className={`inline-flex items-center gap-2 whitespace-nowrap border-b border-signal-red pb-1.5 font-mono text-[9px] uppercase leading-none tracking-[0.14em] text-white/90 transition-colors hover:text-white ${className ?? ""}`}
     >
       Support the Church Building Project
       <ArrowUpRight className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} aria-hidden="true" />
@@ -89,7 +89,7 @@ function HeroSupportLink({ className }: { className?: string }): React.ReactElem
 function HeroAddress({ className }: { className?: string }): React.ReactElement {
   return (
     <p
-      className={`font-mono text-[9px] uppercase leading-[1.8] tracking-[0.1em] text-white/45 ${className ?? ""}`}
+      className={`font-mono text-[9px] uppercase leading-[1.8] tracking-[0.1em] text-white/76 ${className ?? ""}`}
     >
       {CHURCH.address}
     </p>
@@ -328,7 +328,7 @@ export function HomeHero(): React.ReactElement {
         className="relative min-h-[100svh] w-full overflow-hidden text-white"
         style={{
           background:
-            "linear-gradient(180deg, #04180F 0%, #04180F 44%, #051C11 64%, #072215 84%, #082517 100%)",
+            "linear-gradient(180deg, #02600D 0%, #02600D 44%, #1B6E0C 64%, #2A780B 84%, #38820A 100%)",
         }}
       >
         <HeroAtmosphere />
@@ -341,24 +341,24 @@ export function HomeHero(): React.ReactElement {
           <div data-hero-meta className="flex items-start justify-between gap-6 landscape-short:hidden">
             <p
               data-meta-inner
-              className="font-mono text-[8.5px] uppercase leading-[1.7] tracking-[0.2em] text-white/55 md:text-[10px] md:tracking-[0.22em]"
+              className="font-mono text-[8.5px] uppercase leading-[1.7] tracking-[0.2em] text-white/82 md:text-[10px] md:tracking-[0.22em]"
             >
               A House of Grace
-              <span className="mx-2 text-brand-green" aria-hidden="true">
+              <span className="mx-2 text-dawn-mint" aria-hidden="true">
                 •
               </span>
               A People of Purpose
             </p>
 
             <div data-meta-inner className="hidden shrink-0 text-right md:block">
-              <p className="font-serif text-[clamp(1rem,1.55vw,1.5rem)] font-medium italic leading-none tracking-[-0.015em] text-brand-green">
+              <p className="font-serif text-[clamp(1rem,1.55vw,1.5rem)] font-medium italic leading-none tracking-[-0.015em] text-dawn-mint">
                 {CHURCH.tagline}
               </p>
               <span data-hero-rule className="mt-2 block w-full origin-left">
                 <svg viewBox="0 0 240 10" fill="none" className="block h-[6px] w-full" aria-hidden="true">
                   <path
                     d="M1.5 7.4C57 2.6 137 2.2 238.5 5.8"
-                    stroke="#00C853"
+                    stroke="#C4D120"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                   />
@@ -380,7 +380,7 @@ export function HomeHero(): React.ReactElement {
                 <svg viewBox="0 0 240 10" fill="none" className="block h-[6px] w-full" aria-hidden="true">
                   <path
                     d="M1.5 7.4C57 2.6 137 2.2 238.5 5.8"
-                    stroke="#00C853"
+                    stroke="#C4D120"
                     strokeWidth="1.5"
                     strokeLinecap="round"
                   />
@@ -400,7 +400,7 @@ export function HomeHero(): React.ReactElement {
             >
               <div className="row-start-2 flex items-center">
                 <div className="pointer-events-auto w-[clamp(250px,26vw,320px)]">
-                  <p className="font-sans text-[15.5px] leading-[1.55] text-white/80">{HERO_COPY}</p>
+                  <p className="font-sans text-[15.5px] leading-[1.55] text-white/94">{HERO_COPY}</p>
                   <HeroAddress className="mt-3" />
                 </div>
               </div>
@@ -428,7 +428,7 @@ export function HomeHero(): React.ReactElement {
               className="hidden md:grid md:grid-cols-12 md:items-end md:gap-8 landscape-short:grid landscape-short:grid-cols-1 landscape-short:items-start landscape-short:gap-1.5"
             >
               <div className="md:col-span-6 landscape-short:col-span-full landscape-short:col-start-1">
-                <p className="max-w-[38ch] font-sans text-[15px] leading-[1.5] text-white/75 landscape-short:max-w-none landscape-short:text-[12.5px] landscape-short:leading-[1.45]">
+                <p className="max-w-[38ch] font-sans text-[15px] leading-[1.5] text-white/92 landscape-short:max-w-none landscape-short:text-[12.5px] landscape-short:leading-[1.45]">
                   {HERO_COPY}
                 </p>
                 <HeroAddress className="mt-3 max-w-[48ch] short:hidden landscape-short:hidden" />
@@ -459,7 +459,7 @@ export function HomeHero(): React.ReactElement {
 
             {/* Folio line */}
             <div className="mt-3 flex items-center justify-between border-t border-white/10 pt-2.5 lg:mt-5 lg:pt-3 landscape-short:hidden">
-              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35 lg:text-[9px] lg:tracking-[0.2em]">
+              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66 lg:text-[9px] lg:tracking-[0.2em]">
                 No. 01
                 <span className="mx-2 text-white/15" aria-hidden="true">
                   /
@@ -467,11 +467,11 @@ export function HomeHero(): React.ReactElement {
                 Gwarinpa, Abuja
               </p>
               <span className="flex items-center gap-2.5" aria-hidden="true">
-                <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35 lg:text-[9px] lg:tracking-[0.2em]">
+                <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66 lg:text-[9px] lg:tracking-[0.2em]">
                   Scroll
                 </span>
                 <span className="relative block h-6 w-px overflow-hidden bg-white/15 lg:h-8">
-                  <span className="scroll-cue-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-brand-green" />
+                  <span className="scroll-cue-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-dawn-mint" />
                 </span>
               </span>
             </div>
@@ -482,7 +482,7 @@ export function HomeHero(): React.ReactElement {
             data-hero-bottom
             className="mt-4 hidden shrink-0 items-center justify-between border-t border-white/10 pt-3.5 roomy:flex landscape-short:hidden"
           >
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/38">
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/70">
               No. 01
               <span className="mx-2 text-white/15" aria-hidden="true">
                 /
@@ -490,9 +490,9 @@ export function HomeHero(): React.ReactElement {
               Gwarinpa, Abuja
             </p>
             <span className="flex items-center gap-2.5" aria-hidden="true">
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/38">Scroll</span>
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/70">Scroll</span>
               <span className="relative block h-8 w-px overflow-hidden bg-white/15">
-                <span className="scroll-cue-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-brand-green" />
+                <span className="scroll-cue-dot absolute inset-x-0 top-0 block h-2.5 w-px bg-dawn-mint" />
               </span>
             </span>
           </div>
@@ -504,7 +504,7 @@ export function HomeHero(): React.ReactElement {
           className="pointer-events-none absolute inset-x-0 bottom-[9%] z-[9] flex items-center gap-3 px-5 opacity-0 md:px-8 lg:px-10 landscape-short:bottom-[4%]"
         >
           <span aria-hidden="true" className="block h-px w-8 bg-dawn-mint/40 md:w-12" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-dawn-mint/80 md:text-[10px]">
+          <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-dawn-mint/95 md:text-[10px]">
             Dawn over Gwarinpa
           </span>
         </div>

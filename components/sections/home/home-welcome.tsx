@@ -96,7 +96,7 @@ export function HomeWelcome(): React.ReactElement {
         className="pointer-events-none absolute -right-40 top-0 h-[520px] w-[520px] rounded-full opacity-60 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,227,222,0.9) 0%, rgba(201,245,218,0.45) 45%, rgba(255,255,255,0) 72%)",
+            "radial-gradient(circle, rgba(255,227,222,0.9) 0%, rgba(196,209,32,0.45) 45%, rgba(255,255,255,0) 72%)",
         }}
       />
 
@@ -119,7 +119,7 @@ export function HomeWelcome(): React.ReactElement {
           <div className="col-span-12 lg:col-span-8">
             <p
               data-letter-rise
-              className="font-serif text-[clamp(1.4rem,2.6vw,2.1rem)] font-medium italic leading-none tracking-[-0.02em] text-forest"
+              className="font-serif text-[clamp(1.4rem,2.6vw,2.1rem)] font-medium italic leading-none tracking-[-0.02em] text-deep-green"
             >
               {WELCOME.salutation}
             </p>
@@ -132,7 +132,7 @@ export function HomeWelcome(): React.ReactElement {
             </h2>
 
             <div className="relative mt-8 md:mt-10">
-              <div className="letter-columns columns-1 gap-10 font-sans text-[17px] leading-[1.62] text-forest/80 md:columns-2 md:gap-12 md:text-[17.5px]">
+              <div className="letter-columns columns-1 gap-10 font-sans text-[17px] leading-[1.62] text-deep-green md:columns-2 md:gap-12 md:text-[17.5px]">
                 {WELCOME.paragraphs.map((paragraph, index) => (
                   <p
                     key={paragraph.slice(0, 24)}
@@ -172,41 +172,41 @@ export function HomeWelcome(): React.ReactElement {
               >
                 <path
                   d="M35 300V132C35 83 68.6 43 110 43s75 40 75 89v168"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="1"
                 />
                 <path
                   d="M62 300V140c0-35 21.5-63 48-63s48 28 48 63v160"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.6"
                   strokeDasharray="3 5"
                 />
-                <path d="M35 300h150" stroke="#C9F5DA" strokeWidth="1" />
+                <path d="M35 300h150" stroke="#C4D120" strokeWidth="1" />
               </svg>
               <div className="grain absolute inset-0" aria-hidden="true" />
 
               <div className="relative">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-signal-red" aria-hidden="true" />
-                  <SectionTag className="text-dawn-mint/70">A note from the Chief Pastor</SectionTag>
+                  <SectionTag className="text-dawn-mint/92">A note from the Chief Pastor</SectionTag>
                 </div>
 
                 <p className="mt-5 max-w-[20ch] font-serif text-[clamp(1.5rem,2.4vw,2rem)] font-medium leading-[1.05] tracking-[-0.025em]">
                   A word for the family is being prepared.
                 </p>
-                <p className="mt-3 max-w-[30ch] font-sans text-[13px] leading-[1.6] text-white/60">
+                <p className="mt-3 max-w-[30ch] font-sans text-[13px] leading-[1.6] text-white/86">
                   This issue will carry the pastoral letter once it is approved.
                 </p>
 
                 <Pending
                   confirmed={false}
                   label="Details coming soon"
-                  className="mt-6 justify-start border-0 bg-transparent px-0 py-0 text-[10px] tracking-[0.16em] text-dawn-mint/70"
+                  className="mt-6 justify-start border-0 bg-transparent px-0 py-0 text-[10px] tracking-[0.16em] text-dawn-mint/92"
                 />
 
                 <div className="mt-8 border-t border-white/15 pt-4">
                   <span aria-hidden="true" className="block h-px w-20 bg-dawn-mint/50" />
-                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/40">
+                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/72">
                     Chief Pastor · Forever Life and Grace Mission
                   </p>
                 </div>

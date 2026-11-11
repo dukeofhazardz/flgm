@@ -1,6 +1,7 @@
 // WhatsApp helper.
-// 08089599066 -> https://wa.me/2348089599066 with a prefilled message.
-// Nigeria country code: 234. Leading zero of the national number is dropped.
+// "+234 808 959 9066" -> https://wa.me/2348089599066 with a prefilled message.
+// Nigeria country code: 234. A national-format number with a leading zero is
+// normalised the same way, so either input shape produces one valid link.
 
 export function toWhatsAppLink(phone: string, message: string): string {
   const digits = phone.replace(/\D/g, "");
@@ -8,7 +9,7 @@ export function toWhatsAppLink(phone: string, message: string): string {
   return `https://wa.me/${normalized}?text=${encodeURIComponent(message)}`;
 }
 
-export const FLGM_PHONE = "08089599066";
+export const FLGM_PHONE = "+234 808 959 9066";
 
 export function whatsappLink(message?: string): string {
   const defaultMessage =

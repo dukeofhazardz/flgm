@@ -72,7 +72,7 @@ export function HomeNextStep(): React.ReactElement {
         >
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
             <SectionTag
-              className={cn(field.dark ? "text-dawn-mint/65" : "text-ink/45")}
+              className={cn(field.dark ? "text-dawn-mint/90" : "text-ink/45")}
             >
               § 08 — Next Step
             </SectionTag>
@@ -160,8 +160,8 @@ export function HomeNextStep(): React.ReactElement {
                       className="absolute inset-0"
                       style={{
                         background: field.dark
-                          ? "linear-gradient(180deg, rgba(201,245,218,0.34) 0%, rgba(11,59,36,0.55) 52%, rgba(0,200,83,0.28) 100%)"
-                          : "linear-gradient(180deg, rgba(201,245,218,0.55) 0%, rgba(255,255,255,0.14) 52%, rgba(255,227,222,0.5) 100%)",
+                          ? "linear-gradient(180deg, rgba(196,209,32,0.34) 0%, rgba(64,134,9,0.55) 52%, rgba(51,164,2,0.28) 100%)"
+                          : "linear-gradient(180deg, rgba(196,209,32,0.55) 0%, rgba(255,255,255,0.14) 52%, rgba(255,227,222,0.5) 100%)",
                       }}
                     />
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -205,8 +205,8 @@ export function HomeNextStep(): React.ReactElement {
                           borderTopLeftRadius: 999,
                           borderTopRightRadius: 999,
                           background: field.dark
-                            ? "linear-gradient(180deg, rgba(201,245,218,0.34) 0%, rgba(11,59,36,0.55) 52%, rgba(0,200,83,0.28) 100%)"
-                            : "linear-gradient(180deg, rgba(201,245,218,0.5) 0%, rgba(255,255,255,0.12) 52%, rgba(255,227,222,0.5) 100%)",
+                            ? "linear-gradient(180deg, rgba(196,209,32,0.34) 0%, rgba(64,134,9,0.55) 52%, rgba(51,164,2,0.28) 100%)"
+                            : "linear-gradient(180deg, rgba(196,209,32,0.5) 0%, rgba(255,255,255,0.12) 52%, rgba(255,227,222,0.5) 100%)",
                         }}
                         aria-hidden="true"
                       >

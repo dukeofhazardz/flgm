@@ -51,7 +51,7 @@ export function PrayerFormSection(): React.ReactElement {
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <p className="font-sans text-[13.5px] leading-[1.55] text-forest/72">
+                    <p className="font-sans text-[13.5px] leading-[1.55] text-deep-green">
                       {statement}
                     </p>
                   </li>
@@ -64,7 +64,7 @@ export function PrayerFormSection(): React.ReactElement {
                 </p>
                 <a
                   href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
-                  className="mt-2 inline-flex min-h-10 items-center gap-2 font-mono text-[13px] tracking-[0.04em] text-ink/80 transition-colors hover:text-forest"
+                  className="mt-2 inline-flex min-h-10 items-center gap-2 font-mono text-[13px] tracking-[0.04em] text-ink/80 transition-colors hover:text-deep-green"
                 >
                   <span className="h-1 w-1 rounded-full bg-signal-red" aria-hidden="true" />
                   {CONTACT.phones[0]}

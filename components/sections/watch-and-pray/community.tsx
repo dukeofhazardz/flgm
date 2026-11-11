@@ -46,7 +46,7 @@ function GoalRing({
                 y1={y1}
                 x2={x2}
                 y2={y2}
-                stroke={index === 0 ? "#00C853" : "#07130D"}
+                stroke={index === 0 ? "#33A402" : "#07130D"}
                 strokeOpacity={index === 0 ? 1 : 0.2}
                 strokeWidth={index === 0 ? 2.4 : 1}
                 strokeLinecap="round"
@@ -57,7 +57,7 @@ function GoalRing({
           {/* A small green aim arc, fixed at the top: no invented progress. */}
           <path
             d="M110 18a92 92 0 0 1 46 12"
-            stroke="#00C853"
+            stroke="#33A402"
             strokeWidth="2.2"
             strokeLinecap="round"
           />
@@ -106,11 +106,11 @@ export function WatchCommunity(): React.ReactElement {
             <h2 className="max-w-[8ch] font-serif text-[clamp(3.4rem,8vw,7rem)] font-medium leading-[0.9] tracking-[-0.05em] tabular-nums">
               12,000
             </h2>
-            <p className="mt-2 max-w-[18ch] font-serif text-[clamp(1.4rem,3vw,2.1rem)] font-medium italic leading-[1.1] tracking-[-0.02em] text-forest">
+            <p className="mt-2 max-w-[18ch] font-serif text-[clamp(1.4rem,3vw,2.1rem)] font-medium italic leading-[1.1] tracking-[-0.02em] text-deep-green">
               followers and active members across four platforms
             </p>
 
-            <p className="mt-6 max-w-[42ch] text-[16px] leading-[1.62] text-forest/70">
+            <p className="mt-6 max-w-[42ch] text-[16px] leading-[1.62] text-deep-green">
               The outreach sets a 3,000-person goal on each platform across the
               fifty days: a community to pray with, return to, and grow in grace.
             </p>

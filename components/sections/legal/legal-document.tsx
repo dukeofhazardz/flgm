@@ -39,7 +39,7 @@ export function LegalDocument({
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-10">
           <aside className="lg:col-span-3">
             <div className="lg:sticky lg:top-[136px]">
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-forest/65">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-deep-green">
                 {folio}
               </p>
               <span
@@ -87,7 +87,7 @@ export function LegalDocument({
               {sections.map((section, index) => (
                 <section key={section.title} className="border-t border-ink/10 pt-8">
                   <div className="flex gap-5">
-                    <span className="pt-1 font-mono text-[10px] tabular-nums text-forest/50">
+                    <span className="pt-1 font-mono text-[10px] tabular-nums text-deep-green">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <div className="min-w-0">
@@ -131,7 +131,7 @@ export function LegalDocument({
               </p>
               <Link
                 href="/contact"
-                className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink underline decoration-brand-green decoration-2 underline-offset-[6px] transition-colors hover:text-forest"
+                className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink underline decoration-brand-green decoration-2 underline-offset-[6px] transition-colors hover:text-deep-green"
               >
                 Contact and location
                 <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.6} aria-hidden="true" />

@@ -153,7 +153,7 @@ function EventTicket({
             {event.title}
           </h3>
 
-          <p className="mt-4 max-w-[48ch] text-[15px] leading-[1.62] text-forest/70 md:text-[16px]">
+          <p className="mt-4 max-w-[48ch] text-[15px] leading-[1.62] text-deep-green md:text-[16px]">
             {event.description}
           </p>
 
@@ -194,7 +194,7 @@ function EventTicket({
           <div className="mt-6 flex flex-col gap-2 md:mt-auto md:pt-6">
             <Link
               href={event.ctaHref}
-              className="group/cta inline-flex min-h-11 items-center justify-between gap-3 border border-ink bg-ink px-3.5 py-2.5 font-mono text-[8.5px] uppercase tracking-[0.13em] text-white transition-colors duration-200 hover:bg-brand-green hover:text-ink"
+              className="group/cta inline-flex min-h-11 items-center justify-between gap-3 border border-ink bg-night px-3.5 py-2.5 font-mono text-[8.5px] uppercase tracking-[0.13em] text-white transition-colors duration-200 hover:bg-brand-green hover:text-ink"
             >
               <span>{event.cta}</span>
               <ArrowUpRight
@@ -305,7 +305,7 @@ export function EventsCalendar(): React.ReactElement {
             <h2 className="max-w-[12ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em]">
               Five <span className="italic">gatherings.</span>
             </h2>
-            <p className="mt-4 max-w-[48ch] text-[16px] leading-[1.62] text-forest/72 md:text-[17px]">
+            <p className="mt-4 max-w-[48ch] text-[16px] leading-[1.62] text-deep-green md:text-[17px]">
               Discover upcoming worship services, conferences, special
               celebrations, and ministry activities at Forever Life and Grace
               Mission.
@@ -339,7 +339,7 @@ export function EventsCalendar(): React.ReactElement {
                 className={cn(
                   "min-h-11 border px-3 py-2 font-mono text-[8.5px] uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.97]",
                   selected
-                    ? "border-ink bg-ink text-white"
+                    ? "border-ink bg-night text-white"
                     : "border-ink/18 bg-transparent text-ink/60 hover:border-ink/50 hover:text-ink"
                 )}
               >

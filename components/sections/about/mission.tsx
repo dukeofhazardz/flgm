@@ -70,7 +70,7 @@ export function AboutMission(): React.ReactElement {
           <h2 className="max-w-[11ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em]">
             What we <span className="italic">do.</span>
           </h2>
-          <p className="max-w-[34ch] text-[15px] leading-[1.62] text-forest/70 md:text-[16px]">
+          <p className="max-w-[34ch] text-[15px] leading-[1.62] text-deep-green md:text-[16px]">
             Our mission is the vision in motion: six commitments that shape the
             teaching, the fellowship, and the life of the house.
           </p>
@@ -166,7 +166,7 @@ export function AboutMission(): React.ReactElement {
                     <h3 className="max-w-[25ch] font-serif text-[clamp(1.55rem,3.4vw,3rem)] font-medium leading-[1.02] tracking-[-0.03em]">
                       {title}
                     </h3>
-                    <p className="mt-2 max-w-[54ch] text-[16px] leading-[1.62] text-forest/72 md:text-[17px]">
+                    <p className="mt-2 max-w-[54ch] text-[16px] leading-[1.62] text-deep-green md:text-[17px]">
                       {body}
                     </p>
                   </div>

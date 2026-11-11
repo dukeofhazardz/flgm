@@ -40,14 +40,14 @@ export function FormSuccess({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(80% 70% at 74% 28%, rgba(0,200,83,0.16) 0%, rgba(0,200,83,0.03) 44%, rgba(4,24,15,0) 74%)",
+            "radial-gradient(80% 70% at 74% 28%, rgba(51,164,2,0.16) 0%, rgba(51,164,2,0.03) 44%, rgba(2,96,13,0) 74%)",
         }}
       />
 
       <div className="relative grid gap-8 p-6 md:grid-cols-12 md:gap-6 md:p-9 lg:p-10">
         <div className="md:col-span-7 md:flex md:flex-col md:justify-between">
           <div>
-            <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-dawn-mint/70">
+            <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-dawn-mint/92">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-green text-ink">
                 <Check className="h-3 w-3" strokeWidth={2.6} aria-hidden="true" />
               </span>
@@ -57,13 +57,13 @@ export function FormSuccess({
             <h3 className="mt-5 max-w-[12ch] font-serif text-[clamp(2.4rem,5.6vw,4.8rem)] font-medium leading-[0.94] tracking-[-0.045em]">
               {title}
             </h3>
-            <p className="mt-5 max-w-[44ch] font-sans text-[16px] leading-[1.62] text-white/65">
+            <p className="mt-5 max-w-[44ch] font-sans text-[16px] leading-[1.62] text-white/88">
               {body}
             </p>
           </div>
 
           <div className="mt-8 border-t border-white/12 pt-5">
-            <p className="max-w-[42ch] font-mono text-[8.5px] uppercase leading-[1.8] tracking-[0.16em] text-white/35">
+            <p className="max-w-[42ch] font-mono text-[8.5px] uppercase leading-[1.8] tracking-[0.16em] text-white/66">
               Sent to the church team. No further action is needed on this page.
             </p>
             <Button
@@ -89,7 +89,7 @@ export function FormSuccess({
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, #04180F 0%, #062316 42%, #0B3B24 70%, #0B3B24 100%)",
+                  "linear-gradient(180deg, #02600D 0%, #0E6B0C 42%, #408609 70%, #408609 100%)",
               }}
             />
             <span
@@ -97,7 +97,7 @@ export function FormSuccess({
               className="absolute inset-x-0 bottom-0 h-[46%]"
               style={{
                 background:
-                  "linear-gradient(180deg, rgba(0,200,83,0) 0%, rgba(0,200,83,0.2) 48%, rgba(201,245,218,0.85) 100%)",
+                  "linear-gradient(180deg, rgba(51,164,2,0) 0%, rgba(51,164,2,0.2) 48%, rgba(196,209,32,0.85) 100%)",
               }}
             />
 
@@ -107,7 +107,7 @@ export function FormSuccess({
                 viewBox="0 0 200 200"
                 className="success-rays absolute -inset-14 h-[calc(100%+112px)] w-[calc(100%+112px)]"
               >
-                <g stroke="#00C853" strokeWidth="0.7" opacity="0.5">
+                <g stroke="#33A402" strokeWidth="0.7" opacity="0.5">
                   {Array.from({ length: 24 }).map((_, index) => (
                     <line
                       key={index}
@@ -125,7 +125,7 @@ export function FormSuccess({
                 className="success-sun absolute inset-0 rounded-full bg-brand-green"
                 style={{
                   boxShadow:
-                    "0 0 60px rgba(0,200,83,0.55), 0 0 140px rgba(0,200,83,0.28)",
+                    "0 0 60px rgba(51,164,2,0.55), 0 0 140px rgba(51,164,2,0.28)",
                 }}
               />
             </div>
@@ -139,7 +139,7 @@ export function FormSuccess({
               className="absolute inset-x-4 bottom-[24%] h-10 -translate-y-1/2"
               style={{
                 background:
-                  "radial-gradient(60% 100% at 50% 100%, rgba(201,245,218,0.42) 0%, rgba(201,245,218,0) 70%)",
+                  "radial-gradient(60% 100% at 50% 100%, rgba(196,209,32,0.42) 0%, rgba(196,209,32,0) 70%)",
               }}
             />
 
@@ -149,7 +149,7 @@ export function FormSuccess({
               className="absolute inset-0 ring-1 ring-inset ring-white/20"
               style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
             />
-            <div className="absolute inset-x-0 top-5 flex items-start justify-between px-4 font-mono text-[7px] uppercase tracking-[0.18em] text-white/45">
+            <div className="absolute inset-x-0 top-5 flex items-start justify-between px-4 font-mono text-[7px] uppercase tracking-[0.18em] text-white/76">
               <span>Fig. 01</span>
               <span>Daybreak</span>
             </div>
@@ -158,7 +158,7 @@ export function FormSuccess({
               <span>WAT</span>
             </div>
           </div>
-          <figcaption className="mt-3 text-right font-mono text-[8px] uppercase leading-[1.7] tracking-[0.16em] text-white/30">
+          <figcaption className="mt-3 text-right font-mono text-[8px] uppercase leading-[1.7] tracking-[0.16em] text-white/56">
             We get better every day.
           </figcaption>
         </figure>

@@ -36,7 +36,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
           position: "relative",
           padding: "62px 72px 54px",
           background:
-            "linear-gradient(148deg, #04180F 0%, #0B3B24 52%, #04180F 100%)",
+            "linear-gradient(148deg, #02600D 0%, #408609 52%, #02600D 100%)",
           color: "#FFFFFF",
           overflow: "hidden",
         }}
@@ -51,7 +51,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
             height: 900,
             display: "flex",
             borderRadius: "380px 380px 0 0",
-            border: "2px solid rgba(201,245,218,0.24)",
+            border: "2px solid rgba(196,209,32,0.24)",
           }}
         />
         <div
@@ -64,7 +64,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
             display: "flex",
             borderRadius: "270px 270px 0 0",
             background:
-              "radial-gradient(circle at 50% 18%, rgba(0,200,83,0.30) 0%, rgba(0,200,83,0.05) 46%, rgba(0,200,83,0) 70%)",
+              "radial-gradient(circle at 50% 18%, rgba(51,164,2,0.30) 0%, rgba(51,164,2,0.05) 46%, rgba(51,164,2,0) 70%)",
           }}
         />
         <div
@@ -76,7 +76,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
             height: 250,
             display: "flex",
             background:
-              "linear-gradient(180deg, rgba(201,245,218,0) 0%, rgba(201,245,218,0.35) 100%)",
+              "linear-gradient(180deg, rgba(196,209,32,0) 0%, rgba(196,209,32,0.35) 100%)",
           }}
         />
 
@@ -121,7 +121,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
               fontSize: 18,
               letterSpacing: "0.3em",
               textTransform: "uppercase",
-              color: "#00C853",
+              color: "#33A402",
             }}
           >
             <div
@@ -129,7 +129,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
                 width: 42,
                 height: 2,
                 display: "flex",
-                background: "#00C853",
+                background: "#33A402",
               }}
             />
             {kicker}
@@ -155,7 +155,7 @@ export function renderOgImage({ kicker, title, subtitle }: OgImageInput) {
                 maxWidth: 640,
                 fontSize: 23,
                 lineHeight: 1.4,
-                color: "rgba(201,245,218,0.74)",
+                color: "rgba(196,209,32,0.74)",
               }}
             >
               {subtitle}

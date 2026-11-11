@@ -24,7 +24,7 @@ export function PrayerHero(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 top-0 h-[74vh]"
         style={{
           background:
-            "radial-gradient(64% 60% at 22% 8%, rgba(0,200,83,0.16) 0%, rgba(0,200,83,0.03) 46%, rgba(4,24,15,0) 76%)",
+            "radial-gradient(64% 60% at 22% 8%, rgba(51,164,2,0.16) 0%, rgba(51,164,2,0.03) 46%, rgba(2,96,13,0) 76%)",
         }}
       />
       <span
@@ -44,7 +44,7 @@ export function PrayerHero(): React.ReactElement {
 
         <div className="mt-10 grid grid-cols-12 items-end gap-x-3 gap-y-12 md:mt-14 md:gap-x-6 lg:mt-16">
           <div className="col-span-12 lg:col-span-7">
-            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/40">
+            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/72">
               <span className="h-1.5 w-1.5 rounded-full bg-signal-red" aria-hidden="true" />
               Prayer · guidance · pastoral support
             </p>
@@ -55,16 +55,16 @@ export function PrayerHero(): React.ReactElement {
               <span className="mt-1 block">{PRAYER.hero.lines[2]}</span>
             </h1>
 
-            <p className="mt-7 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/70 md:text-[17px]">
+            <p className="mt-7 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/90 md:text-[17px]">
               {PRAYER.hero.lead}
             </p>
-            <p className="mt-4 max-w-[46ch] font-sans text-[14.5px] leading-[1.65] text-white/45">
+            <p className="mt-4 max-w-[46ch] font-sans text-[14.5px] leading-[1.65] text-white/76">
               {PRAYER.hero.body}
             </p>
 
             <Link
               href="#prayer-request"
-              className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-white/25 pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-brand-green hover:text-white"
+              className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-white/25 pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/90 transition-colors hover:border-brand-green hover:text-white"
             >
               Submit a prayer request
               <ArrowDown className="h-3.5 w-3.5 text-brand-green" strokeWidth={1.6} aria-hidden="true" />
@@ -85,14 +85,14 @@ export function PrayerHero(): React.ReactElement {
               >
                 <defs>
                   <linearGradient id="prayer-sky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#04180F" />
-                    <stop offset="58%" stopColor="#0B3B24" />
-                    <stop offset="100%" stopColor="#00C853" />
+                    <stop offset="0%" stopColor="#02600D" />
+                    <stop offset="58%" stopColor="#408609" />
+                    <stop offset="100%" stopColor="#33A402" />
                   </linearGradient>
                   <radialGradient id="prayer-glow" cx="50%" cy="88%" r="62%">
                     <stop offset="0%" stopColor="#FFF3EE" stopOpacity="0.95" />
-                    <stop offset="32%" stopColor="#C9F5DA" stopOpacity="0.55" />
-                    <stop offset="100%" stopColor="#00C853" stopOpacity="0" />
+                    <stop offset="32%" stopColor="#C4D120" stopOpacity="0.55" />
+                    <stop offset="100%" stopColor="#33A402" stopOpacity="0" />
                   </radialGradient>
                   <clipPath id="prayer-arch">
                     <path d="M20 500 V238 C20 119 100 40 200 40 C300 40 380 119 380 238 V500 Z" />
@@ -110,7 +110,7 @@ export function PrayerHero(): React.ReactElement {
                       cy="474"
                       r={44 + index * 34}
                       fill="none"
-                      stroke="#C9F5DA"
+                      stroke="#C4D120"
                       strokeWidth="0.6"
                       opacity={0.42 - index * 0.032}
                     />
@@ -118,19 +118,19 @@ export function PrayerHero(): React.ReactElement {
 
                   <path
                     d="M200 96 V474"
-                    stroke="#F2FFF6"
+                    stroke="#F8FCEF"
                     strokeWidth="0.7"
                     opacity="0.38"
                   />
                   <path
                     d="M144 132 V474 M256 132 V474"
-                    stroke="#C9F5DA"
+                    stroke="#C4D120"
                     strokeWidth="0.5"
                     opacity="0.22"
                   />
                   <path
                     d="M92 196 V474 M308 196 V474"
-                    stroke="#C9F5DA"
+                    stroke="#C4D120"
                     strokeWidth="0.45"
                     opacity="0.18"
                   />
@@ -140,7 +140,7 @@ export function PrayerHero(): React.ReactElement {
 
                   <path
                     d="M20 360 H380 M20 420 H380"
-                    stroke="#04180F"
+                    stroke="#02600D"
                     strokeWidth="0.6"
                     opacity="0.22"
                   />
@@ -149,7 +149,7 @@ export function PrayerHero(): React.ReactElement {
                 <path
                   d="M20 500 V238 C20 119 100 40 200 40 C300 40 380 119 380 238 V500"
                   fill="none"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="1"
                   opacity="0.5"
                 />
@@ -161,12 +161,12 @@ export function PrayerHero(): React.ReactElement {
                 style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/60 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/80">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/60 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
                 <span>Fig. 01 — The quiet hour</span>
                 <span>Gwarinpa</span>
               </div>
             </div>
-            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
               <span>Light study · no photograph</span>
               <span>Plate 01</span>
             </figcaption>
@@ -180,17 +180,17 @@ export function PrayerHero(): React.ReactElement {
               key={type}
               className="border-b border-white/12 py-4 sm:border-r sm:px-5 sm:last:border-r-0 lg:border-b-0"
             >
-              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/56">
                 {String(index + 1).padStart(2, "0")}
               </p>
-              <p className="mt-1.5 font-sans text-[13.5px] leading-[1.4] text-white/70">
+              <p className="mt-1.5 font-sans text-[13.5px] leading-[1.4] text-white/90">
                 {type}
               </p>
             </li>
           ))}
         </ol>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+        <div className="flex flex-wrap items-center justify-between gap-3 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56">
           <p>Requests are not published · counselling subject to availability</p>
           <p>Forever Life and Grace Mission</p>
         </div>

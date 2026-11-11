@@ -26,7 +26,7 @@ export function DawnHandoff(): React.ReactElement {
             <h2 className="max-w-[18ch] font-serif text-[clamp(2.1rem,4.6vw,4.4rem)] font-medium leading-[0.94] tracking-[-0.035em]">
               Welcome to Forever Life and Grace Mission
             </h2>
-            <p className="mt-7 max-w-[54ch] font-sans text-[17px] leading-[1.6] text-forest/80 md:text-[18px]">
+            <p className="mt-7 max-w-[54ch] font-sans text-[17px] leading-[1.6] text-deep-green md:text-[18px]">
               Welcome to Forever Life and Grace Mission, where the life of God is
               revealed, the grace of Jesus Christ is celebrated, and believers are
               established in their identity as sons of God.
@@ -54,7 +54,7 @@ export function DawnHandoff(): React.ReactElement {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, #EFF9F2 0%, #F5FCF8 12%, #E9FBF0 32%, #D2F7E0 54%, #BCF2D0 68%, #F3E7DF 80%, #FFDCD5 90%, #F6D2CA 100%)",
+                      "linear-gradient(180deg, #F2F8E6 0%, #F7FCEF 12%, #EAF7DC 32%, #DFF3CB 54%, #CFEDB4 68%, #F3E7DF 80%, #FFDCD5 90%, #F6D2CA 100%)",
                   }}
                 />
                 {/* Halo. */}
@@ -62,7 +62,7 @@ export function DawnHandoff(): React.ReactElement {
                   className="absolute left-[36%] top-[66%] h-[54%] w-[58%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[24px]"
                   style={{
                     background:
-                      "radial-gradient(circle, rgba(255,232,225,0.85) 0%, rgba(201,245,218,0.6) 40%, rgba(0,200,83,0.14) 66%, rgba(0,200,83,0) 84%)",
+                      "radial-gradient(circle, rgba(255,232,225,0.85) 0%, rgba(196,209,32,0.6) 40%, rgba(51,164,2,0.14) 66%, rgba(51,164,2,0) 84%)",
                   }}
                   aria-hidden="true"
                 />
@@ -72,8 +72,8 @@ export function DawnHandoff(): React.ReactElement {
                   className="absolute left-[34%] top-[64%] aspect-square w-[40%] -translate-x-1/2 -translate-y-1/2 rounded-full"
                   style={{
                     background:
-                      "radial-gradient(circle closest-side at 50% 44%, #FFFFFF 0%, #FDFFFE 18%, #F2FEF7 34%, #E2FCED 50%, #CCF8DF 66%, #B0F2CB 82%, #93EAB8 100%)",
-                    boxShadow: "0 0 46px 14px rgba(255,241,233,0.5), 0 0 90px 30px rgba(201,245,218,0.28)",
+                      "radial-gradient(circle closest-side at 50% 44%, #FFFFFF 0%, #FDFFF5 18%, #F8FCEF 34%, #ECF9D8 50%, #DCF3BE 66%, #C6EBA4 82%, #B2E38C 100%)",
+                    boxShadow: "0 0 46px 14px rgba(255,241,233,0.5), 0 0 90px 30px rgba(196,209,32,0.28)",
                   }}
                   aria-hidden="true"
                 />
@@ -87,13 +87,13 @@ export function DawnHandoff(): React.ReactElement {
                 >
                   <defs>
                     <linearGradient id="study-far" x1="0" y1="0" x2="0.16" y2="1">
-                      <stop offset="0%" stopColor="#0F3522" />
-                      <stop offset="46%" stopColor="#072015" />
-                      <stop offset="100%" stopColor="#03100A" />
+                      <stop offset="0%" stopColor="#2A780B" />
+                      <stop offset="46%" stopColor="#156C0C" />
+                      <stop offset="100%" stopColor="#024A0B" />
                     </linearGradient>
                     <linearGradient id="study-near" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#03120C" />
-                      <stop offset="100%" stopColor="#010604" />
+                      <stop offset="0%" stopColor="#013A09" />
+                      <stop offset="100%" stopColor="#012B07" />
                     </linearGradient>
                   </defs>
                   <path
@@ -103,7 +103,7 @@ export function DawnHandoff(): React.ReactElement {
                   <path
                     d="M0 52 C 74 44 120 24 176 26 C 236 28 268 12 316 14 C 356 16 384 26 400 30"
                     fill="none"
-                    stroke="rgba(201,245,218,0.5)"
+                    stroke="rgba(196,209,32,0.5)"
                     strokeWidth="1"
                     vectorEffect="non-scaling-stroke"
                   />

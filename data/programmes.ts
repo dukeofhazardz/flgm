@@ -16,8 +16,8 @@ export interface ProgrammeRecord {
   weekday: number | null;
   /** 24-hour WAT time used for the next-occurrence badge. Null when unconfirmed. */
   time24: string | null;
-  /** Weekly, or the first Thursday of each month. */
-  recurrence: "weekly" | "first-thursday" | null;
+  /** Weekly, the 1st of each month, or the 1st Saturday of each month. */
+  recurrence: "weekly" | "first-of-month" | "first-saturday" | null;
 }
 
 export const PROGRAMMES: ProgrammeRecord[] = [
@@ -59,15 +59,27 @@ export const PROGRAMMES: ProgrammeRecord[] = [
   },
   {
     id: "alpha-worship",
-    name: "Alpha Worship – Pulling Down the Jericho Wall",
+    name: "Alpha Worship – Falling the Jericho Walls",
     description:
       "A special monthly worship and prayer gathering focused on worship, spiritual growth, and the manifestation of God’s grace.",
-    day: "First Thursday of the month",
+    day: "1st of Every Month",
     time: "Details coming soon", // content.md: one section says 5:00 PM, another gives none — unconfirmed
     confirmed: false,
-    weekday: 4,
+    weekday: null,
     time24: null,
-    recurrence: "first-thursday",
+    recurrence: "first-of-month",
+  },
+  {
+    id: "kingdom-advocate",
+    name: "Kingdom Advocate Leadership Training",
+    description:
+      "Leadership training held on the first Saturday of every month.",
+    day: "1st Saturday of Every Month",
+    time: "Details coming soon",
+    confirmed: false,
+    weekday: 6,
+    time24: null,
+    recurrence: "first-saturday",
   },
   {
     id: "house-fellowship",

@@ -38,7 +38,7 @@ export function WatchProgramme(): React.ReactElement {
           </div>
           <div className="md:col-span-5 md:pt-2">
             <span aria-hidden="true" className="block h-px w-12 bg-brand-green" />
-            <p className="mt-4 max-w-[28ch] font-serif text-[clamp(1.15rem,2.2vw,1.6rem)] font-medium italic leading-[1.28] tracking-[-0.015em] text-forest">
+            <p className="mt-4 max-w-[28ch] font-serif text-[clamp(1.15rem,2.2vw,1.6rem)] font-medium italic leading-[1.28] tracking-[-0.015em] text-deep-green">
               {WATCH_AND_PRAY.theme}
             </p>
           </div>
@@ -61,7 +61,7 @@ export function WatchProgramme(): React.ReactElement {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(4,24,15,0.96) 0%, rgba(11,59,36,0.9) 36%, rgba(0,200,83,0.78) 74%, rgba(201,245,218,0.85) 100%)",
+                      "linear-gradient(180deg, rgba(2,96,13,0.96) 0%, rgba(64,134,9,0.9) 36%, rgba(51,164,2,0.78) 74%, rgba(196,209,32,0.85) 100%)",
                   }}
                 />
                 <span
@@ -69,7 +69,7 @@ export function WatchProgramme(): React.ReactElement {
                   className="absolute inset-x-[6%] bottom-0 top-[28%] opacity-70"
                   style={{
                     background:
-                      "radial-gradient(circle at 50% 78%, rgba(201,245,218,0.5) 0%, rgba(201,245,218,0) 62%)",
+                      "radial-gradient(circle at 50% 78%, rgba(196,209,32,0.5) 0%, rgba(196,209,32,0) 62%)",
                   }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -81,11 +81,11 @@ export function WatchProgramme(): React.ReactElement {
                   />
                 </div>
                 <div className="grain absolute inset-0" aria-hidden="true" />
-                <div className="absolute inset-x-5 top-[26%] flex items-start justify-between font-mono text-[7.5px] uppercase tracking-[0.18em] text-white/60">
+                <div className="absolute inset-x-5 top-[26%] flex items-start justify-between font-mono text-[7.5px] uppercase tracking-[0.18em] text-white/86">
                   <span>Fig. 04</span>
                   <span>Fifty mornings</span>
                 </div>
-                <div className="absolute inset-x-3 bottom-4 flex items-end justify-between font-mono text-[7.5px] uppercase tracking-[0.18em] text-white/65">
+                <div className="absolute inset-x-3 bottom-4 flex items-end justify-between font-mono text-[7.5px] uppercase tracking-[0.18em] text-white/88">
                   <span>Generative study</span>
                   <span>05:30 WAT</span>
                 </div>
@@ -97,7 +97,7 @@ export function WatchProgramme(): React.ReactElement {
           </div>
 
           <div className="md:col-span-7 md:col-start-6">
-            <div className="max-w-[62ch] space-y-5 text-[17px] leading-[1.62] text-forest/85 md:text-[18px]">
+            <div className="max-w-[62ch] space-y-5 text-[17px] leading-[1.62] text-deep-green md:text-[18px]">
               {WATCH_AND_PRAY.about.map((paragraph) => (
                 <p key={paragraph.slice(0, 24)}>{paragraph}</p>
               ))}

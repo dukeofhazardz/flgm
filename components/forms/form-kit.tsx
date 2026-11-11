@@ -230,7 +230,7 @@ export function RadioCards({
             />
             <span
               aria-hidden="true"
-              className="relative flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border border-ink/30 bg-white transition-colors duration-200 peer-checked:border-ink peer-checked:bg-ink"
+              className="relative flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full border border-ink/30 bg-white transition-colors duration-200 peer-checked:border-ink peer-checked:bg-night"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-white" />
             </span>
@@ -274,7 +274,7 @@ export function CheckboxCards<T extends FieldValues>({
             key={option}
             className="group relative flex min-h-[44px] cursor-pointer items-center gap-2.5 border border-ink/15 bg-white px-3.5 py-2 transition-[background-color,border-color] duration-200 has-[:checked]:border-ink has-[:checked]:bg-dawn-mint hover:border-ink/40"
           >
-            <span className="relative flex h-4 w-4 shrink-0 items-center justify-center border border-ink/30 bg-white has-[:checked]:border-ink has-[:checked]:bg-ink">
+            <span className="relative flex h-4 w-4 shrink-0 items-center justify-center border border-ink/30 bg-white has-[:checked]:border-ink has-[:checked]:bg-night">
               <input
                 type="checkbox"
                 value={option}
@@ -313,7 +313,7 @@ export function Consent({
   return (
     <div>
       <label className="flex cursor-pointer items-start gap-3">
-        <span className="relative mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-ink/30 bg-white transition-colors duration-200 has-[:checked]:border-ink has-[:checked]:bg-ink">
+        <span className="relative mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-ink/30 bg-white transition-colors duration-200 has-[:checked]:border-ink has-[:checked]:bg-night">
           <input
             type="checkbox"
             className="peer sr-only"
@@ -415,7 +415,7 @@ export function DirectLines({
       <p
         className={cn(
           "font-mono text-[8.5px] uppercase tracking-[0.18em]",
-          tone === "dark" ? "text-white/45" : "text-ink/45"
+          tone === "dark" ? "text-white/76" : "text-ink/45"
         )}
       >
         Reach the church directly
@@ -429,7 +429,7 @@ export function DirectLines({
               "inline-flex min-h-[32px] w-fit items-center gap-2 font-mono text-[12px] tracking-[0.04em] transition-colors",
               tone === "dark"
                 ? "text-white/85 hover:text-dawn-mint"
-                : "text-ink/80 hover:text-forest"
+                : "text-ink/80 hover:text-deep-green"
             )}
           >
             <span className="h-1 w-1 rounded-full bg-signal-red" aria-hidden="true" />
@@ -445,7 +445,7 @@ export function DirectLines({
           className={cn(
             "mt-1 inline-flex min-h-[36px] w-fit items-center gap-1.5 border px-3 py-1.5 font-mono text-[9px] uppercase tracking-[0.16em] transition-colors",
             tone === "dark"
-              ? "border-white/25 text-white/80 hover:border-dawn-mint hover:text-dawn-mint"
+              ? "border-white/25 text-white/94 hover:border-dawn-mint hover:text-dawn-mint"
               : "border-ink/25 text-ink/75 hover:border-ink hover:text-ink"
           )}
         >
@@ -499,7 +499,7 @@ export function FormAlert({ code, message }: FormAlertProps): React.ReactElement
         <AlertCircle
           className={cn(
             "mt-0.5 h-4 w-4 shrink-0",
-            notice ? "text-forest" : "text-crimson-text"
+            notice ? "text-deep-green" : "text-crimson-text"
           )}
           strokeWidth={1.8}
           aria-hidden="true"

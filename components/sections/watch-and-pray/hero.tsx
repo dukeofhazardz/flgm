@@ -99,11 +99,11 @@ export function WatchHero(): React.ReactElement {
         {/* ── Night field ── */}
         <div className="relative z-10 flex min-h-0 flex-1 flex-col px-5 pb-5 pt-[112px] md:px-8 md:pt-[108px] lg:px-10 lg:pt-[124px]">
           <div className="flex items-start justify-between gap-6 border-b border-white/10 pb-3">
-            <p className="flex items-center gap-2.5 whitespace-nowrap font-mono text-[8.5px] uppercase leading-none tracking-[0.22em] text-white/50 md:text-[9px]">
+            <p className="flex items-center gap-2.5 whitespace-nowrap font-mono text-[8.5px] uppercase leading-none tracking-[0.22em] text-white/79 md:text-[9px]">
               <span className="h-1.5 w-1.5 bg-signal-red" aria-hidden="true" />
               Watch and Pray
             </p>
-            <p className="whitespace-nowrap text-right font-mono text-[8.5px] uppercase leading-[1.6] tracking-[0.18em] text-white/40 md:text-[9px]">
+            <p className="whitespace-nowrap text-right font-mono text-[8.5px] uppercase leading-[1.6] tracking-[0.18em] text-white/72 md:text-[9px]">
               <span className="hidden sm:inline">
                 50 days
                 <span className="mx-2 text-white/15" aria-hidden="true">
@@ -132,7 +132,7 @@ export function WatchHero(): React.ReactElement {
 
                 <p
                   data-wap-fade
-                  className="mt-5 max-w-[32ch] font-sans text-[15px] leading-[1.5] text-white/65 md:mt-6 md:text-[16px]"
+                  className="mt-5 max-w-[32ch] font-sans text-[15px] leading-[1.5] text-white/88 md:mt-6 md:text-[16px]"
                 >
                   Strategic Prayer and Testimony Outreach
                 </p>
@@ -150,7 +150,7 @@ export function WatchHero(): React.ReactElement {
           <div className="hidden items-end justify-between gap-4 md:flex">
             <p
               data-wap-fade
-              className="max-w-[30ch] font-mono text-[8.5px] uppercase leading-[1.8] tracking-[0.16em] text-white/35 md:text-[9px]"
+              className="max-w-[30ch] font-mono text-[8.5px] uppercase leading-[1.8] tracking-[0.16em] text-white/66 md:text-[9px]"
             >
               Gwarinpa, Abuja
               <span className="mx-2 text-white/15" aria-hidden="true">
@@ -164,7 +164,7 @@ export function WatchHero(): React.ReactElement {
               className="flex shrink-0 items-center gap-2.5"
               aria-hidden="true"
             >
-              <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/35 md:text-[9px]">
+              <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/66 md:text-[9px]">
                 The watch begins
               </span>
               <span className="relative block h-7 w-px overflow-hidden bg-white/15">
@@ -180,7 +180,7 @@ export function WatchHero(): React.ReactElement {
           className="relative z-10 flex shrink-0 flex-col justify-between overflow-hidden bg-brand-green px-5 pb-0 pt-3 text-ink md:px-8 md:pt-4 lg:px-10"
           style={{ height: BAND_HEIGHT }}
         >
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,rgba(201,245,218,0.4)_0%,rgba(201,245,218,0)_58%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_50%_0%,rgba(196,209,32,0.4)_0%,rgba(196,209,32,0)_58%)]" />
           <div
             className="pointer-events-none absolute inset-x-0 top-0 h-px bg-dawn-mint/70"
             aria-hidden="true"
@@ -222,7 +222,7 @@ export function WatchHero(): React.ReactElement {
 
             <Link
               href="/watch-and-pray/calendar"
-              className="group inline-flex min-h-9 shrink-0 items-center gap-2 whitespace-nowrap border border-ink/30 px-2.5 py-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-ink/85 transition-[background-color,color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-ink hover:bg-ink hover:text-dawn-mint active:scale-[0.98] md:min-h-10 md:px-3.5 md:text-[9px]"
+              className="group inline-flex min-h-9 shrink-0 items-center gap-2 whitespace-nowrap border border-ink/30 px-2.5 py-1.5 font-mono text-[8.5px] uppercase tracking-[0.14em] text-ink/85 transition-[background-color,color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-ink hover:bg-night hover:text-dawn-mint active:scale-[0.98] md:min-h-10 md:px-3.5 md:text-[9px]"
             >
               <CalendarPlus className="h-3.5 w-3.5" strokeWidth={1.6} aria-hidden="true" />
               Add to calendar

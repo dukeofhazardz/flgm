@@ -159,24 +159,24 @@ export async function sendFormEmail(
 
   const html = `
     <div style="font-family:Arial,Helvetica,sans-serif;color:#07130d;line-height:1.55;max-width:640px">
-      <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#0b3b24">Forever Life and Grace Mission</p>
+      <p style="font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#408609">Forever Life and Grace Mission</p>
       <h1 style="font-size:24px;margin:8px 0 16px">${escapeHtml(meta.subject)}</h1>
       <p>${escapeHtml(meta.intro)}</p>
       <table style="width:100%;border-collapse:collapse;margin-top:16px">
         ${lines
           .map(
             (line) => `<tr>
-              <th style="text-align:left;vertical-align:top;padding:8px 16px 8px 0;border-top:1px solid #d8e5dc;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#0b3b24;width:34%">${escapeHtml(
+              <th style="text-align:left;vertical-align:top;padding:8px 16px 8px 0;border-top:1px solid #DDE5CE;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#408609;width:34%">${escapeHtml(
               line.label
             )}</th>
-              <td style="padding:8px 0;border-top:1px solid #d8e5dc;white-space:pre-wrap">${escapeHtml(
+              <td style="padding:8px 0;border-top:1px solid #DDE5CE;white-space:pre-wrap">${escapeHtml(
                 line.value
               )}</td>
             </tr>`
           )
           .join("")}
       </table>
-      <p style="margin-top:24px;font-size:12px;color:#436052">Submitted ${escapeHtml(
+      <p style="margin-top:24px;font-size:12px;color:#4A5A38">Submitted ${escapeHtml(
         submittedAt
       )} WAT from the FLGM website.</p>
     </div>

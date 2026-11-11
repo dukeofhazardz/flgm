@@ -32,13 +32,13 @@ export function NewMembersJourney(): React.ReactElement {
                 The visitor{" "}
                 <span className="italic">journey.</span>
               </h2>
-              <p className="mt-5 max-w-[34ch] font-sans text-[15px] leading-[1.62] text-forest/70 md:text-[16px]">
+              <p className="mt-5 max-w-[34ch] font-sans text-[15px] leading-[1.62] text-deep-green md:text-[16px]">
                 Register online or in person when you visit. From that first
                 registration, the church follows a clear path with you.
               </p>
 
               <div className="mt-7 border-t border-ink/15 pt-5">
-                <p className="max-w-[34ch] font-serif text-[clamp(1.15rem,2vw,1.45rem)] font-medium italic leading-[1.3] tracking-[-0.02em] text-forest/80">
+                <p className="max-w-[34ch] font-serif text-[clamp(1.15rem,2vw,1.45rem)] font-medium italic leading-[1.3] tracking-[-0.02em] text-deep-green">
                   Follow-up progress is documented and reported to the
                   appropriate leadership.
                 </p>
@@ -70,7 +70,7 @@ export function NewMembersJourney(): React.ReactElement {
               >
                 <span
                   aria-hidden="true"
-                  className="relative z-10 mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-ink/20 bg-mist font-mono text-[9px] tabular-nums tracking-[0.06em] text-ink/55 transition-colors duration-300 group-hover:border-ink group-hover:bg-ink group-hover:text-white md:h-10 md:w-10 md:text-[10px]"
+                  className="relative z-10 mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-ink/20 bg-mist font-mono text-[9px] tabular-nums tracking-[0.06em] text-ink/55 transition-colors duration-300 group-hover:border-ink group-hover:bg-night group-hover:text-white md:h-10 md:w-10 md:text-[10px]"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -80,7 +80,7 @@ export function NewMembersJourney(): React.ReactElement {
                     <h3 className="max-w-[24ch] font-serif text-[clamp(1.35rem,2.6vw,2rem)] font-medium leading-[1.05] tracking-[-0.03em]">
                       {step.title}
                     </h3>
-                    <p className="mt-2 max-w-[48ch] font-sans text-[14px] leading-[1.6] text-forest/70 md:text-[15px]">
+                    <p className="mt-2 max-w-[48ch] font-sans text-[14px] leading-[1.6] text-deep-green md:text-[15px]">
                       {step.note}
                     </p>
                   </div>

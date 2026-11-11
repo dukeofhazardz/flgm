@@ -36,7 +36,7 @@ function FeaturedPlayer({ sermon }: { sermon: Sermon }): React.ReactElement {
             </div>
             <div className="grain absolute inset-0" aria-hidden="true" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/50">
+              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/79">
                 Audio message
               </p>
               <p className="mt-2 max-w-[22ch] font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-medium leading-tight tracking-[-0.02em] text-white">
@@ -64,11 +64,11 @@ function FeaturedPlayer({ sermon }: { sermon: Sermon }): React.ReactElement {
           <br />
           {formatDate(sermon.date)} · {sermon.service}
         </p>
-        <p className="mt-4 max-w-[42ch] text-[16px] leading-[1.62] text-forest/75">
+        <p className="mt-4 max-w-[42ch] text-[16px] leading-[1.62] text-deep-green">
           {sermon.description}
         </p>
         {sermon.scripture.length > 0 ? (
-          <p className="mt-4 font-serif text-[1.1rem] italic leading-[1.5] text-forest/80">
+          <p className="mt-4 font-serif text-[1.1rem] italic leading-[1.5] text-deep-green">
             {sermon.scripture.join(" · ")}
           </p>
         ) : null}
@@ -96,7 +96,7 @@ function EmptyFeature(): React.ReactElement {
         <p className="mt-4 max-w-[14ch] font-serif text-[clamp(2.8rem,7.2vw,6.8rem)] font-medium leading-[0.92] tracking-[-0.05em] text-ink">
           The first word is <span className="italic">on its way.</span>
         </p>
-        <p className="mt-5 max-w-[46ch] text-[16px] leading-[1.62] text-forest/72 md:text-[17px]">
+        <p className="mt-5 max-w-[46ch] text-[16px] leading-[1.62] text-deep-green md:text-[17px]">
           The FLGM message library is being prepared. When the church publishes
           the first message, it will be featured here with the speaker, date,
           Scripture, and video.
@@ -120,7 +120,7 @@ function EmptyFeature(): React.ReactElement {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, #04180F 0%, #0B3B24 42%, #00C853 78%, #C9F5DA 100%)",
+                "linear-gradient(180deg, #02600D 0%, #408609 42%, #33A402 78%, #C4D120 100%)",
             }}
           />
           <span
@@ -151,7 +151,7 @@ function EmptyFeature(): React.ReactElement {
             style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
             aria-hidden="true"
           />
-          <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/80">
+          <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
             <span>Fig. 01 — The Word</span>
             <span className="hidden lg:inline">Awaiting first publication</span>
           </div>

@@ -47,7 +47,7 @@ export function AnnualWeek(): React.ReactElement {
           <h2 className="col-span-12 max-w-[12ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             The week, in <span className="italic">rhythm.</span>
           </h2>
-          <p className="col-span-12 max-w-[38ch] text-[15px] leading-[1.62] text-forest/72 md:col-span-4 md:col-start-9 md:text-[16px]">
+          <p className="col-span-12 max-w-[38ch] text-[15px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[16px]">
             Sunday gathers the family. Thursday turns the week toward prayer.
             Around them, fellowship, evangelism, and building work continue
             through the year.
@@ -142,7 +142,7 @@ export function AnnualWeek(): React.ReactElement {
               The annual <span className="italic">programme.</span>
             </h3>
             <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-ink/35">
-              Eight movements · one house
+              Nine movements · one house
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export function AnnualWeek(): React.ReactElement {
                 <h4 className="mt-2 max-w-[30ch] font-serif text-[clamp(1.25rem,2.4vw,1.8rem)] font-medium leading-[1.06] tracking-[-0.02em]">
                   {item.label}
                 </h4>
-                <p className="mt-2 max-w-[48ch] text-[14px] leading-[1.58] text-forest/68">
+                <p className="mt-2 max-w-[48ch] text-[14px] leading-[1.58] text-deep-green">
                   {item.description}
                 </p>
                 <p

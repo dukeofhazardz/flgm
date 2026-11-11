@@ -52,18 +52,18 @@ export function HeroLand(): React.ReactElement {
         >
           <defs>
             <linearGradient id="land-a" x1="0" y1="0" x2="0.16" y2="1">
-              <stop offset="0%" stopColor="#04170F" />
-              <stop offset="38%" stopColor="#020F09" />
-              <stop offset="100%" stopColor="#010704" />
+              <stop offset="0%" stopColor="#024A0B" />
+              <stop offset="38%" stopColor="#013A09" />
+              <stop offset="100%" stopColor="#012B07" />
             </linearGradient>
             {/* Rim light, brightest where the sun will break the crest. */}
             <linearGradient id="rim-a" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#C9F5DA" stopOpacity="0" />
-              <stop offset="30%" stopColor="#C9F5DA" stopOpacity="0.04" />
-              <stop offset="43%" stopColor="#C9F5DA" stopOpacity="0.46" />
-              <stop offset="52%" stopColor="#C9F5DA" stopOpacity="0.34" />
-              <stop offset="68%" stopColor="#C9F5DA" stopOpacity="0.04" />
-              <stop offset="100%" stopColor="#C9F5DA" stopOpacity="0" />
+              <stop offset="0%" stopColor="#C4D120" stopOpacity="0" />
+              <stop offset="30%" stopColor="#C4D120" stopOpacity="0.04" />
+              <stop offset="43%" stopColor="#C4D120" stopOpacity="0.46" />
+              <stop offset="52%" stopColor="#C4D120" stopOpacity="0.34" />
+              <stop offset="68%" stopColor="#C4D120" stopOpacity="0.04" />
+              <stop offset="100%" stopColor="#C4D120" stopOpacity="0" />
             </linearGradient>
           </defs>
           <path d={RIDGE_A_FLAT} fill="url(#land-a)" className="xl:hidden" />
@@ -95,7 +95,7 @@ export function HeroLand(): React.ReactElement {
         className="absolute left-[50%] top-0 z-[1] w-[min(56vw,clamp(180px,30svh,330px))] -translate-x-1/2 -translate-y-[72%] xl:-translate-y-[76%] opacity-0"
       >
         <svg viewBox="0 0 300 120" className="h-auto w-full" aria-hidden="true">
-          <path d={SKYLINE} fillRule="evenodd" fill="#010805" />
+          <path d={SKYLINE} fillRule="evenodd" fill="#010703" />
         </svg>
       </div>
 
@@ -109,23 +109,23 @@ export function HeroLand(): React.ReactElement {
         >
           <defs>
             <linearGradient id="land-b" x1="0" y1="0" x2="0.14" y2="1">
-              <stop offset="0%" stopColor="#03130C" />
-              <stop offset="42%" stopColor="#010A06" />
-              <stop offset="100%" stopColor="#010503" />
+              <stop offset="0%" stopColor="#013A09" />
+              <stop offset="42%" stopColor="#012B07" />
+              <stop offset="100%" stopColor="#011E05" />
             </linearGradient>
             <linearGradient id="land-c" x1="0" y1="0" x2="0.1" y2="1">
-              <stop offset="0%" stopColor="#020E09" />
-              <stop offset="46%" stopColor="#010704" />
-              <stop offset="100%" stopColor="#000302" />
+              <stop offset="0%" stopColor="#012B07" />
+              <stop offset="46%" stopColor="#011E05" />
+              <stop offset="100%" stopColor="#010F03" />
             </linearGradient>
             <linearGradient id="land-d" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#010A07" />
-              <stop offset="48%" stopColor="#010503" />
-              <stop offset="100%" stopColor="#000201" />
+              <stop offset="0%" stopColor="#011E05" />
+              <stop offset="48%" stopColor="#010F03" />
+              <stop offset="100%" stopColor="#010A02" />
             </linearGradient>
             <linearGradient id="land-e" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#010705" />
-              <stop offset="100%" stopColor="#000201" />
+              <stop offset="0%" stopColor="#011E05" />
+              <stop offset="100%" stopColor="#010A02" />
             </linearGradient>
           </defs>
           <path d={RIDGE_B} fill="url(#land-b)" />

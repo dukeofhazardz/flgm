@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
  */
 
 const BASE =
-  "flex min-h-[18px] flex-nowrap items-center gap-x-2 whitespace-nowrap font-mono text-[9.5px] uppercase leading-none tracking-[0.13em] text-white/70 md:text-[10.5px] md:tracking-[0.14em]";
+  "flex min-h-[18px] flex-nowrap items-center gap-x-2 whitespace-nowrap font-mono text-[9.5px] uppercase leading-none tracking-[0.13em] text-white/90 md:text-[10.5px] md:tracking-[0.14em]";
 
 let cached: { key: string; value: Gathering } | null = null;
 
@@ -38,9 +38,9 @@ export function NextGathering({ className }: NextGatheringProps): React.ReactEle
         <span className="absolute inset-0 rounded-full bg-brand-green" />
         <span className="live-dot absolute inset-0 rounded-full bg-brand-green" />
       </span>
-      <span className="text-white/45">Next gathering</span>
+      <span className="text-white/76">Next gathering</span>
       <span className="text-white">{gathering ? gathering.dayLabel : "Sunday"}</span>
-      <span className="text-dawn-mint/40" aria-hidden="true">
+      <span className="text-dawn-mint/70" aria-hidden="true">
         ·
       </span>
       <span className="text-dawn-mint">{gathering ? gathering.timeLabel : "8:00 AM WAT"}</span>

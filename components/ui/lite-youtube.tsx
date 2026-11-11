@@ -43,7 +43,7 @@ export function LiteYouTube({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(160deg, #04180F 0%, #0B3B24 45%, #007A36 100%)",
+                "linear-gradient(160deg, #02600D 0%, #408609 45%, #33A402 100%)",
             }}
           />
           <span
@@ -51,7 +51,7 @@ export function LiteYouTube({
             className="absolute inset-0 opacity-60"
             style={{
               background:
-                "radial-gradient(70% 90% at 50% 110%, rgba(0,200,83,0.55) 0%, rgba(0,200,83,0) 65%)",
+                "radial-gradient(70% 90% at 50% 110%, rgba(51,164,2,0.55) 0%, rgba(51,164,2,0) 65%)",
             }}
           />
           <div className="absolute inset-0 flex items-center justify-center opacity-35">
@@ -59,7 +59,7 @@ export function LiteYouTube({
           </div>
           <div className="grain absolute inset-0" aria-hidden="true" />
 
-          <div className="absolute inset-x-4 top-3 flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.18em] text-white/55">
+          <div className="absolute inset-x-4 top-3 flex items-center justify-between font-mono text-[8px] uppercase tracking-[0.18em] text-white/82">
             <span>Replay</span>
             <span>Watch and Pray</span>
           </div>

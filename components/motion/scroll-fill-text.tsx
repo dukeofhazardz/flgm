@@ -29,7 +29,7 @@ type CSSStyleWithSetProperty = React.CSSProperties & {
 export function ScrollFillText({
   children,
   className,
-  fillColor = "#00c853",
+  fillColor = "#33A402",
 }: ScrollFillTextProps): React.ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const reduced =

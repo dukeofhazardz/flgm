@@ -25,7 +25,7 @@ export function VolunteerHero(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 top-0 h-[78vh]"
         style={{
           background:
-            "radial-gradient(68% 62% at 76% 8%, rgba(0,200,83,0.2) 0%, rgba(0,200,83,0.03) 46%, rgba(4,24,15,0) 76%)",
+            "radial-gradient(68% 62% at 76% 8%, rgba(51,164,2,0.2) 0%, rgba(51,164,2,0.03) 46%, rgba(2,96,13,0) 76%)",
         }}
       />
       <span
@@ -45,7 +45,7 @@ export function VolunteerHero(): React.ReactElement {
 
         <div className="mt-10 grid grid-cols-12 items-end gap-x-3 gap-y-12 md:mt-14 md:gap-x-6 lg:mt-16">
           <div className="col-span-12 lg:col-span-7">
-            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/40">
+            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/72">
               <span className="h-1.5 w-1.5 rounded-full bg-signal-red" aria-hidden="true" />
               Every believer has a place
             </p>
@@ -57,16 +57,16 @@ export function VolunteerHero(): React.ReactElement {
               <span className="mt-1 block italic text-dawn-mint">Build disciples.</span>
             </h1>
 
-            <p className="mt-7 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/70 md:text-[17px]">
+            <p className="mt-7 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/90 md:text-[17px]">
               {VOLUNTEER.hero.lead}
             </p>
-            <p className="mt-4 max-w-[48ch] font-sans text-[14.5px] leading-[1.65] text-white/45">
+            <p className="mt-4 max-w-[48ch] font-sans text-[14.5px] leading-[1.65] text-white/76">
               {VOLUNTEER.hero.body}
             </p>
 
             <Link
               href="#volunteer-form"
-              className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-white/25 pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/70 transition-colors hover:border-brand-green hover:text-white"
+              className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-white/25 pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/90 transition-colors hover:border-brand-green hover:text-white"
             >
               Register to serve
               <ArrowDown className="h-3.5 w-3.5 text-brand-green" strokeWidth={1.6} aria-hidden="true" />
@@ -87,17 +87,17 @@ export function VolunteerHero(): React.ReactElement {
               >
                 <defs>
                   <linearGradient id="vol-sky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#04180F" />
-                    <stop offset="64%" stopColor="#0B3B24" />
-                    <stop offset="100%" stopColor="#007A36" />
+                    <stop offset="0%" stopColor="#02600D" />
+                    <stop offset="64%" stopColor="#408609" />
+                    <stop offset="100%" stopColor="#33A402" />
                   </linearGradient>
                   <linearGradient id="vol-bar" x1="0" y1="1" x2="0" y2="0">
-                    <stop offset="0%" stopColor="#00C853" stopOpacity="0.1" />
-                    <stop offset="100%" stopColor="#C9F5DA" stopOpacity="0.8" />
+                    <stop offset="0%" stopColor="#33A402" stopOpacity="0.1" />
+                    <stop offset="100%" stopColor="#C4D120" stopOpacity="0.8" />
                   </linearGradient>
                   <radialGradient id="vol-glow" cx="50%" cy="86%" r="60%">
-                    <stop offset="0%" stopColor="#C9F5DA" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="#00C853" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#C4D120" stopOpacity="0.5" />
+                    <stop offset="100%" stopColor="#33A402" stopOpacity="0" />
                   </radialGradient>
                   <clipPath id="vol-arch">
                     <path d="M20 500 V238 C20 119 100 40 200 40 C300 40 380 119 380 238 V500 Z" />
@@ -127,7 +127,7 @@ export function VolunteerHero(): React.ReactElement {
                           width="32"
                           height={heights[index]}
                           fill="none"
-                          stroke="#C9F5DA"
+                          stroke="#C4D120"
                           strokeWidth="0.7"
                           opacity="0.65"
                         />
@@ -151,7 +151,7 @@ export function VolunteerHero(): React.ReactElement {
                       y1={y}
                       x2="346"
                       y2={y}
-                      stroke="#C9F5DA"
+                      stroke="#C4D120"
                       strokeWidth="0.4"
                       strokeDasharray="2 6"
                       opacity="0.25"
@@ -160,7 +160,7 @@ export function VolunteerHero(): React.ReactElement {
 
                   <path
                     d="M54 468 H346"
-                    stroke="#C9F5DA"
+                    stroke="#C4D120"
                     strokeWidth="0.8"
                     opacity="0.55"
                   />
@@ -171,7 +171,7 @@ export function VolunteerHero(): React.ReactElement {
                       x={x}
                       y="490"
                       textAnchor="middle"
-                      fill="#C9F5DA"
+                      fill="#C4D120"
                       opacity="0.6"
                       fontFamily="var(--font-mono)"
                       fontSize="8"
@@ -185,7 +185,7 @@ export function VolunteerHero(): React.ReactElement {
                 <path
                   d="M20 500 V238 C20 119 100 40 200 40 C300 40 380 119 380 238 V500"
                   fill="none"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="1"
                   opacity="0.5"
                 />
@@ -197,12 +197,12 @@ export function VolunteerHero(): React.ReactElement {
                 style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/60 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/80">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/60 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
                 <span>Fig. 01 — Five ways to serve</span>
                 <span>Elevation</span>
               </div>
             </div>
-            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
               <span>Ministry elevation · no photograph</span>
               <span>Plate 01</span>
             </figcaption>
@@ -214,12 +214,12 @@ export function VolunteerHero(): React.ReactElement {
             {VOLUNTEER.hero.invite}
           </p>
           <div className="col-span-12 flex flex-wrap items-end justify-between gap-3 md:col-span-4 md:col-start-9">
-            <p className="font-mono text-[8px] uppercase leading-[1.8] tracking-[0.16em] text-white/35">
+            <p className="font-mono text-[8px] uppercase leading-[1.8] tracking-[0.16em] text-white/66">
               {CHURCH.tagline}
               <br />
               Registration · orientation · placement
             </p>
-            <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-dawn-mint/60">
+            <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-dawn-mint/88">
               Serve according to your gifts
             </p>
           </div>

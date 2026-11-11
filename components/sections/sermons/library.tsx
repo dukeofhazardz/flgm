@@ -42,7 +42,7 @@ function SermonCard({ sermon }: { sermon: Sermon }): React.ReactElement {
             <ArtSlot name="book" size={190} color="white" />
           </div>
           <div className="grain absolute inset-0" aria-hidden="true" />
-          <p className="absolute inset-x-4 bottom-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/45">
+          <p className="absolute inset-x-4 bottom-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/76">
             Audio message
           </p>
         </div>
@@ -64,11 +64,11 @@ function SermonCard({ sermon }: { sermon: Sermon }): React.ReactElement {
         <p className="mt-2 font-mono text-[8.5px] uppercase leading-[1.7] tracking-[0.14em] text-ink/40">
           {sermon.speaker} · {sermon.speakerRole}
         </p>
-        <p className="mt-3 max-w-[42ch] text-[14px] leading-[1.58] text-forest/70">
+        <p className="mt-3 max-w-[42ch] text-[14px] leading-[1.58] text-deep-green">
           {sermon.description}
         </p>
         {sermon.scripture.length > 0 ? (
-          <p className="mt-3 font-serif text-[1rem] italic leading-[1.5] text-forest/75">
+          <p className="mt-3 font-serif text-[1rem] italic leading-[1.5] text-deep-green">
             {sermon.scripture.join(" · ")}
           </p>
         ) : null}
@@ -104,13 +104,13 @@ function EmptyArchive({
         className="pointer-events-none absolute inset-x-0 top-0 h-full"
         style={{
           background:
-            "radial-gradient(70% 80% at 78% 20%, rgba(0,200,83,0.18) 0%, rgba(0,200,83,0.03) 48%, rgba(0,200,83,0) 76%)",
+            "radial-gradient(70% 80% at 78% 20%, rgba(51,164,2,0.18) 0%, rgba(51,164,2,0.03) 48%, rgba(51,164,2,0) 76%)",
         }}
       />
 
       <div className="relative grid grid-cols-12 items-center gap-x-3 gap-y-8 p-5 md:gap-x-6 md:p-9 lg:p-11">
         <div className="col-span-12 md:col-span-7">
-          <p className="flex items-center gap-3 font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/40">
+          <p className="flex items-center gap-3 font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/72">
             <span className="h-1.5 w-1.5 bg-signal-red" aria-hidden="true" />
             {isArchiveEmpty ? "The archive · 00 messages" : "No matching messages"}
           </p>
@@ -127,7 +127,7 @@ function EmptyArchive({
             )}
           </p>
 
-          <p className="mt-5 max-w-[46ch] text-[15px] leading-[1.62] text-white/65 md:text-[16px]">
+          <p className="mt-5 max-w-[46ch] text-[15px] leading-[1.62] text-white/88 md:text-[16px]">
             {isArchiveEmpty
               ? "The FLGM message library is being prepared. The first published message will appear here with its speaker, date, Scripture, and video — nothing is staged or invented in the meantime."
               : "No published message matches this search or category. Try another word, or return to the full library."}
@@ -135,13 +135,13 @@ function EmptyArchive({
 
           <div className="mt-7 flex flex-wrap gap-3">
             {filtered ? (
-              <span className="font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/40">
+              <span className="font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/72">
                 Clear the filter above to see everything
               </span>
             ) : (
               <Link
                 href="/watch-and-pray"
-                className="inline-flex min-h-11 items-center gap-2 border border-white/30 px-3.5 py-2 font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/75 transition-colors hover:border-brand-green hover:text-white"
+                className="inline-flex min-h-11 items-center gap-2 border border-white/30 px-3.5 py-2 font-mono text-[8.5px] uppercase tracking-[0.14em] text-white/92 transition-colors hover:border-brand-green hover:text-white"
               >
                 Watch and Pray
                 <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />
@@ -149,7 +149,7 @@ function EmptyArchive({
             )}
           </div>
 
-          <p className="mt-6 max-w-[48ch] font-mono text-[8px] uppercase leading-[1.8] tracking-[0.16em] text-white/40">
+          <p className="mt-6 max-w-[48ch] font-mono text-[8px] uppercase leading-[1.8] tracking-[0.16em] text-white/72">
             Messages are published with church approval. Audio, video, and
             transcripts will live with each published message.
           </p>
@@ -165,7 +165,7 @@ function EmptyArchive({
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(180deg, #04180F 0%, #0B3B24 48%, #007A36 82%, #00C853 100%)",
+                  "linear-gradient(180deg, #02600D 0%, #408609 48%, #33A402 82%, #33A402 100%)",
               }}
             />
             <span
@@ -173,7 +173,7 @@ function EmptyArchive({
               className="absolute inset-0 opacity-70"
               style={{
                 background:
-                  "radial-gradient(62% 50% at 50% 92%, rgba(201,245,218,0.32) 0%, rgba(201,245,218,0) 76%)",
+                  "radial-gradient(62% 50% at 50% 92%, rgba(196,209,32,0.32) 0%, rgba(196,209,32,0) 76%)",
               }}
             />
             <div className="absolute inset-0 flex items-center justify-center">
@@ -186,7 +186,7 @@ function EmptyArchive({
               00
             </span>
             <div className="grain absolute inset-0" aria-hidden="true" />
-            <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/80">
+            <figcaption className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
               <span>Fig. 01 — The open page</span>
               <span>Ready</span>
             </figcaption>
@@ -255,7 +255,7 @@ export function SermonLibrary(): React.ReactElement {
           <h2 className="col-span-12 max-w-[11ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             The <span className="italic">archive.</span>
           </h2>
-          <p className="col-span-12 max-w-[42ch] text-[16px] leading-[1.62] text-forest/72 md:col-span-4 md:col-start-9 md:text-[17px]">
+          <p className="col-span-12 max-w-[42ch] text-[16px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[17px]">
             Search every published message by title, speaker, Scripture, or
             category. The archive opens with the first approved message.
           </p>
@@ -301,7 +301,7 @@ export function SermonLibrary(): React.ReactElement {
             className={cn(
               "min-h-11 border px-3 py-2 font-mono text-[8.5px] uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.97]",
               filter === "all"
-                ? "border-ink bg-ink text-white"
+                ? "border-ink bg-night text-white"
                 : "border-ink/18 text-ink/60 hover:border-ink/50 hover:text-ink"
             )}
           >
@@ -318,7 +318,7 @@ export function SermonLibrary(): React.ReactElement {
                 className={cn(
                   "min-h-11 border px-3 py-2 font-mono text-[8.5px] uppercase tracking-[0.14em] transition-[background-color,color,border-color,transform] duration-200 active:scale-[0.97]",
                   selected
-                    ? "border-ink bg-ink text-white"
+                    ? "border-ink bg-night text-white"
                     : "border-ink/18 text-ink/60 hover:border-ink/50 hover:text-ink"
                 )}
               >

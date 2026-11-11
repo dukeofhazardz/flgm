@@ -35,7 +35,7 @@ function CalendarButton({ className }: { className?: string }): React.ReactEleme
       href="/watch-and-pray/calendar"
       className={cn(
         "group inline-flex min-h-11 items-center gap-2.5 border border-white/25 px-4 py-2.5",
-        "font-mono text-[9px] uppercase tracking-[0.18em] text-white/80",
+        "font-mono text-[9px] uppercase tracking-[0.18em] text-white/94",
         "transition-[background-color,color,border-color,transform] duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]",
         "hover:border-white hover:bg-white hover:text-ink active:scale-[0.98]",
         className
@@ -57,14 +57,14 @@ function PanelHeader({
 }): React.ReactElement {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3.5">
-      <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.24em] text-white/45">
+      <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.24em] text-white/76">
         <span className="h-1.5 w-1.5 rounded-full bg-brand-green" aria-hidden="true" />
         The watch
       </p>
-      <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/40">
+      <div className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.18em] text-white/72">
         <span>{phaseLabel}</span>
         <span aria-hidden="true" className="h-3 w-px bg-white/15" />
-        <span className="tabular-nums text-white/70">
+        <span className="tabular-nums text-white/90">
           {now
             ? `${watClock(now)}:${String(lagosParts(now).second).padStart(2, "0")}`
             : "--:--:--"}{" "}
@@ -86,7 +86,7 @@ function BeforeWatch({ now }: { now: Date }): React.ReactElement {
           <p className="text-balance font-serif text-[clamp(1.4rem,3.4vw,2.7rem)] font-medium leading-[1.05] tracking-[-0.025em] text-white">
             The first watch begins in
           </p>
-          <p className="mt-4 max-w-[34ch] text-[15px] leading-[1.6] text-white/60">
+          <p className="mt-4 max-w-[34ch] text-[15px] leading-[1.6] text-white/86">
             Fifty mornings of prayer, worship, testimony, and digital outreach.
             Set a reminder and begin with us at first light.
           </p>
@@ -105,7 +105,7 @@ function BeforeWatch({ now }: { now: Date }): React.ReactElement {
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4">
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/50">
+            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/79">
               <span className="sm:hidden">Wed 11 Nov 2026 · 5:30 AM WAT</span>
               <span className="hidden sm:inline">Wednesday 11 November 2026</span>
               <span className="mx-2 hidden text-brand-green sm:inline" aria-hidden="true">
@@ -113,7 +113,7 @@ function BeforeWatch({ now }: { now: Date }): React.ReactElement {
               </span>
               <span className="hidden sm:inline">5:30 AM WAT</span>
             </p>
-            <p className="shrink-0 font-mono text-[9px] uppercase tracking-[0.2em] text-white/30">
+            <p className="shrink-0 font-mono text-[9px] uppercase tracking-[0.2em] text-white/56">
               Day 01 of 50
             </p>
           </div>
@@ -137,7 +137,7 @@ function DuringWatch({ now }: { now: Date }): React.ReactElement | null {
   return (
     <div className="grid gap-8 pt-6 md:grid-cols-12 md:items-center md:gap-6">
       <div className="md:col-span-7">
-        <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">
+        <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1 font-mono text-[9px] uppercase tracking-[0.2em] text-white/82">
           {live ? (
             <>
               <span className="inline-flex items-center gap-2 text-white">
@@ -147,18 +147,18 @@ function DuringWatch({ now }: { now: Date }): React.ReactElement | null {
                 />
                 Live now
               </span>
-              <span aria-hidden="true" className="text-white/20">
+              <span aria-hidden="true" className="text-white/38">
                 /
               </span>
               <span>5:30 AM WAT</span>
             </>
           ) : (
             <>
-              <span className="inline-flex items-center gap-2 text-white/80">
+              <span className="inline-flex items-center gap-2 text-white/94">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-green" aria-hidden="true" />
                 Today’s watch
               </span>
-              <span aria-hidden="true" className="text-white/20">
+              <span aria-hidden="true" className="text-white/38">
                 /
               </span>
               <span>5:30 AM WAT</span>
@@ -170,12 +170,12 @@ function DuringWatch({ now }: { now: Date }): React.ReactElement | null {
           <span className="font-serif text-[clamp(5.2rem,22vw,13rem)] font-medium leading-[0.78] tracking-[-0.06em] text-white tabular-nums">
             {String(day).padStart(2, "0")}
           </span>
-          <span className="max-w-[4ch] font-mono text-[10px] uppercase leading-[1.5] tracking-[0.2em] text-white/45">
+          <span className="max-w-[4ch] font-mono text-[10px] uppercase leading-[1.5] tracking-[0.2em] text-white/76">
             Day of 50
           </span>
         </p>
 
-        <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
+        <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/72">
           {today.weekday}
           <span className="mx-2 text-brand-green" aria-hidden="true">
             /
@@ -183,7 +183,7 @@ function DuringWatch({ now }: { now: Date }): React.ReactElement | null {
           {today.longLabel}
         </p>
 
-        <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.6] text-white/60">
+        <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.6] text-white/86">
           {live
             ? "The morning watch is open. Join the daily prayer on Facebook, Instagram, or TikTok."
             : "The daily watch gathers at 5:30 AM WAT. The live mark appears during the morning window."}
@@ -220,7 +220,7 @@ function AfterWatch({ now }: { now: Date }): React.ReactElement | null {
   return (
     <div className="grid gap-8 pt-6 md:grid-cols-12 md:items-center md:gap-6">
       <div className="md:col-span-7">
-        <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/55">
+        <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/82">
           <span className="h-1.5 w-1.5 rounded-full bg-brand-green" aria-hidden="true" />
           The fifty days are complete
         </p>
@@ -229,16 +229,16 @@ function AfterWatch({ now }: { now: Date }): React.ReactElement | null {
           <span className="font-serif text-[clamp(5.2rem,22vw,13rem)] font-medium leading-[0.78] tracking-[-0.06em] text-white tabular-nums">
             50
           </span>
-          <span className="max-w-[4ch] font-mono text-[10px] uppercase leading-[1.5] tracking-[0.2em] text-white/45">
+          <span className="max-w-[4ch] font-mono text-[10px] uppercase leading-[1.5] tracking-[0.2em] text-white/76">
             Days prayed
           </span>
         </p>
 
-        <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
+        <p className="mt-5 font-mono text-[9px] uppercase tracking-[0.22em] text-white/72">
           11 November — 30 December 2026
         </p>
 
-        <p className="mt-4 max-w-[44ch] text-[15px] leading-[1.6] text-white/60">
+        <p className="mt-4 max-w-[44ch] text-[15px] leading-[1.6] text-white/86">
           The daily watch has closed, but the replays remain open. Return to the
           archive for the sessions, scriptures, testimonies, and declarations from
           the fifty days.
@@ -303,7 +303,7 @@ export function WatchState(): React.ReactElement {
         className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(0,200,83,0.16) 0%, rgba(0,200,83,0) 70%)",
+            "radial-gradient(circle, rgba(51,164,2,0.16) 0%, rgba(51,164,2,0) 70%)",
         }}
       />
       <PanelHeader

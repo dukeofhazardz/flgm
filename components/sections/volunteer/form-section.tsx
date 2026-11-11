@@ -37,7 +37,7 @@ export function VolunteerFormSection(): React.ReactElement {
                 Register to{" "}
                 <span className="italic">serve.</span>
               </h2>
-              <p className="mt-4 max-w-[32ch] font-sans text-[14px] leading-[1.6] text-forest/70">
+              <p className="mt-4 max-w-[32ch] font-sans text-[14px] leading-[1.6] text-deep-green">
                 {VOLUNTEER.form.lead}
               </p>
 
@@ -52,7 +52,7 @@ export function VolunteerFormSection(): React.ReactElement {
                         {step}
                       </span>
                     </p>
-                    <p className="mt-1 pl-7 font-sans text-[12.5px] leading-[1.5] text-forest/60">
+                    <p className="mt-1 pl-7 font-sans text-[12.5px] leading-[1.5] text-deep-green">
                       {STEP_NOTES[index]}
                     </p>
                   </li>
@@ -65,7 +65,7 @@ export function VolunteerFormSection(): React.ReactElement {
                 </p>
                 <a
                   href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
-                  className="mt-2 inline-flex min-h-9 items-center gap-2 font-mono text-[12px] tracking-[0.04em] text-ink/75 transition-colors hover:text-forest"
+                  className="mt-2 inline-flex min-h-9 items-center gap-2 font-mono text-[12px] tracking-[0.04em] text-ink/75 transition-colors hover:text-deep-green"
                 >
                   <span className="h-1 w-1 rounded-full bg-signal-red" aria-hidden="true" />
                   {CONTACT.phones[0]}

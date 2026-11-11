@@ -38,7 +38,7 @@ export function HistoryTimeline({
               <h3 className="font-serif text-[clamp(1.4rem,2.6vw,2rem)] font-medium leading-tight tracking-[-0.02em]">
                 {milestone.title}
               </h3>
-              <p className="mt-2 max-w-[52ch] text-[16px] leading-[1.62] text-forest/75">
+              <p className="mt-2 max-w-[52ch] text-[16px] leading-[1.62] text-deep-green">
                 {milestone.body}
               </p>
             </div>
@@ -111,7 +111,7 @@ export function AboutHistory(): React.ReactElement {
           </div>
 
           <div className="col-span-12 md:col-span-7 md:col-start-6">
-            <p className="max-w-[30ch] font-serif text-[clamp(1.35rem,2.6vw,2.1rem)] font-medium leading-[1.22] tracking-[-0.02em] text-forest">
+            <p className="max-w-[30ch] font-serif text-[clamp(1.35rem,2.6vw,2.1rem)] font-medium leading-[1.22] tracking-[-0.02em] text-deep-green">
               {ABOUT_HISTORY.paragraphs[0]}
             </p>
 
@@ -124,7 +124,7 @@ export function AboutHistory(): React.ReactElement {
                   <span className="col-span-1 font-mono text-[9px] uppercase tracking-[0.18em] text-ink/30 md:col-span-1">
                     {String(index + 2).padStart(2, "0")}
                   </span>
-                  <p className="col-span-1 max-w-[54ch] text-[16px] leading-[1.66] text-forest/75 md:col-span-11 md:text-[17px]">
+                  <p className="col-span-1 max-w-[54ch] text-[16px] leading-[1.66] text-deep-green md:col-span-11 md:text-[17px]">
                     {paragraph}
                   </p>
                 </div>

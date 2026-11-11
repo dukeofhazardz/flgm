@@ -33,7 +33,7 @@ export function SectionHeader({
       )}
     >
       <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-        <SectionTag className={dark ? "text-white/45" : "text-ink/45"}>
+        <SectionTag className={dark ? "text-white/76" : "text-ink/45"}>
           {tag}
         </SectionTag>
         <span
@@ -45,7 +45,7 @@ export function SectionHeader({
         <p
           className={cn(
             "hidden font-mono text-[9px] uppercase tracking-[0.2em] md:col-span-4 md:block",
-            dark ? "text-white/35" : "text-ink/35"
+            dark ? "text-white/66" : "text-ink/35"
           )}
         >
           {note}
@@ -55,7 +55,7 @@ export function SectionHeader({
         className={cn(
           "col-span-4 text-right text-[9px] uppercase tracking-[0.2em] md:col-span-2",
           note ? "" : "md:col-start-11",
-          dark ? "text-white/35" : "text-ink/35"
+          dark ? "text-white/66" : "text-ink/35"
         )}
       >
         {folio}

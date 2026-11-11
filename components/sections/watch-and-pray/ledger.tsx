@@ -89,22 +89,22 @@ export function WatchLedger(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 top-0 h-72"
         style={{
           background:
-            "radial-gradient(80% 100% at 50% 0%, rgba(0,200,83,0.12) 0%, rgba(0,200,83,0) 70%)",
+            "radial-gradient(80% 100% at 50% 0%, rgba(51,164,2,0.12) 0%, rgba(51,164,2,0) 70%)",
         }}
       />
 
       <div className="relative mx-auto max-w-[1680px] px-5 pb-20 pt-16 md:px-8 md:pb-28 md:pt-24 lg:px-10 lg:pb-32">
         <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/45">
+            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/76">
               § 03 — The Ledger
             </span>
             <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
           </div>
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-4 md:block">
+          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-4 md:block">
             Fifty numbered mornings
           </p>
-          <span className="col-span-4 text-right font-mono text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-2">
+          <span className="col-span-4 text-right font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-2">
             No. 06 / 10
           </span>
         </header>
@@ -114,7 +114,7 @@ export function WatchLedger(): React.ReactElement {
             <h2 className="max-w-[12ch] font-serif text-[clamp(2.7rem,7vw,6.8rem)] font-medium leading-[0.92] tracking-[-0.045em]">
               The 50-Day <span className="italic">Ledger</span>
             </h2>
-            <p className="mt-4 max-w-[44ch] text-[15px] leading-[1.6] text-white/55">
+            <p className="mt-4 max-w-[44ch] text-[15px] leading-[1.6] text-white/82">
               One plate for every morning of the watch. The ledger fills as the days
               are kept, from Day 01 to Day 50.
             </p>
@@ -124,7 +124,7 @@ export function WatchLedger(): React.ReactElement {
             {LEGEND.map((item) => (
               <span
                 key={item.label}
-                className="flex items-center gap-2 font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/45"
+                className="flex items-center gap-2 font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/76"
               >
                 <span
                   aria-hidden="true"
@@ -137,7 +137,7 @@ export function WatchLedger(): React.ReactElement {
         </div>
 
         <div className="mt-8 flex items-center gap-4 md:mt-10">
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/35">
+          <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/66">
             11 Nov
           </span>
           <span
@@ -154,7 +154,7 @@ export function WatchLedger(): React.ReactElement {
               style={{ transform: `scaleX(${keptFraction})` }}
             />
           </span>
-          <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/35">
+          <span className="font-mono text-[8.5px] uppercase tracking-[0.2em] text-white/66">
             30 Dec
           </span>
         </div>
@@ -188,7 +188,7 @@ export function WatchLedger(): React.ReactElement {
                   <span
                     className={cn(
                       "font-mono text-[7px] uppercase leading-none tracking-[0.16em] md:text-[8px]",
-                      state === "future" ? "text-white/30" : "text-ink/55"
+                      state === "future" ? "text-white/56" : "text-ink/55"
                     )}
                   >
                     Day
@@ -215,7 +215,7 @@ export function WatchLedger(): React.ReactElement {
                   <span
                     className={cn(
                       "mt-1.5 flex items-baseline justify-between gap-1 font-mono text-[7px] uppercase leading-none tracking-[0.1em] md:text-[8px]",
-                      state === "future" ? "text-white/38" : "text-ink/60"
+                      state === "future" ? "text-white/70" : "text-ink/60"
                     )}
                   >
                     <span>{day.dateLabel}</span>
@@ -225,7 +225,7 @@ export function WatchLedger(): React.ReactElement {
                     <span
                       className={cn(
                         "mt-1 block truncate font-mono text-[6.5px] uppercase tracking-[0.1em]",
-                        state === "future" ? "text-white/35" : "text-ink/55"
+                        state === "future" ? "text-white/66" : "text-ink/55"
                       )}
                     >
                       {theme}
@@ -237,7 +237,7 @@ export function WatchLedger(): React.ReactElement {
           })}
         </ol>
 
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56">
           <p>Day 01 — Wednesday 11 November 2026</p>
           <p>Day 50 — Wednesday 30 December 2026</p>
         </div>

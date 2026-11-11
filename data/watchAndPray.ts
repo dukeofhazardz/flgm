@@ -1,9 +1,12 @@
 // Watch and Pray from content.md (lines 312–382).
 // Core programme facts (dates, time, theme, objectives) are confirmed.
 // Daily themes are a proposed framework only — `approved: false` everywhere.
-// The YouTube channel/livestream URL is unconfirmed (confirmed: false), so it is
-// never rendered publicly. The media-team directory is supplied but not yet
-// approved for publication (approved: false) and is therefore gated in the UI.
+// The YouTube channel is now supplied; a livestream/playlist URL is still
+// pending, so only the channel is published. The media-team directory is
+// supplied but not yet approved for publication (approved: false) and is
+// therefore gated in the UI.
+
+import { SOCIALS } from "@/data/socials";
 
 export interface WapSocial {
   platform: "Facebook" | "Instagram" | "TikTok" | "YouTube";
@@ -168,36 +171,16 @@ export const WATCH_AND_PRAY = {
     byDay: {} as Record<number, string>,
   },
 
-  socials: [
-    {
-      platform: "Facebook",
-      handle: "Forever Life & Grace Mission Family",
-      url: "https://www.facebook.com/share/1G6hvmTPcE/",
-      confirmed: true,
-    },
-    {
-      platform: "Instagram",
-      handle: "Forever Life Church",
-      url: "https://www.instagram.com/foreverlifechurch",
-      confirmed: true,
-    },
-    {
-      platform: "TikTok",
-      handle: "@foreverlife.church",
-      url: "https://www.tiktok.com/@foreverlife.church",
-      confirmed: true,
-    },
-    {
-      platform: "YouTube",
-      handle: "Official YouTube channel",
-      url: null,
-      confirmed: false,
-    },
-  ] satisfies readonly WapSocial[],
+  socials: SOCIALS.map((social) => ({
+    platform: social.label as WapSocial["platform"],
+    handle: social.handle,
+    url: social.href,
+    confirmed: true,
+  })) satisfies readonly WapSocial[],
 
   youtube: {
-    confirmed: false,
-    channelUrl: null,
+    confirmed: true,
+    channelUrl: "https://youtube.com/@flgm2023?si=NPkx2AVFzoUFNFVZ",
     liveUrl: null,
     playlistId: null,
   },

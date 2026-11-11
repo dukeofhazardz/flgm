@@ -24,7 +24,7 @@ export function VolunteerAfter(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 top-0 h-[60vh]"
         style={{
           background:
-            "radial-gradient(58% 60% at 24% 12%, rgba(0,200,83,0.16) 0%, rgba(0,200,83,0.03) 48%, rgba(4,24,15,0) 78%)",
+            "radial-gradient(58% 60% at 24% 12%, rgba(51,164,2,0.16) 0%, rgba(51,164,2,0.03) 48%, rgba(2,96,13,0) 78%)",
         }}
       />
 
@@ -42,7 +42,7 @@ export function VolunteerAfter(): React.ReactElement {
               What happens{" "}
               <span className="italic text-dawn-mint">after.</span>
             </h2>
-            <p className="mt-4 max-w-[42ch] font-sans text-[15px] leading-[1.62] text-white/55">
+            <p className="mt-4 max-w-[42ch] font-sans text-[15px] leading-[1.62] text-white/82">
               A church representative will contact you regarding the next steps.
             </p>
 
@@ -58,7 +58,7 @@ export function VolunteerAfter(): React.ReactElement {
                 >
                   <span
                     aria-hidden="true"
-                    className="relative z-10 mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-night font-mono text-[9px] tabular-nums tracking-[0.06em] text-white/55 transition-colors duration-300 group-hover:border-brand-green group-hover:text-dawn-mint md:h-10 md:w-10 md:text-[10px]"
+                    className="relative z-10 mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-night font-mono text-[9px] tabular-nums tracking-[0.06em] text-white/82 transition-colors duration-300 group-hover:border-brand-green group-hover:text-dawn-mint md:h-10 md:w-10 md:text-[10px]"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -66,7 +66,7 @@ export function VolunteerAfter(): React.ReactElement {
                     <h3 className="max-w-[26ch] font-serif text-[clamp(1.3rem,2.4vw,1.85rem)] font-medium leading-[1.06] tracking-[-0.03em] text-white/90">
                       {step.title}
                     </h3>
-                    <p className="mt-1.5 max-w-[46ch] font-sans text-[13.5px] leading-[1.6] text-white/45 md:text-[14px]">
+                    <p className="mt-1.5 max-w-[46ch] font-sans text-[13.5px] leading-[1.6] text-white/76 md:text-[14px]">
                       {step.note}
                     </p>
                   </div>
@@ -90,16 +90,16 @@ export function VolunteerAfter(): React.ReactElement {
                     <p className="max-w-[18ch] font-serif text-[clamp(1.9rem,3.6vw,3rem)] font-medium leading-[1.02] tracking-[-0.035em] text-white/90">
                       {VOLUNTEER.quote.text}
                     </p>
-                    <figcaption className="mt-4 font-mono text-[9px] uppercase tracking-[0.2em] text-dawn-mint/70">
+                    <figcaption className="mt-4 font-mono text-[9px] uppercase tracking-[0.2em] text-dawn-mint/92">
                       {VOLUNTEER.quote.source}
                     </figcaption>
                   </blockquote>
 
                   <div className="mt-8 border-t border-white/15 pt-5">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/35">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/66">
                       Our commitment
                     </p>
-                    <p className="mt-2.5 max-w-[38ch] font-sans text-[14px] leading-[1.62] text-white/60">
+                    <p className="mt-2.5 max-w-[38ch] font-sans text-[14px] leading-[1.62] text-white/86">
                       {VOLUNTEER.commitment}
                     </p>
                   </div>
@@ -108,7 +108,7 @@ export function VolunteerAfter(): React.ReactElement {
 
               <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border border-white/15 px-5 py-4">
                 <div>
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                     Ready to serve?
                   </p>
                   <p className="mt-1 font-serif text-[1.3rem] font-medium italic leading-tight tracking-[-0.02em] text-white/85">
@@ -131,7 +131,7 @@ export function VolunteerAfter(): React.ReactElement {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap items-baseline justify-between gap-3 border-t border-white/12 pt-4 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30 md:mt-20">
+        <div className="mt-14 flex flex-wrap items-baseline justify-between gap-3 border-t border-white/12 pt-4 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56 md:mt-20">
           <p>Evangelism and discipleship · volunteer registration</p>
           <p>Forever Life and Grace Mission</p>
         </div>

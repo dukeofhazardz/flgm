@@ -22,7 +22,7 @@ function Digit({ char }: { char: string }): React.ReactElement {
       <span
         className={cn(
           "flip-digit relative flex items-center justify-center overflow-hidden",
-          "border border-white/12 bg-[#082a19] text-white",
+          "border border-white/12 bg-[#024A0B] text-white",
           "h-[clamp(3.4rem,11vw,5.6rem)] w-[clamp(2.35rem,8.2vw,4.1rem)]",
           "shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-18px_30px_-18px_rgba(0,0,0,0.8)]"
         )}
@@ -57,7 +57,7 @@ export function SplitFlap({
           <Digit key={`${index}-${char}`} char={char} />
         ))}
       </div>
-      <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/40">
+      <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/72">
         {label}
       </span>
     </div>

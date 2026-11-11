@@ -67,8 +67,8 @@ export interface WeekService {
   name: string;
   time: string;
   confirmed: boolean;
-  /** Alpha Worship meets on the first Thursday only. */
-  monthly?: boolean;
+  /** Cadence note for a gathering that is not weekly, e.g. "1st Saturday". */
+  cadence?: string;
 }
 
 export interface WeekDay {
@@ -98,16 +98,22 @@ export const WEEK: WeekDay[] = [
     short: "Thu",
     services: [
       { name: "Midweek Prophetic Prayer and Faith Building", time: "5:45 PM", confirmed: true },
-      {
-        name: "Alpha Worship — Pulling Down the Jericho Wall",
-        time: "Details coming soon",
-        confirmed: false,
-        monthly: true,
-      },
     ],
   },
   { id: "fri", day: "Friday", short: "Fri", services: [] },
-  { id: "sat", day: "Saturday", short: "Sat", services: [] },
+  {
+    id: "sat",
+    day: "Saturday",
+    short: "Sat",
+    services: [
+      {
+        name: "Kingdom Advocate Leadership Training",
+        time: "Time to be confirmed",
+        confirmed: false,
+        cadence: "1st Saturday",
+      },
+    ],
+  },
 ];
 
 export type StepTone = "green" | "forest" | "night" | "mist" | "white";
@@ -172,10 +178,10 @@ export const STEP_FIELDS: Record<
   StepTone,
   { background: string; foreground: string; dark: boolean }
 > = {
-  green: { background: "#C9F5DA", foreground: "#07130D", dark: false },
-  forest: { background: "#0B3B24", foreground: "#FFFFFF", dark: true },
-  night: { background: "#04180F", foreground: "#FFFFFF", dark: true },
-  mist: { background: "#F2F8F3", foreground: "#07130D", dark: false },
+  green: { background: "#C4D120", foreground: "#07130D", dark: false },
+  forest: { background: "#0A4A0B", foreground: "#FFFFFF", dark: true },
+  night: { background: "#02600D", foreground: "#FFFFFF", dark: true },
+  mist: { background: "#F4F9EC", foreground: "#07130D", dark: false },
   white: { background: "#FFFFFF", foreground: "#07130D", dark: false },
 };
 

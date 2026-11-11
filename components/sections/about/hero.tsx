@@ -26,27 +26,27 @@ export function AboutHero(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 top-0 h-[70vh]"
         style={{
           background:
-            "radial-gradient(72% 68% at 66% 12%, rgba(0,200,83,0.18) 0%, rgba(0,200,83,0.04) 42%, rgba(0,200,83,0) 74%)",
+            "radial-gradient(72% 68% at 66% 12%, rgba(51,164,2,0.18) 0%, rgba(51,164,2,0.04) 42%, rgba(51,164,2,0) 74%)",
         }}
       />
 
       <div className="relative mx-auto max-w-[1680px] px-5 pb-16 pt-[116px] md:px-8 md:pb-24 md:pt-[132px] lg:px-10 lg:pb-32 lg:pt-[148px]">
         <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-white/45">§ 01 — Who we are</SectionTag>
+            <SectionTag className="text-white/76">§ 01 — Who we are</SectionTag>
             <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
           </div>
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-4 md:block">
+          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-4 md:block">
             {ABOUT_HERO.folio}
           </p>
-          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-2">
+          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-2">
             No. 01 / 06
           </Folio>
         </header>
 
         <div className="mt-10 grid grid-cols-12 items-end gap-x-3 gap-y-10 md:mt-14 md:gap-x-6 lg:mt-16">
           <div className="col-span-12 md:col-span-8">
-            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/40">
+            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/72">
               <span className="h-1.5 w-1.5 rounded-full bg-signal-red" aria-hidden="true" />
               The house, the people, the purpose
             </p>
@@ -75,7 +75,7 @@ export function AboutHero(): React.ReactElement {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, #0B3B24 0%, #0B3B24 34%, #00C853 72%, #C9F5DA 100%)",
+                    "linear-gradient(180deg, #408609 0%, #408609 34%, #33A402 72%, #C4D120 100%)",
                 }}
               />
               <span
@@ -109,12 +109,12 @@ export function AboutHero(): React.ReactElement {
                 }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/80">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
                 <span>Fig. 01 — Ascent</span>
                 <span className="hidden lg:inline">Resurrection Ground</span>
               </div>
             </div>
-            <p className="mt-3 hidden text-right font-mono text-[8px] uppercase leading-[1.7] tracking-[0.18em] text-white/40 lg:block">
+            <p className="mt-3 hidden text-right font-mono text-[8px] uppercase leading-[1.7] tracking-[0.18em] text-white/72 lg:block">
               {CHURCH.address}
             </p>
           </figure>
@@ -130,8 +130,8 @@ export function AboutHero(): React.ReactElement {
                 key={paragraph}
                 className={
                   index === 0
-                    ? "max-w-[42ch] text-[16px] leading-[1.62] text-white/70 md:col-span-2 md:text-[17px]"
-                    : "max-w-[38ch] text-[15px] leading-[1.62] text-white/55"
+                    ? "max-w-[42ch] text-[16px] leading-[1.62] text-white/90 md:col-span-2 md:text-[17px]"
+                    : "max-w-[38ch] text-[15px] leading-[1.62] text-white/82"
                 }
               >
                 {paragraph}

@@ -200,7 +200,7 @@ export function HomeVision(): React.ReactElement {
             </h2>
 
             <div className="mt-10 flex flex-wrap items-end justify-between gap-5 border-t border-ink/15 pt-5 md:mt-14">
-              <p className="max-w-[34ch] font-sans text-[15px] leading-[1.6] text-forest/70">
+              <p className="max-w-[34ch] font-sans text-[15px] leading-[1.6] text-deep-green">
                 A House of Grace. A People of Purpose. We get better every day.
               </p>
               <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink/35">
@@ -255,7 +255,7 @@ export function HomeVision(): React.ReactElement {
                         className="absolute inset-0"
                         style={{
                           background:
-                            "linear-gradient(180deg, rgba(201,245,218,0.55) 0%, rgba(255,255,255,0.2) 46%, rgba(255,227,222,0.55) 100%)",
+                            "linear-gradient(180deg, rgba(196,209,32,0.55) 0%, rgba(255,255,255,0.2) 46%, rgba(255,227,222,0.55) 100%)",
                         }}
                       />
                       <span
@@ -325,7 +325,7 @@ export function HomeVision(): React.ReactElement {
                       </span>
                     </h3>
 
-                    <p className="mt-4 max-w-[46ch] font-sans text-[15px] leading-[1.62] text-forest/75 md:mt-5 md:text-[16px]">
+                    <p className="mt-4 max-w-[46ch] font-sans text-[15px] leading-[1.62] text-deep-green md:mt-5 md:text-[16px]">
                       {pillar.line}
                     </p>
                   </div>

@@ -15,8 +15,8 @@ export const metadata = pageMetadata({
  * Contact — the location issue.
  *
  * Night cover with the timetable → white address and enquiry lines → mist map
- * and visit plan → white message desk. The map pin and YouTube link remain
- * flagged until the church confirms them.
+ * and visit plan → white message desk. The map pin remains flagged until the
+ * church confirms it; the YouTube channel and email are now published.
  */
 export default function ContactPage() {
   return (

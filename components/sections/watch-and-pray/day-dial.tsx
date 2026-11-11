@@ -59,7 +59,7 @@ export function DayDial({ day, className }: DayDialProps): React.ReactElement {
               y1={y1}
               x2={isToday ? x2 + 9 : x2}
               y2={isToday ? y2 : y2}
-              stroke={isToday ? "#C9F5DA" : isPast ? "#00C853" : "#FFFFFF"}
+              stroke={isToday ? "#C4D120" : isPast ? "#33A402" : "#FFFFFF"}
               strokeOpacity={isToday ? 1 : isPast ? 0.9 : 0.16}
               strokeWidth={isToday ? 3 : isPast ? 2 : 1.4}
               strokeLinecap="round"
@@ -82,19 +82,19 @@ export function DayDial({ day, className }: DayDialProps): React.ReactElement {
           );
         })()}
 
-        <g stroke="#C9F5DA" strokeOpacity="0.28">
+        <g stroke="#C4D120" strokeOpacity="0.28">
           <path d="M160 22v8M160 290v8M22 160h8M290 160h8" strokeLinecap="round" />
         </g>
       </svg>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-white/45">
+        <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-white/76">
           Day
         </span>
         <span className="mt-1 font-serif text-[clamp(4rem,12vw,7rem)] font-medium leading-[0.8] tracking-[-0.05em] text-white tabular-nums">
           {String(day).padStart(2, "0")}
         </span>
-        <span className="mt-2 font-mono text-[9px] uppercase tracking-[0.26em] text-white/45">
+        <span className="mt-2 font-mono text-[9px] uppercase tracking-[0.26em] text-white/76">
           of 50
         </span>
       </div>

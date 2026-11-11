@@ -90,7 +90,7 @@ export function LiveStrip({ theme, className }: LiveStripProps): React.ReactElem
       <span
         className={cn(
           "hidden shrink-0 font-mono text-[10px] uppercase tracking-[0.16em] sm:block",
-          theme === "dark" ? "text-white/60" : "text-forest/70"
+          theme === "dark" ? "text-white/86" : "text-deep-green"
         )}
       >
         Abuja · WAT
@@ -102,7 +102,7 @@ export function LiveStrip({ theme, className }: LiveStripProps): React.ReactElem
         className={cn(
           "-mr-1 flex h-6 w-6 shrink-0 items-center justify-center transition-opacity",
           theme === "dark"
-            ? "text-white/60 hover:text-white"
+            ? "text-white/86 hover:text-white"
             : "text-ink/60 hover:text-ink"
         )}
       >

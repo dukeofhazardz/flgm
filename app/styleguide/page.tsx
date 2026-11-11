@@ -37,16 +37,16 @@ export default function Styleguide() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {[
             ["White", "#ffffff", "text-ink"],
-            ["Night", "#04180f", "text-white"],
-            ["Forest", "#0b3b24", "text-white"],
+            ["Night", "#02600D", "text-white"],
+            ["Forest", "#408609", "text-white"],
             ["Ink", "#07130d", "text-white"],
-            ["Brand Green", "#00c853", "text-ink"],
-            ["Dawn Mint", "#c9f5da", "text-ink"],
-            ["Mist", "#f2f8f3", "text-ink"],
+            ["Brand Green", "#33A402", "text-ink"],
+            ["Dawn Mint", "#C4D120", "text-ink"],
+            ["Mist", "#F4F9EC", "text-ink"],
             ["Blush", "#ffe3de", "text-ink"],
             ["Crimson-text", "#b80000", "text-white"],
             ["Signal Red", "#fc0000", "text-ink"],
-            ["Tint White", "#f7fdf8", "text-ink"],
+            ["Tint White", "#F8FCEF", "text-ink"],
           ].map(([name, hex, textClass]) => (
             <div
               key={name}
@@ -195,7 +195,7 @@ export default function Styleguide() {
         <h2 className="font-serif text-5xl font-bold text-white leading-[1.05]">
           Move your cursor here
         </h2>
-        <p className="mt-4 text-dawn-mint/80">Soft green spotlight follows cursor on dark sections.</p>
+        <p className="mt-4 text-dawn-mint/95">Soft green spotlight follows cursor on dark sections.</p>
       </section>
 
       {/* KineticHeading demo */}

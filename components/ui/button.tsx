@@ -7,7 +7,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * Button — flat, one fill colour, square-cornered.
- * Brand green fill uses INK text (white on #00C853 fails contrast at 2.2:1).
+ * Brand green fill uses INK text (white on #33A402 is 3.3:1, below AA for
+ * body-size text; ink on it is 5.8:1).
  * Red is reserved for small accents, never a big field beside green.
  * Never animate width/height — only transform + opacity.
  *
@@ -32,7 +33,7 @@ const VARIANTS: Record<Variant, string> = {
   brand:
     "bg-brand-green text-ink hover:bg-dawn-mint active:bg-brand-green",
   outline:
-    "border border-ink/70 bg-transparent text-ink hover:bg-ink hover:text-white",
+    "border border-ink/70 bg-transparent text-ink hover:bg-night hover:text-white",
   "outline-light":
     "border border-white/45 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink",
   "text-link":

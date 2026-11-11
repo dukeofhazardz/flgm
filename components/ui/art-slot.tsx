@@ -182,7 +182,7 @@ export function ArtSlot({
           className={cn("h-full w-full", COLOR_MAP[color])}
           style={
             {
-              "--art-accent": color === "white" ? "#C9F5DA" : "#0B3B24",
+              "--art-accent": color === "white" ? "#C4D120" : "#408609",
             } as React.CSSProperties
           }
         >

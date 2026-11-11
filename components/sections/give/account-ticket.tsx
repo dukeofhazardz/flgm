@@ -69,7 +69,7 @@ export function AccountTicket(): React.ReactElement {
           <h2 className="col-span-12 max-w-[13ch] font-serif text-[clamp(2.7rem,6.6vw,6.2rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             One account. <span className="italic">One house.</span>
           </h2>
-          <p className="col-span-12 max-w-[38ch] font-sans text-[15px] leading-[1.62] text-forest/70 md:col-span-4 md:col-start-9 md:text-[16px]">
+          <p className="col-span-12 max-w-[38ch] font-sans text-[15px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[16px]">
             Use these exact details in your banking app. All contributions are
             voluntary and made through officially approved church channels.
           </p>
@@ -77,7 +77,7 @@ export function AccountTicket(): React.ReactElement {
 
         {/* ── The ticket ── */}
         <div className="relative mt-10 md:mt-14">
-          <div className="relative overflow-hidden bg-ink text-white">
+          <div className="relative overflow-hidden bg-night text-white">
             <div
               className="ticket-notch left-[calc(66.666%-14px)] top-[-14px] hidden md:block"
               aria-hidden="true"
@@ -96,16 +96,16 @@ export function AccountTicket(): React.ReactElement {
                   className="pointer-events-none absolute inset-0"
                   style={{
                     background:
-                      "radial-gradient(60% 80% at 82% 18%, rgba(0,200,83,0.24) 0%, rgba(0,200,83,0.04) 46%, rgba(7,19,13,0) 74%)",
+                      "radial-gradient(60% 80% at 82% 18%, rgba(51,164,2,0.24) 0%, rgba(51,164,2,0.04) 46%, rgba(7,19,13,0) 74%)",
                   }}
                 />
 
                 <div className="relative flex items-start justify-between gap-4">
-                  <p className="flex items-center gap-2.5 font-mono text-[8.5px] uppercase tracking-[0.2em] text-dawn-mint/75">
+                  <p className="flex items-center gap-2.5 font-mono text-[8.5px] uppercase tracking-[0.2em] text-dawn-mint/94">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-green live-dot" aria-hidden="true" />
                     Official church account
                   </p>
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/30">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/56">
                     Serial 001
                   </p>
                 </div>
@@ -113,9 +113,9 @@ export function AccountTicket(): React.ReactElement {
                 <p className="relative mt-7 font-serif text-[clamp(1.7rem,3.4vw,2.7rem)] font-medium leading-[1.02] tracking-[-0.03em]">
                   {GIVING.accountName}
                 </p>
-                <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/45">
+                <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/76">
                   {GIVING.bank}
-                  <span className="mx-2 text-white/20" aria-hidden="true">
+                  <span className="mx-2 text-white/38" aria-hidden="true">
                     /
                   </span>
                   Account number
@@ -153,7 +153,7 @@ export function AccountTicket(): React.ReactElement {
                       {GIVING.accountNumber}
                     </span>
                   </button>
-                  <p className="max-w-[30ch] font-mono text-[8px] uppercase leading-[1.7] tracking-[0.14em] text-white/35">
+                  <p className="max-w-[30ch] font-mono text-[8px] uppercase leading-[1.7] tracking-[0.14em] text-white/66">
                     No card details are collected on this website.
                   </p>
                 </div>
@@ -164,7 +164,7 @@ export function AccountTicket(): React.ReactElement {
                 <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
                 <div className="relative flex h-full flex-col justify-between gap-8">
                   <div>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/35">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/66">
                       Forever Life
                       <br />
                       and Grace Mission
@@ -189,7 +189,7 @@ export function AccountTicket(): React.ReactElement {
                         )
                       )}
                     </div>
-                    <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                    <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                       Moniepoint MFB
                       <span className="mx-1.5 text-white/15" aria-hidden="true">
                         /
@@ -199,13 +199,13 @@ export function AccountTicket(): React.ReactElement {
                   </div>
 
                   <div className="space-y-2 border-t border-white/12 pt-4">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                       Approved channel
                     </p>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                       Voluntary giving
                     </p>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                       Church-supplied details
                     </p>
                   </div>

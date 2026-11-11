@@ -33,8 +33,8 @@ function DirectoryCard({
           style={{
             background:
               index % 2 === 0
-                ? "linear-gradient(180deg, #04180F 0%, #0B3B24 50%, #00C853 100%)"
-                : "linear-gradient(180deg, #0B3B24 0%, #007A36 58%, #C9F5DA 100%)",
+                ? "linear-gradient(180deg, #02600D 0%, #408609 50%, #33A402 100%)"
+                : "linear-gradient(180deg, #408609 0%, #33A402 58%, #C4D120 100%)",
           }}
         />
         <span
@@ -65,7 +65,7 @@ function DirectoryCard({
           style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
           aria-hidden="true"
         />
-        <p className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/80">
+        <p className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
           <span>Portrait slot</span>
           <span>{String(index + 1).padStart(2, "0")}</span>
         </p>
@@ -78,7 +78,7 @@ function DirectoryCard({
         <h3 className="mt-2 max-w-[22ch] font-serif text-[clamp(1.25rem,2vw,1.65rem)] font-medium leading-[1.05] tracking-[-0.02em]">
           {entry.title}
         </h3>
-        <p className="mt-3 max-w-[30ch] text-[14px] leading-[1.55] text-forest/75">
+        <p className="mt-3 max-w-[30ch] text-[14px] leading-[1.55] text-deep-green">
           {entry.responsibility}
         </p>
 
@@ -86,7 +86,7 @@ function DirectoryCard({
           <p className="font-mono text-[8px] uppercase tracking-[0.15em] text-ink/45">
             {published ? "Directory entry" : "Awaiting approval"}
           </p>
-          <p className="mt-1 font-sans text-[14px] leading-[1.5] text-forest/75">
+          <p className="mt-1 font-sans text-[14px] leading-[1.5] text-deep-green">
             {published ? entry.name : "Name and photograph to be published."}
           </p>
         </div>
@@ -127,7 +127,7 @@ export function AboutLeadership(): React.ReactElement {
           <h2 className="col-span-12 max-w-[11ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             The people who <span className="italic">serve.</span>
           </h2>
-          <p className="col-span-12 max-w-[40ch] text-[16px] leading-[1.62] text-forest/75 md:col-span-4 md:col-start-9 md:text-[17px]">
+          <p className="col-span-12 max-w-[40ch] text-[16px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[17px]">
             Forever Life and Grace Mission is guided by spiritual leadership
             committed to the Word, the vision, and the spiritual development of
             its members.
@@ -155,17 +155,17 @@ export function AboutLeadership(): React.ReactElement {
               <h3 className="mt-7 max-w-[15ch] font-serif text-[clamp(1.9rem,3.6vw,3.2rem)] font-medium leading-[0.98] tracking-[-0.035em]">
                 {role.title}
               </h3>
-              <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.62] text-forest/75 md:text-[16px]">
+              <p className="mt-4 max-w-[42ch] text-[15px] leading-[1.62] text-deep-green md:text-[16px]">
                 {role.description}
               </p>
               {role.id === "executive-secretary" ? (
-                <p className="mt-auto max-w-[42ch] border-t border-ink/12 pt-4 text-[14px] leading-[1.6] text-forest/75 md:mt-8">
+                <p className="mt-auto max-w-[42ch] border-t border-ink/12 pt-4 text-[14px] leading-[1.6] text-deep-green md:mt-8">
                   The Executive Secretary works with the Chief Pastor, ministry
                   leaders, and relevant departments to coordinate and implement
                   church activities.
                 </p>
               ) : (
-                <p className="mt-auto max-w-[42ch] border-t border-ink/12 pt-4 text-[14px] leading-[1.6] text-forest/75 md:mt-8">
+                <p className="mt-auto max-w-[42ch] border-t border-ink/12 pt-4 text-[14px] leading-[1.6] text-deep-green md:mt-8">
                   The office holds the ministry to its divine mandate and
                   doctrinal foundations.
                 </p>
@@ -180,7 +180,7 @@ export function AboutLeadership(): React.ReactElement {
             <h3 className="font-serif text-[clamp(1.9rem,4.2vw,3.6rem)] font-medium leading-[0.98] tracking-[-0.035em] md:col-span-6">
               The ministry <span className="italic">structure.</span>
             </h3>
-            <p className="max-w-[42ch] text-[15px] leading-[1.62] text-forest/70 md:col-span-5 md:col-start-8 md:text-[16px]">
+            <p className="max-w-[42ch] text-[15px] leading-[1.62] text-deep-green md:col-span-5 md:col-start-8 md:text-[16px]">
               The church operates through ministry leaders, departmental
               coordinators, fellowship leaders, and dedicated members who carry
               the spiritual and administrative life of the ministry.
@@ -192,7 +192,7 @@ export function AboutLeadership(): React.ReactElement {
             <div className="relative">
               <div className="flex flex-col items-center">
                 <div className="w-full max-w-[420px] border border-white/20 bg-white/[0.04] px-5 py-4 text-center">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/70">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
                     Oversight
                   </p>
                   <p className="mt-1 font-serif text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-tight tracking-[-0.02em]">
@@ -203,7 +203,7 @@ export function AboutLeadership(): React.ReactElement {
                 <span aria-hidden="true" className="block h-6 w-px bg-brand-green" />
 
                 <div className="w-full max-w-[520px] border border-white/20 bg-white/[0.04] px-5 py-4 text-center">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/70">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
                     Coordination
                   </p>
                   <p className="mt-1 font-serif text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-tight tracking-[-0.02em]">
@@ -214,7 +214,7 @@ export function AboutLeadership(): React.ReactElement {
                 <span aria-hidden="true" className="block h-6 w-px bg-brand-green" />
 
                 <div className="w-full border-t border-white/15 pt-5">
-                  <p className="text-center font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/70">
+                  <p className="text-center font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
                     Ministry and departmental leadership
                   </p>
 
@@ -229,10 +229,10 @@ export function AboutLeadership(): React.ReactElement {
                           className="mt-1 block h-1.5 w-1.5 shrink-0 bg-brand-green"
                         />
                         <div>
-                          <span className="block font-mono text-[7px] uppercase tracking-[0.16em] text-white/30">
+                          <span className="block font-mono text-[7px] uppercase tracking-[0.16em] text-white/56">
                             {String(index + 1).padStart(2, "0")}
                           </span>
-                          <span className="mt-1 block text-[13px] leading-[1.45] text-white/80">
+                          <span className="mt-1 block text-[13px] leading-[1.45] text-white/94">
                             {department}
                           </span>
                         </div>
@@ -243,7 +243,7 @@ export function AboutLeadership(): React.ReactElement {
               </div>
             </div>
 
-            <div className="relative mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-white/12 pt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/35">
+            <div className="relative mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-white/12 pt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/66">
               <span>One house · shared service</span>
               <span>Structure, not a directory of names</span>
             </div>

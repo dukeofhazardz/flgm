@@ -42,7 +42,7 @@ export function WatchRecordings(): React.ReactElement {
           <h2 className="max-w-[13ch] font-serif text-[clamp(2.7rem,6.4vw,6rem)] font-medium leading-[0.94] tracking-[-0.045em]">
             The <span className="italic">archive</span>
           </h2>
-          <p className="max-w-[36ch] text-[15px] leading-[1.6] text-forest/65">
+          <p className="max-w-[36ch] text-[15px] leading-[1.6] text-deep-green">
             Daily sessions, themes, scriptures, testimonies, declarations, and
             programme summaries will be kept here.
           </p>
@@ -85,7 +85,7 @@ export function WatchRecordings(): React.ReactElement {
                 The first morning is still <span className="italic">ahead</span>.
               </h3>
 
-              <p className="mt-5 max-w-[44ch] text-[16px] leading-[1.62] text-forest/70">
+              <p className="mt-5 max-w-[44ch] text-[16px] leading-[1.62] text-deep-green">
                 Recordings will appear here as the programme begins: the daily
                 prayer sessions, the theme and scripture for each day, testimonies,
                 prayer declarations, and links to the replays.
@@ -113,7 +113,7 @@ export function WatchRecordings(): React.ReactElement {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="#join"
-                  className="inline-flex min-h-11 items-center gap-2 bg-ink px-5 py-3 font-sans text-[14px] font-medium text-white transition-colors duration-200 hover:bg-forest"
+                  className="inline-flex min-h-11 items-center gap-2 bg-night px-5 py-3 font-sans text-[14px] font-medium text-white transition-colors duration-200 hover:bg-forest"
                 >
                   Join the daily prayer
                   <ArrowUpRight className="h-4 w-4" strokeWidth={1.7} aria-hidden="true" />
@@ -141,7 +141,7 @@ export function WatchRecordings(): React.ReactElement {
                     className="absolute inset-0"
                     style={{
                       background:
-                        "linear-gradient(180deg, #04180F 0%, #0B3B24 34%, #007A36 68%, #00C853 88%, #C9F5DA 100%)",
+                        "linear-gradient(180deg, #02600D 0%, #408609 34%, #33A402 68%, #33A402 88%, #C4D120 100%)",
                     }}
                   />
                   <span
@@ -149,14 +149,14 @@ export function WatchRecordings(): React.ReactElement {
                     className="absolute inset-0 opacity-70"
                     style={{
                       background:
-                        "radial-gradient(60% 45% at 50% 78%, rgba(201,245,218,0.55) 0%, rgba(201,245,218,0) 70%)",
+                        "radial-gradient(60% 45% at 50% 78%, rgba(196,209,32,0.55) 0%, rgba(196,209,32,0) 70%)",
                     }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <ArtSlot name="book" size={170} color="white" className="opacity-90" />
                   </div>
                   <div className="grain absolute inset-0" aria-hidden="true" />
-                  <div className="absolute inset-x-5 top-[26%] flex items-start justify-between font-mono text-[7.5px] uppercase tracking-[0.18em] text-white/60">
+                  <div className="absolute inset-x-5 top-[26%] flex items-start justify-between font-mono text-[7.5px] uppercase tracking-[0.18em] text-white/86">
                     <span>Fig. 07</span>
                     <span>Kept mornings</span>
                   </div>

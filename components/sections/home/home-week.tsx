@@ -111,7 +111,7 @@ export function HomeWeek(): React.ReactElement {
           <h2 className="col-span-12 max-w-[15ch] font-serif text-[clamp(2.2rem,5.4vw,4.8rem)] font-medium leading-[0.94] tracking-[-0.035em] md:col-span-6">
             The week, <span className="italic">gathered.</span>
           </h2>
-          <p className="col-span-12 max-w-[42ch] font-sans text-[15px] leading-[1.65] text-forest/70 md:col-span-4 md:col-start-9">
+          <p className="col-span-12 max-w-[42ch] font-sans text-[15px] leading-[1.65] text-deep-green md:col-span-4 md:col-start-9">
             Our programmes are designed to help believers grow in grace, understand
             their identity in Christ, build meaningful relationships, and fulfil their
             divine purpose. All times are West Africa Time.
@@ -148,7 +148,7 @@ export function HomeWeek(): React.ReactElement {
                   />
                 </svg>
               </span>
-              <span className="relative block h-4 w-4 rounded-full bg-brand-green shadow-[0_0_0_5px_rgba(0,200,83,0.12),0_0_22px_rgba(0,200,83,0.45)] md:h-5 md:w-5" />
+              <span className="relative block h-4 w-4 rounded-full bg-brand-green shadow-[0_0_0_5px_rgba(51,164,2,0.12),0_0_22px_rgba(51,164,2,0.45)] md:h-5 md:w-5" />
             </div>
 
             {WEEK.map((day, index) => {
@@ -177,7 +177,7 @@ export function HomeWeek(): React.ReactElement {
                       {day.day}
                     </h3>
                     {index === 0 && (
-                      <span className="hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-forest/50 md:inline-flex">
+                      <span className="hidden items-center gap-1.5 font-mono text-[8px] uppercase tracking-[0.16em] text-deep-green md:inline-flex">
                         <span className="h-1.5 w-1.5 rounded-full bg-brand-green" aria-hidden="true" />
                         Two gatherings
                       </span>
@@ -192,7 +192,7 @@ export function HomeWeek(): React.ReactElement {
                             key={service.name}
                             className="flex flex-col gap-1 border-b border-ink/8 py-2 last:border-b-0 first:pt-0 md:flex-row md:items-baseline md:justify-between md:gap-6"
                           >
-                            <p className="max-w-[52ch] font-sans text-[15px] leading-[1.5] text-forest/85 md:text-[16px]">
+                            <p className="max-w-[52ch] font-sans text-[15px] leading-[1.5] text-deep-green md:text-[16px]">
                               {service.name}
                             </p>
                             <p
@@ -205,9 +205,9 @@ export function HomeWeek(): React.ReactElement {
                               {service.confirmed && (
                                 <span className="ml-1.5 text-ink/35">WAT</span>
                               )}
-                              {service.monthly && (
+                              {service.cadence && (
                                 <span className="ml-2 normal-case tracking-normal text-ink/35">
-                                  · first Thursday
+                                  · {service.cadence}
                                 </span>
                               )}
                             </p>

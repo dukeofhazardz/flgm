@@ -156,7 +156,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(70% 55% at 78% 52%, rgba(0,200,83,0.14) 0%, rgba(0,200,83,0.03) 44%, rgba(4,24,15,0) 74%)",
+            "radial-gradient(70% 55% at 78% 52%, rgba(51,164,2,0.14) 0%, rgba(51,164,2,0.03) 44%, rgba(2,96,13,0) 74%)",
         }}
       />
       <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
@@ -164,15 +164,15 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
       <div className="relative mx-auto max-w-[1680px] px-5 py-16 md:px-8 md:py-28 lg:px-10 lg:py-32">
         <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/15 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-dawn-mint/65">
+            <SectionTag className="text-dawn-mint/90">
               {isGive ? "§ 03 — The Building Project" : "§ 07 — Building Project"}
             </SectionTag>
             <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
           </div>
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/40 md:col-span-4 md:block md:text-left">
+          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/72 md:col-span-4 md:block md:text-left">
             {isGive ? "Architectural concept · not yet built" : "A vision for generations"}
           </p>
-          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/40 md:col-span-2">
+          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/72 md:col-span-2">
             {isGive ? "No. 03 / 05" : "No. 07 / 10"}
           </Folio>
         </header>
@@ -194,7 +194,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
               )}
             </h2>
 
-            <p className="mt-6 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/70">
+            <p className="mt-6 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/90">
               {copy.lead}
             </p>
 
@@ -208,17 +208,17 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   1,000
                 </span>
               </span>
-              <span className="pb-2 font-mono text-[9px] uppercase leading-[1.7] tracking-[0.18em] text-white/45">
+              <span className="pb-2 font-mono text-[9px] uppercase leading-[1.7] tracking-[0.18em] text-white/76">
                 Capacity
                 <br />
                 auditorium
               </span>
             </div>
 
-            <p className="mt-6 max-w-[46ch] font-sans text-[15px] leading-[1.65] text-white/60">
+            <p className="mt-6 max-w-[46ch] font-sans text-[15px] leading-[1.65] text-white/86">
               {copy.body}
             </p>
-            <p className="mt-4 max-w-[42ch] font-sans text-[15px] leading-[1.65] text-dawn-mint/80">
+            <p className="mt-4 max-w-[42ch] font-sans text-[15px] leading-[1.65] text-dawn-mint/95">
               {copy.invitation}
             </p>
 
@@ -227,7 +227,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                 {GIVING.building.contributors.map((contributor) => (
                   <li
                     key={contributor}
-                    className="flex items-baseline gap-2 font-sans text-[13px] leading-[1.5] text-white/60"
+                    className="flex items-baseline gap-2 font-sans text-[13px] leading-[1.5] text-white/86"
                   >
                     <span
                       aria-hidden="true"
@@ -250,7 +250,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   />
                 </Link>
               </Button>
-              <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/35">
+              <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/66">
                 Prayer · Partnership · Giving
               </p>
             </div>
@@ -258,7 +258,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
 
           {/* ── Blueprint ── */}
           <figure className="col-span-12 lg:col-span-7">
-            <div className="relative border border-white/15 bg-[#061C12] p-3 md:p-4">
+            <div className="relative border border-white/15 bg-[#024A0B] p-3 md:p-4">
               <ConceptLabel className="absolute right-3 top-3 z-20 md:right-4 md:top-4" />
 
               <svg
@@ -272,24 +272,24 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   <pattern id="bp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
                     <path
                       d="M40 0H0V40"
-                      stroke="#C9F5DA"
+                      stroke="#C4D120"
                       strokeWidth="0.5"
                       opacity="0.22"
                     />
                   </pattern>
                   <linearGradient id="bp-green" x1="0" y1="0" x2="0.8" y2="1">
-                    <stop offset="0%" stopColor="#6FE6A0" stopOpacity="0.95" />
-                    <stop offset="42%" stopColor="#22C96A" stopOpacity="0.85" />
-                    <stop offset="100%" stopColor="#0B5A32" stopOpacity="0.8" />
+                    <stop offset="0%" stopColor="#C4D120" stopOpacity="0.95" />
+                    <stop offset="42%" stopColor="#6FC108" stopOpacity="0.85" />
+                    <stop offset="100%" stopColor="#33A402" stopOpacity="0.8" />
                   </linearGradient>
                   <linearGradient id="bp-window" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#F2FFF6" stopOpacity="0.95" />
-                    <stop offset="100%" stopColor="#9FFFC4" stopOpacity="0.55" />
+                    <stop offset="0%" stopColor="#F8FCEF" stopOpacity="0.95" />
+                    <stop offset="100%" stopColor="#D8E36B" stopOpacity="0.55" />
                   </linearGradient>
                   <radialGradient id="bp-light" cx="50%" cy="52%" r="55%">
-                    <stop offset="0%" stopColor="#00C853" stopOpacity="0.5" />
-                    <stop offset="55%" stopColor="#00C853" stopOpacity="0.16" />
-                    <stop offset="100%" stopColor="#00C853" stopOpacity="0" />
+                    <stop offset="0%" stopColor="#33A402" stopOpacity="0.5" />
+                    <stop offset="55%" stopColor="#33A402" stopOpacity="0.16" />
+                    <stop offset="100%" stopColor="#33A402" stopOpacity="0" />
                   </radialGradient>
                 </defs>
 
@@ -329,7 +329,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                 {/* Lit glazing — turned on with the fill. */}
                 <g data-blueprint-windows style={{ opacity: 0 }}>
                   <rect x="390" y="350" width="120" height="166" fill="url(#bp-window)" opacity="0.5" />
-                  <rect x="418" y="470" width="64" height="46" fill="#E9FFF2" opacity="0.65" />
+                  <rect x="418" y="470" width="64" height="46" fill="#F4F9E4" opacity="0.65" />
                   <rect x="132" y="386" width="34" height="54" fill="url(#bp-window)" opacity="0.55" />
                   <rect x="184" y="386" width="34" height="54" fill="url(#bp-window)" opacity="0.45" />
                   <rect x="682" y="386" width="34" height="54" fill="url(#bp-window)" opacity="0.45" />
@@ -343,7 +343,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y1="516"
                   x2="860"
                   y2="516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="1.1"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -353,7 +353,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y1="610"
                   x2="860"
                   y2="610"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.5"
                   strokeDasharray="2 6"
                   vectorEffect="non-scaling-stroke"
@@ -364,7 +364,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M240 516 V300 C240 210 332 164 450 164 C568 164 660 210 660 300 V516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="1.5"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -372,7 +372,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M228 300 H672"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.8"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -380,7 +380,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M252 300 C252 222 336 188 450 188 C564 188 648 222 648 300"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.7"
                   strokeDasharray="3 4"
                   vectorEffect="non-scaling-stroke"
@@ -391,7 +391,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M450 164 V516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -399,7 +399,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M360 172 C330 246 330 392 330 516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -407,7 +407,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M540 172 C570 246 570 392 570 516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -415,7 +415,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M300 206 C278 292 278 412 278 516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.45"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -423,7 +423,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M600 206 C622 292 622 412 622 516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.45"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -436,7 +436,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y="350"
                   width="120"
                   height="166"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.8"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -444,7 +444,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M390 392 H510 M390 434 H510 M390 476 H510 M450 350 V516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.45"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -453,7 +453,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M418 516 V470 H482 V516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.7"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -463,7 +463,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M110 516 V360 H240 M660 360 H790 V516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="1.2"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -471,7 +471,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M110 360 L126 336 H222 L240 360"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.7"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -479,7 +479,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M660 360 L678 336 H774 L790 360"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.7"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -492,7 +492,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y="386"
                   width="34"
                   height="54"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -503,7 +503,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y="386"
                   width="34"
                   height="54"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -514,7 +514,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y="386"
                   width="34"
                   height="54"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -525,7 +525,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y="386"
                   width="34"
                   height="54"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -535,7 +535,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M200 516 H700 M190 528 H710 M180 540 H720 M170 552 H730"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.7"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -545,7 +545,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M60 532 l14 -14 M90 532 l14 -14 M120 532 l14 -14 M760 532 l14 -14 M790 532 l14 -14 M820 532 l14 -14"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.45"
                   opacity="0.6"
                   vectorEffect="non-scaling-stroke"
@@ -558,7 +558,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   y1="164"
                   x2="820"
                   y2="516"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.5"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -566,14 +566,14 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M812 172 L820 164 L828 172 M812 508 L820 516 L828 508"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.5"
                   vectorEffect="non-scaling-stroke"
                 />
                 <text
                   x="836"
                   y="344"
-                  fill="#C9F5DA"
+                  fill="#C4D120"
                   opacity="0.55"
                   fontFamily="var(--font-mono)"
                   fontSize="9"
@@ -586,7 +586,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                 <text
                   x="56"
                   y="76"
-                  fill="#C9F5DA"
+                  fill="#C4D120"
                   opacity="0.62"
                   fontFamily="var(--font-mono)"
                   fontSize="9"
@@ -597,7 +597,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                 <text
                   x="56"
                   y="94"
-                  fill="#C9F5DA"
+                  fill="#C4D120"
                   opacity="0.38"
                   fontFamily="var(--font-mono)"
                   fontSize="8"
@@ -613,7 +613,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   cx="786"
                   cy="86"
                   r="18"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -621,7 +621,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   data-draw
                   fill="none"
                   d="M786 100 V72 M786 72 L780 82 M786 72 L792 82"
-                  stroke="#C9F5DA"
+                  stroke="#C4D120"
                   strokeWidth="0.55"
                   vectorEffect="non-scaling-stroke"
                 />
@@ -629,7 +629,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
                   x="786"
                   y="58"
                   textAnchor="middle"
-                  fill="#C9F5DA"
+                  fill="#C4D120"
                   opacity="0.55"
                   fontFamily="var(--font-mono)"
                   fontSize="8"
@@ -640,7 +640,7 @@ export function HomeBuilding({ variant = "home" }: HomeBuildingProps): React.Rea
               </svg>
             </div>
 
-            <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-3 font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/40">
+            <figcaption className="mt-3 flex flex-wrap items-baseline justify-between gap-3 font-mono text-[8.5px] uppercase tracking-[0.18em] text-white/72">
               <span>Proposed auditorium · Resurrection Ground, Gwarinpa</span>
               <span>Drawing 07</span>
             </figcaption>

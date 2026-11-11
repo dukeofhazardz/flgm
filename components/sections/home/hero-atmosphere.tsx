@@ -29,7 +29,7 @@ export function HeroAtmosphere(): React.ReactElement {
         className="absolute inset-0 z-0 opacity-0"
         style={{
           background:
-            "linear-gradient(180deg, #04180F 0%, #051D11 16%, #072515 30%, #092E1B 42%, #0B3922 52%, #0D4426 60%, #0F4B29 68%, #114F2B 78%, #135430 88%, #145831 100%)",
+            "linear-gradient(180deg, #02600D 0%, #156C0C 16%, #26760B 30%, #347F0A 42%, #408609 52%, #3A9506 60%, #33A402 68%, #51B205 78%, #60B906 88%, #6FC108 100%)",
         }}
       />
 
@@ -40,7 +40,7 @@ export function HeroAtmosphere(): React.ReactElement {
         className="absolute left-1/2 top-[72%] z-[1] h-[78vh] w-[145vw] -translate-x-1/2 -translate-y-1/2 opacity-0"
         style={{
           background:
-            "radial-gradient(ellipse 50% 46% at 50% 50%, rgba(255,227,222,0.34) 0%, rgba(201,245,218,0.30) 20%, rgba(0,200,83,0.16) 44%, rgba(0,200,83,0.05) 62%, rgba(0,200,83,0) 74%)",
+            "radial-gradient(ellipse 50% 46% at 50% 50%, rgba(255,227,222,0.34) 0%, rgba(196,209,32,0.30) 20%, rgba(51,164,2,0.16) 44%, rgba(51,164,2,0.05) 62%, rgba(51,164,2,0) 74%)",
         }}
       />
 
@@ -65,7 +65,7 @@ export function HeroAtmosphere(): React.ReactElement {
             className="absolute left-1/2 top-1/2 h-[186%] w-[186%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[38px]"
             style={{
               background:
-                "radial-gradient(circle, rgba(255,236,228,0.30) 0%, rgba(201,245,218,0.24) 30%, rgba(0,200,83,0.12) 56%, rgba(0,200,83,0) 76%)",
+                "radial-gradient(circle, rgba(255,236,228,0.30) 0%, rgba(196,209,32,0.24) 30%, rgba(51,164,2,0.12) 56%, rgba(51,164,2,0) 76%)",
             }}
           />
 
@@ -78,7 +78,7 @@ export function HeroAtmosphere(): React.ReactElement {
               className="hero-rays h-full w-full"
               style={{
                 background:
-                  "repeating-conic-gradient(from 0deg at 50% 50%, rgba(201,245,218,0.45) 0deg, rgba(201,245,218,0.08) 2.6deg, rgba(201,245,218,0) 5.2deg, rgba(201,245,218,0) 9.4deg)",
+                  "repeating-conic-gradient(from 0deg at 50% 50%, rgba(196,209,32,0.45) 0deg, rgba(196,209,32,0.08) 2.6deg, rgba(196,209,32,0) 5.2deg, rgba(196,209,32,0) 9.4deg)",
                 maskImage:
                   "radial-gradient(circle at 50% 50%, transparent 16%, rgba(0,0,0,0.8) 20%, rgba(0,0,0,0.24) 40%, transparent 54%)",
                 WebkitMaskImage:
@@ -94,8 +94,8 @@ export function HeroAtmosphere(): React.ReactElement {
             className="absolute inset-0 rounded-full"
             style={{
               background:
-                "radial-gradient(circle at 50% 50%, rgba(201,245,218,0) 62%, rgba(201,245,218,0.05) 88%, rgba(201,245,218,0.12) 100%)",
-              boxShadow: "inset 0 0 0 1px rgba(201,245,218,0.42)",
+                "radial-gradient(circle at 50% 50%, rgba(196,209,32,0) 62%, rgba(196,209,32,0.05) 88%, rgba(196,209,32,0.12) 100%)",
+              boxShadow: "inset 0 0 0 1px rgba(196,209,32,0.42)",
             }}
           />
 
@@ -106,8 +106,8 @@ export function HeroAtmosphere(): React.ReactElement {
             className="absolute inset-0 rounded-full opacity-0"
             style={{
               background:
-                "radial-gradient(circle closest-side, rgba(255,255,255,0) 96.4%, rgba(255,255,255,0.28) 98.6%, rgba(255,255,255,0.46) 100%), radial-gradient(circle closest-side at 50% 50%, #FFFFFF 0%, #FDFFFE 7%, #F1FEF7 15%, #DCFBE9 25%, #BAF6D2 37%, #8EEFB7 50%, #59E49A 64%, #26D57C 77%, #05C25F 88%, #00AF51 96%, #009C46 100%)",
-              boxShadow: "0 0 34px 4px rgba(201,245,218,0.34), 0 0 120px 34px rgba(0,200,83,0.16)",
+                "radial-gradient(circle closest-side, rgba(255,255,255,0) 96.4%, rgba(255,255,255,0.28) 98.6%, rgba(255,255,255,0.46) 100%), radial-gradient(circle closest-side at 50% 50%, #FFFFFF 0%, #FDFFF5 7%, #F8FCEF 15%, #E6F8CE 25%, #D4F0B0 37%, #BCE89A 50%, #A6E07A 64%, #8ED85C 77%, #6FC108 88%, #4FB505 96%, #33A402 100%)",
+              boxShadow: "0 0 34px 4px rgba(196,209,32,0.34), 0 0 120px 34px rgba(51,164,2,0.16)",
             }}
           />
         </div>
@@ -121,7 +121,7 @@ export function HeroAtmosphere(): React.ReactElement {
         className="absolute left-1/2 top-[72%] z-[3] h-[86vh] w-[150vw] -translate-x-1/2 -translate-y-1/2 opacity-0"
         style={{
           background:
-            "radial-gradient(ellipse 46% 50% at 50% 52%, rgba(255,238,231,0.52) 0%, rgba(201,245,218,0.42) 24%, rgba(140,240,192,0.20) 46%, rgba(0,200,83,0.10) 62%, rgba(0,200,83,0.03) 74%, rgba(0,200,83,0) 82%)",
+            "radial-gradient(ellipse 46% 50% at 50% 52%, rgba(255,238,231,0.52) 0%, rgba(196,209,32,0.42) 24%, rgba(196,209,32,0.20) 46%, rgba(51,164,2,0.10) 62%, rgba(51,164,2,0.03) 74%, rgba(51,164,2,0) 82%)",
         }}
       />
 
@@ -154,7 +154,7 @@ export function HeroAtmosphere(): React.ReactElement {
         className="absolute inset-x-0 top-[72%] z-[5] h-[26%] opacity-0"
         style={{
           background:
-            "radial-gradient(ellipse 46% 100% at 50% 0%, rgba(201,245,218,0.16) 0%, rgba(201,245,218,0.06) 44%, rgba(201,245,218,0) 78%)",
+            "radial-gradient(ellipse 46% 100% at 50% 0%, rgba(196,209,32,0.16) 0%, rgba(196,209,32,0.06) 44%, rgba(196,209,32,0) 78%)",
           maskImage:
             "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 22%, #000 52%, transparent 96%)",
           WebkitMaskImage:
@@ -169,7 +169,7 @@ export function HeroAtmosphere(): React.ReactElement {
         className="absolute inset-0 z-[7]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(4,24,15,0.54) 0%, rgba(4,24,15,0.40) 26%, rgba(4,24,15,0.18) 48%, rgba(4,24,15,0.04) 62%, rgba(4,24,15,0) 74%)",
+            "linear-gradient(180deg, rgba(2,96,13,0.54) 0%, rgba(2,96,13,0.40) 26%, rgba(2,96,13,0.18) 48%, rgba(2,96,13,0.04) 62%, rgba(2,96,13,0) 74%)",
         }}
       />
 

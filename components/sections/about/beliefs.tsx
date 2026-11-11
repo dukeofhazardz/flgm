@@ -31,20 +31,20 @@ export function AboutBeliefs(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 top-0 h-96"
         style={{
           background:
-            "radial-gradient(72% 100% at 18% 0%, rgba(0,200,83,0.12) 0%, rgba(0,200,83,0) 72%)",
+            "radial-gradient(72% 100% at 18% 0%, rgba(51,164,2,0.12) 0%, rgba(51,164,2,0) 72%)",
         }}
       />
 
       <div className="relative mx-auto max-w-[1680px] px-5 py-16 md:px-8 md:py-28 lg:px-10 lg:py-32">
         <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-white/45">§ 05 — Our beliefs</SectionTag>
+            <SectionTag className="text-white/76">§ 05 — Our beliefs</SectionTag>
             <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
           </div>
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-4 md:block">
+          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-4 md:block">
             The convictions that shape the house
           </p>
-          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-2">
+          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-2">
             No. 05 / 06
           </Folio>
         </header>
@@ -53,7 +53,7 @@ export function AboutBeliefs(): React.ReactElement {
           <h2 className="col-span-12 max-w-[10ch] font-serif text-[clamp(2.8rem,7.4vw,7rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             What we <span className="italic">hold.</span>
           </h2>
-          <p className="col-span-12 max-w-[38ch] text-[15px] leading-[1.62] text-white/55 md:col-span-4 md:col-start-9 md:text-[16px]">
+          <p className="col-span-12 max-w-[38ch] text-[15px] leading-[1.62] text-white/82 md:col-span-4 md:col-start-9 md:text-[16px]">
             Seven convictions, opened one at a time. The Church is built on the
             person and work of Jesus Christ, and on the Word that reveals Him.
           </p>
@@ -86,7 +86,7 @@ export function AboutBeliefs(): React.ReactElement {
                       aria-hidden="true"
                       className={cn(
                         "col-span-3 font-serif text-[clamp(2.8rem,7vw,7rem)] font-medium leading-[0.78] tracking-[-0.07em] tabular-nums transition-colors duration-300 md:col-span-2",
-                        isOpen ? "text-ink" : "text-white/18"
+                        isOpen ? "text-ink" : "text-white/34"
                       )}
                     >
                       {String(index + 1).padStart(2, "0")}
@@ -110,7 +110,7 @@ export function AboutBeliefs(): React.ReactElement {
                         />
                       ) : (
                         <Plus
-                          className="h-6 w-6 text-white/40"
+                          className="h-6 w-6 text-white/72"
                           strokeWidth={1.3}
                           aria-hidden="true"
                         />
@@ -128,7 +128,7 @@ export function AboutBeliefs(): React.ReactElement {
                   >
                     <span className="col-span-3 md:col-span-2" aria-hidden="true" />
                     <div className="col-span-9 md:col-span-7">
-                      <p className="max-w-[52ch] text-[17px] leading-[1.64] text-forest md:text-[18px]">
+                      <p className="max-w-[52ch] text-[17px] leading-[1.64] text-deep-green md:text-[18px]">
                         {belief.description}
                       </p>
                     </div>

@@ -439,8 +439,8 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                         ? "text-white"
                         : "text-ink"
                       : dark
-                        ? "text-white/70 hover:text-white"
-                        : "text-forest/75 hover:text-forest"
+                        ? "text-white/90 hover:text-white"
+                        : "text-deep-green hover:text-deep-green"
                   )}
                   trailing={
                     <span
@@ -470,8 +470,8 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                         ? "text-white"
                         : "text-ink"
                       : dark
-                        ? "text-white/70 hover:text-white"
-                        : "text-forest/75 hover:text-forest"
+                        ? "text-white/90 hover:text-white"
+                        : "text-deep-green hover:text-deep-green"
                   )}
                 >
                   Connect
@@ -514,7 +514,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                 showZone
                 className={cn(
                   "hidden text-[10px] uppercase tracking-[0.14em] md:block lg:hidden xl:block landscape-short:hidden",
-                  dark ? "text-white/75" : "text-forest/75"
+                  dark ? "text-white/92" : "text-deep-green"
                 )}
               />
               <span
@@ -583,7 +583,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                   <span className={cn(activeId === item.id && "text-dawn-mint")}>
                     {item.label}
                   </span>
-                  <span className="font-mono text-[10px] tracking-[0.16em] text-white/30">
+                  <span className="font-mono text-[10px] tracking-[0.16em] text-white/56">
                     0{NAV.indexOf(item) + 1}
                   </span>
                 </Link>
@@ -597,7 +597,7 @@ export function Header({ className }: { className?: string }): React.ReactElemen
                 key={item.id}
                 href={item.href}
                 onClick={closeMenu}
-                className="font-sans text-[14px] leading-snug text-white/65 transition-colors hover:text-white"
+                className="font-sans text-[14px] leading-snug text-white/88 transition-colors hover:text-white"
                 style={{ minHeight: 44 }}
               >
                 {item.label}
@@ -607,14 +607,14 @@ export function Header({ className }: { className?: string }): React.ReactElemen
 
           <div className="mt-auto space-y-5 pt-8">
             <div className="flex items-center justify-between border-t border-white/10 pt-5">
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/40">
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/72">
                 Abuja
               </span>
               <LiveClock showZone className="text-[12px] uppercase tracking-[0.16em]" />
             </div>
 
             <div>
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/40">
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/72">
                 Enquiry lines
               </p>
               <div className="mt-2 flex flex-col">

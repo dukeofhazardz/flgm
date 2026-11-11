@@ -24,7 +24,7 @@ export function NewMembersClose(): React.ReactElement {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[72vh]"
         style={{
           background:
-            "radial-gradient(64% 66% at 22% 100%, rgba(0,200,83,0.2) 0%, rgba(0,200,83,0.03) 48%, rgba(4,24,15,0) 78%)",
+            "radial-gradient(64% 66% at 22% 100%, rgba(51,164,2,0.2) 0%, rgba(51,164,2,0.03) 48%, rgba(2,96,13,0) 78%)",
         }}
       />
       <span
@@ -48,7 +48,7 @@ export function NewMembersClose(): React.ReactElement {
               You are{" "}
               <span className="italic text-dawn-mint">welcome</span> here.
             </h2>
-            <p className="mt-6 max-w-[44ch] font-sans text-[15px] leading-[1.65] text-white/60 md:text-[16px]">
+            <p className="mt-6 max-w-[44ch] font-sans text-[15px] leading-[1.65] text-white/86 md:text-[16px]">
               {CONTACT.visit.lead}
             </p>
 
@@ -62,7 +62,7 @@ export function NewMembersClose(): React.ReactElement {
               </Link>
               <Link
                 href="/prayer"
-                className="inline-flex min-h-12 items-center justify-between gap-6 border border-white/25 px-5 py-3 font-sans text-[14px] font-medium text-white/80 transition-colors duration-200 hover:border-white hover:text-white"
+                className="inline-flex min-h-12 items-center justify-between gap-6 border border-white/25 px-5 py-3 font-sans text-[14px] font-medium text-white/94 transition-colors duration-200 hover:border-white hover:text-white"
               >
                 Send a prayer request
                 <ArrowUpRight className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
@@ -72,7 +72,7 @@ export function NewMembersClose(): React.ReactElement {
 
           <div className="col-span-12 lg:col-span-4 lg:col-start-9">
             <div className="border border-white/15 p-5 md:p-6">
-              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/35">
+              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/66">
                 The church office
               </p>
               <p className="mt-3 font-serif text-[clamp(1.25rem,2.2vw,1.6rem)] font-medium leading-[1.15] tracking-[-0.02em] text-white/85">
@@ -84,9 +84,9 @@ export function NewMembersClose(): React.ReactElement {
                   <a
                     key={phone}
                     href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="flex min-h-10 items-center gap-3 border-b border-white/10 py-1.5 font-mono text-[11.5px] tracking-[0.04em] text-white/70 transition-colors last:border-b-0 hover:text-dawn-mint"
+                    className="flex min-h-10 items-center gap-3 border-b border-white/10 py-1.5 font-mono text-[11.5px] tracking-[0.04em] text-white/90 transition-colors last:border-b-0 hover:text-dawn-mint"
                   >
-                    <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/30">
+                    <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/56">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     {phone}

@@ -43,7 +43,7 @@ export function WatchThemes(): React.ReactElement {
           <h2 className="md:col-span-7 font-serif text-[clamp(2.6rem,6.4vw,6rem)] font-medium leading-[0.94] tracking-[-0.045em]">
             Prayer <span className="italic">Themes</span>
           </h2>
-          <p className="md:col-span-4 md:col-start-9 max-w-[38ch] text-[16px] leading-[1.62] text-forest/75">
+          <p className="md:col-span-4 md:col-start-9 max-w-[38ch] text-[16px] leading-[1.62] text-deep-green">
             Five threads run through the fifty mornings, each turning the same
             grace toward a different part of life.
           </p>
@@ -102,7 +102,7 @@ export function WatchThemes(): React.ReactElement {
                   >
                     <span className="col-span-2 md:col-span-1" aria-hidden="true" />
                     <div className="col-span-10 md:col-span-7">
-                      <p className="max-w-[52ch] text-[17px] leading-[1.62] text-forest/80 md:text-[18px]">
+                      <p className="max-w-[52ch] text-[17px] leading-[1.62] text-deep-green md:text-[18px]">
                         {theme.description}
                       </p>
                     </div>

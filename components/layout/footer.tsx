@@ -2,14 +2,16 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { ArrowUpRight, Check, Copy, Mail } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CHURCH } from "@/data/church";
 import { CONTACT } from "@/data/contact";
+import { SOCIALS } from "@/data/socials";
 import { GIVING } from "@/data/giving";
 import { NAV_ITEMS } from "@/data/nav";
 import { RollLink } from "@/components/ui/roll-link";
+import { SocialLink } from "@/components/ui/social-link";
 import { useHydrated } from "@/lib/use-hydrated";
 import { cn } from "@/lib/utils";
 
@@ -100,11 +102,11 @@ export function Footer(): React.ReactElement {
           <div className="md:col-span-5 lg:col-span-4">
             <Link href="/" className="font-serif text-[21px] font-semibold tracking-[-0.02em]">
               Forever Life
-              <span className="block font-mono text-[9px] uppercase tracking-[0.24em] text-white/45">
+              <span className="block font-mono text-[9px] uppercase tracking-[0.24em] text-white/76">
                 and Grace Mission
               </span>
             </Link>
-            <p className="mt-6 max-w-[34ch] font-sans text-[14px] leading-relaxed text-white/60">
+            <p className="mt-6 max-w-[34ch] font-sans text-[14px] leading-relaxed text-white/86">
               {CHURCH.address}
             </p>
             <div className="mt-7 flex flex-col gap-2">
@@ -112,7 +114,7 @@ export function Footer(): React.ReactElement {
                 <a
                   key={phone}
                   href={`tel:${phone.replace(/\s/g, "")}`}
-                  className="flex w-fit items-center gap-2.5 py-1 font-mono text-[12px] tracking-[0.04em] text-white/80 transition-colors hover:text-dawn-mint"
+                  className="flex w-fit items-center gap-2.5 py-1 font-mono text-[12px] tracking-[0.04em] text-white/94 transition-colors hover:text-dawn-mint"
                 >
                   <span className="block h-1 w-1 rounded-full bg-signal-red" aria-hidden="true" />
                   {phone}
@@ -123,7 +125,7 @@ export function Footer(): React.ReactElement {
 
           {/* Quick links */}
           <div className="md:col-span-3 lg:col-span-2 lg:col-start-6">
-            <h3 className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+            <h3 className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/66">
               Visit
             </h3>
             <ul className="mt-5 space-y-2.5">
@@ -131,7 +133,7 @@ export function Footer(): React.ReactElement {
                 <li key={item.id}>
                   <RollLink
                     href={item.href}
-                    className="inline-flex min-h-[28px] items-center font-sans text-[14px] text-white/65 transition-colors hover:text-white"
+                    className="inline-flex min-h-[28px] items-center font-sans text-[14px] text-white/88 transition-colors hover:text-white"
                   >
                     {item.label}
                   </RollLink>
@@ -142,36 +144,40 @@ export function Footer(): React.ReactElement {
 
           {/* Connect */}
           <div className="md:col-span-4 lg:col-span-2">
-            <h3 className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+            <h3 className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/66">
               Connect
             </h3>
             <ul className="mt-5 space-y-2.5">
-              {CONTACT.socials.map((social) => (
-                <li key={social.platform}>
-                  {social.confirmed && social.url ? (
-                    <a
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-[28px] items-center gap-1.5 font-sans text-[14px] text-white/65 transition-colors hover:text-white"
-                    >
-                      {social.platform}
-                      <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.4} aria-hidden="true" />
-                    </a>
-                  ) : (
-                    <span className="inline-flex min-h-[28px] items-center gap-1.5 font-sans text-[14px] text-white/25">
-                      {social.platform}
-                      <span className="font-mono text-[8px] uppercase tracking-[0.16em]">
-                        soon
-                      </span>
-                    </span>
-                  )}
+              {SOCIALS.map((social) => (
+                <li key={social.id}>
+                  <SocialLink
+                    social={social}
+                    className="group min-h-[28px] font-sans text-[14px] text-white/88 transition-colors hover:text-white"
+                    trailing={
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 opacity-70 transition-opacity group-hover:opacity-100"
+                        strokeWidth={1.4}
+                        aria-hidden="true"
+                      />
+                    }
+                  />
                 </li>
               ))}
+              {CONTACT.email ? (
+                <li>
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    className="inline-flex min-h-[28px] items-center gap-2 font-sans text-[14px] text-white/88 transition-colors hover:text-white"
+                  >
+                    <Mail className="h-4 w-4 shrink-0" strokeWidth={1.6} aria-hidden="true" />
+                    <span>{CONTACT.email}</span>
+                  </a>
+                </li>
+              ) : null}
               <li>
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-[28px] items-center font-sans text-[14px] text-white/65 transition-colors hover:text-white"
+                  className="inline-flex min-h-[28px] items-center font-sans text-[14px] text-white/88 transition-colors hover:text-white"
                 >
                   Contact the church
                 </Link>
@@ -181,7 +187,7 @@ export function Footer(): React.ReactElement {
 
           {/* Giving */}
           <div className="md:col-span-12 lg:col-span-3 lg:col-start-10">
-            <h3 className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/35">
+            <h3 className="font-mono text-[9px] uppercase tracking-[0.22em] text-white/66">
               Giving
             </h3>
             <dl className="mt-5 space-y-1.5">
@@ -193,7 +199,7 @@ export function Footer(): React.ReactElement {
               </div>
               <div>
                 <dt className="sr-only">Bank</dt>
-                <dd className="font-sans text-[13px] text-white/55">{GIVING.bank}</dd>
+                <dd className="font-sans text-[13px] text-white/82">{GIVING.bank}</dd>
               </div>
               <div>
                 <dt className="sr-only">Account number</dt>
@@ -205,7 +211,7 @@ export function Footer(): React.ReactElement {
             <button
               type="button"
               onClick={copy}
-              className="mt-4 inline-flex items-center gap-2 border border-white/20 px-3.5 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/75 transition-colors hover:border-dawn-mint hover:text-dawn-mint"
+              className="mt-4 inline-flex items-center gap-2 border border-white/20 px-3.5 py-2 font-mono text-[9px] uppercase tracking-[0.16em] text-white/92 transition-colors hover:border-dawn-mint hover:text-dawn-mint"
             >
               {copied ? (
                 <Check className="h-3 w-3" strokeWidth={2} aria-hidden="true" />
@@ -214,7 +220,7 @@ export function Footer(): React.ReactElement {
               )}
               <span aria-live="polite">{copied ? "Copied" : "Copy account number"}</span>
             </button>
-            <p className="mt-4 max-w-[30ch] font-sans text-[11px] leading-relaxed text-white/35">
+            <p className="mt-4 max-w-[30ch] font-sans text-[11px] leading-relaxed text-white/66">
               Voluntary giving through officially approved church channels only.
             </p>
           </div>
@@ -223,7 +229,7 @@ export function Footer(): React.ReactElement {
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col gap-5 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
-            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35">
+            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/66">
               © {year ?? 2026} {CHURCH.name}
             </p>
             <span aria-hidden="true" className="hidden h-3 w-px bg-white/15 md:block" />
@@ -232,7 +238,7 @@ export function Footer(): React.ReactElement {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Site by Dukehouse Tech (opens in a new tab)"
-              className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/35 transition-colors hover:text-white/80"
+              className="font-mono text-[9px] uppercase tracking-[0.18em] text-white/66 transition-colors hover:text-white/94"
             >
               Site by Dukehouse Tech
             </a>
@@ -248,8 +254,8 @@ export function Footer(): React.ReactElement {
                 key={href}
                 href={href}
                 className={cn(
-                  "font-mono text-[9px] uppercase tracking-[0.16em] text-white/35",
-                  "transition-colors hover:text-white/80"
+                  "font-mono text-[9px] uppercase tracking-[0.16em] text-white/66",
+                  "transition-colors hover:text-white/94"
                 )}
               >
                 {label}

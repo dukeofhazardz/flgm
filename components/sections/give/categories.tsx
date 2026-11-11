@@ -39,7 +39,7 @@ export function GiveCategories(): React.ReactElement {
           <h2 className="col-span-12 max-w-[12ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             Where your <span className="italic">giving</span> goes.
           </h2>
-          <p className="col-span-12 max-w-[38ch] font-sans text-[15px] leading-[1.62] text-forest/72 md:col-span-4 md:col-start-9 md:text-[16px]">
+          <p className="col-span-12 max-w-[38ch] font-sans text-[15px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[16px]">
             The ministry publishes these categories for approved giving. State
             the category in your transfer narration so the church can reconcile
             your gift.

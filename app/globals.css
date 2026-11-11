@@ -1,18 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── DESIGN.md palette ── */
+  /* ── DESIGN.md palette — leaf ── */
   --color-white: #ffffff;
-  --color-night: #04180f;
-  --color-forest: #0b3b24;
+  --color-deep-leaf: #02600d;
+  --color-moss-leaf: #408609;
+  --color-leaf: #33a402;
+  --color-bright-leaf: #6fc108;
+  --color-lime-leaf: #c4d120;
+  /* Deep leaf doubles as body text on white: 8:1, safely AA. */
+  --color-deep-green: #02600d;
+  --color-night: #02600d;
+  --color-forest: #408609;
   --color-ink: #07130d;
-  --color-brand-green: #00c853;
-  --color-dawn-mint: #c9f5da;
-  --color-mist: #f2f8f3;
+  --color-brand-green: #33a402;
+  --color-dawn-mint: #c4d120;
+  --color-mist: #f4f9ec;
   --color-blush: #ffe3de;
   --color-crimson-text: #b80000;
   --color-signal-red: #fc0000;
-  --color-tint-white: #f7fdf8;
+  --color-tint-white: #f8fcef;
 
   /* ── DESIGN.md typography ── */
   --font-serif: var(--font-serif);
@@ -199,7 +206,7 @@ html.lenis body {
 
 .hero-ghost .hero-word {
   color: transparent;
-  -webkit-text-stroke: 0.014em rgba(201, 245, 218, 0.9);
+  -webkit-text-stroke: 0.014em rgba(196,209,32, 0.9);
   transition: none;
 }
 
@@ -207,8 +214,8 @@ html.lenis body {
 .hero-spotlight {
   background: radial-gradient(
     340px circle at var(--px, 62%) var(--py, 42%),
-    rgba(0, 200, 83, 0.24) 0%,
-    rgba(0, 200, 83, 0.1) 38%,
+    rgba(51,164,2, 0.24) 0%,
+    rgba(51,164,2, 0.1) 38%,
     transparent 72%
   );
   mix-blend-mode: screen;
@@ -275,9 +282,9 @@ html.lenis body {
 .dawn-rail {
   background: linear-gradient(
     180deg,
-    rgba(4, 24, 15, 0.28) 0%,
-    #00c853 34%,
-    #c9f5da 72%,
+    rgba(2,96,13, 0.28) 0%,
+    #33A402 34%,
+    #C4D120 72%,
     rgba(255, 227, 222, 0.9) 100%
   );
 }
@@ -581,8 +588,8 @@ html.lenis body {
   opacity: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0, 200, 83, 0.22) 0%,
-    rgba(0, 200, 83, 0.08) 42%,
+    rgba(51,164,2, 0.22) 0%,
+    rgba(51,164,2, 0.08) 42%,
     transparent 68%
   );
   mix-blend-mode: screen;
@@ -618,7 +625,7 @@ html.lenis body {
   height: 6px;
   border-radius: 999px;
   background: var(--color-brand-green);
-  box-shadow: 0 0 0 1px rgba(4, 24, 15, 0.25);
+  box-shadow: 0 0 0 1px rgba(2,96,13, 0.25);
   transform: scale(0.4);
   opacity: 0;
   transition:
@@ -668,7 +675,7 @@ html.lenis body {
   opacity: 1;
   transform: scale(2.15);
   background: var(--color-night);
-  border-color: rgba(201, 245, 218, 0.28);
+  border-color: rgba(196,209,32, 0.28);
 }
 
 .custom-cursor__ring[data-pressed="true"] .custom-cursor__disc {

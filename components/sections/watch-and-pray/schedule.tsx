@@ -101,7 +101,7 @@ export function WatchSchedule(): React.ReactElement {
               <h2 className="max-w-[11ch] font-serif text-[clamp(2.4rem,5.4vw,4.6rem)] font-medium leading-[0.96] tracking-[-0.04em]">
                 The daily <span className="italic">watch</span>
               </h2>
-              <p className="mt-5 max-w-[34ch] text-[16px] leading-[1.62] text-forest/75">
+              <p className="mt-5 max-w-[34ch] text-[16px] leading-[1.62] text-deep-green">
                 The morning gathers around worship, prayer, the Word, testimony, and
                 online outreach.
               </p>
@@ -150,7 +150,7 @@ export function WatchSchedule(): React.ReactElement {
                 aria-hidden="true"
                 className="absolute left-0 top-1 z-10 flex h-4 w-4 items-center justify-center md:h-6 md:w-6"
               >
-                <span className="absolute inset-0 rounded-full bg-brand-green shadow-[0_0_0_5px_rgba(0,200,83,0.14),0_0_24px_6px_rgba(0,200,83,0.28)]" />
+                <span className="absolute inset-0 rounded-full bg-brand-green shadow-[0_0_0_5px_rgba(51,164,2,0.14),0_0_24px_6px_rgba(51,164,2,0.28)]" />
                 <span className="absolute -inset-2 rounded-full border border-brand-green/25" />
               </span>
 

@@ -167,7 +167,7 @@ export function HomeEvents(): React.ReactElement {
                       {event.title}
                     </h3>
 
-                    <p className="mt-3 max-w-[40ch] font-sans text-[14px] leading-[1.58] text-forest/65">
+                    <p className="mt-3 max-w-[40ch] font-sans text-[14px] leading-[1.58] text-deep-green">
                       {event.description}
                     </p>
 

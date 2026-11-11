@@ -45,22 +45,22 @@ export default function WatchAndPrayPage() {
           className="pointer-events-none absolute inset-x-0 top-0 h-80"
           style={{
             background:
-              "radial-gradient(70% 100% at 50% 0%, rgba(0,200,83,0.1) 0%, rgba(0,200,83,0) 72%)",
+              "radial-gradient(70% 100% at 50% 0%, rgba(51,164,2,0.1) 0%, rgba(51,164,2,0) 72%)",
           }}
         />
 
         <div className="relative mx-auto max-w-[1680px] px-5 pb-16 pt-12 md:px-8 md:pb-24 md:pt-16 lg:px-10">
           <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/12 pb-5 md:gap-6">
             <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/45">
+              <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/76">
                 § 00 — The Hour
               </span>
               <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
             </div>
-            <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-4 md:block">
+            <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-4 md:block">
               Africa/Lagos · UTC+01
             </p>
-            <span className="col-span-4 text-right font-mono text-[9px] uppercase tracking-[0.2em] text-white/35 md:col-span-2">
+            <span className="col-span-4 text-right font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-2">
               Live state
             </span>
           </header>
@@ -69,7 +69,7 @@ export default function WatchAndPrayPage() {
             <p className="max-w-[16ch] font-serif text-[clamp(1.7rem,3.4vw,2.7rem)] font-medium italic leading-[1.06] tracking-[-0.025em] text-white/90 md:col-span-6">
               The watch, in real time.
             </p>
-            <p className="max-w-[44ch] text-[15px] leading-[1.6] text-white/55 md:col-span-5 md:col-start-8">
+            <p className="max-w-[44ch] text-[15px] leading-[1.6] text-white/82 md:col-span-5 md:col-start-8">
               The hour below is read from Abuja. Before the first morning it
               counts down; through the fifty days it names the day; after the
               last it holds the replays.

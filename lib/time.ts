@@ -310,6 +310,50 @@ export function upcomingFirstThursday(
   return candidate;
 }
 
+/** Next 1st of the month, from a given moment. */
+export function upcomingFirstOfMonth(from: Date = new Date()): Date {
+  const candidate = new Date(
+    from.getFullYear(),
+    from.getMonth(),
+    1,
+    0,
+    0,
+    0,
+    0
+  );
+  if (candidate.getTime() <= from.getTime()) {
+    candidate.setMonth(candidate.getMonth() + 1, 1);
+  }
+  return candidate;
+}
+
+/** Next first Saturday of the month, from a given moment. */
+export function upcomingFirstSaturday(
+  time24: string | null,
+  from: Date = new Date()
+): Date {
+  const [hours, minutes] = time24 ? time24.split(":").map(Number) : [0, 0];
+  const candidate = new Date(
+    from.getFullYear(),
+    from.getMonth(),
+    1,
+    hours,
+    minutes,
+    0,
+    0
+  );
+  while (candidate.getDay() !== 6) {
+    candidate.setDate(candidate.getDate() + 1);
+  }
+  if (candidate.getTime() <= from.getTime()) {
+    candidate.setMonth(candidate.getMonth() + 1, 1);
+    while (candidate.getDay() !== 6) {
+      candidate.setDate(candidate.getDate() + 1);
+    }
+  }
+  return candidate;
+}
+
 /** e.g. "Sun 8 Nov" — stable across server/client at day precision. */
 export function occurrenceLabel(date: Date): string {
   return date.toLocaleDateString("en-GB", {
@@ -347,9 +391,9 @@ export const PROGRAMME_TIMES: Programme[] = [
   },
   {
     id: "alpha-worship",
-    name: "Alpha Worship – Pulling Down the Jericho Wall",
+    name: "Alpha Worship – Falling the Jericho Walls",
     description: "A special monthly worship and prayer gathering focused on worship, spiritual growth, and the manifestation of God’s grace.",
-    day: "First Thursday of the month",
+    day: "1st of Every Month",
     time: "TBC", // content.md gives 5:00 PM in one section and none in another — unconfirmed
     confirmed: false,
   },

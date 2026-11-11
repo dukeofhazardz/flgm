@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { CONTACT } from "@/data/contact";
 import { whatsappLink } from "@/lib/whatsapp";
@@ -39,7 +39,7 @@ export function ContactDetails(): React.ReactElement {
               <span className="italic">Ground.</span>
             </h2>
 
-            <address className="mt-6 max-w-[36ch] font-serif text-[clamp(1.15rem,2.1vw,1.5rem)] font-medium not-italic leading-[1.45] tracking-[-0.015em] text-forest/85">
+            <address className="mt-6 max-w-[36ch] font-serif text-[clamp(1.15rem,2.1vw,1.5rem)] font-medium not-italic leading-[1.45] tracking-[-0.015em] text-deep-green">
               Forever Life and Grace Mission
               <br />
               Resurrection Ground, beside Davina Hills Resort,
@@ -47,7 +47,7 @@ export function ContactDetails(): React.ReactElement {
               off 1st Avenue, Gwarinpa, Abuja, Nigeria.
             </address>
 
-            <p className="mt-5 max-w-[42ch] font-sans text-[14px] leading-[1.6] text-forest/60">
+            <p className="mt-5 max-w-[42ch] font-sans text-[14px] leading-[1.6] text-deep-green">
               The location pin is awaiting final verification so that visitors
               are directed to the correct church entrance. Please call the church
               if you are unsure before travelling.
@@ -55,7 +55,7 @@ export function ContactDetails(): React.ReactElement {
 
             <Link
               href="#visit"
-              className="group mt-6 inline-flex min-h-11 items-center gap-3 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/75 transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-white"
+              className="group mt-6 inline-flex min-h-11 items-center gap-3 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/75 transition-colors duration-200 hover:border-ink hover:bg-night hover:text-white"
             >
               See the map and directions
               <ArrowDown
@@ -85,7 +85,7 @@ export function ContactDetails(): React.ReactElement {
                 <li key={phone} className="border-b border-ink/15">
                   <a
                     href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="group flex min-h-[74px] items-center justify-between gap-4 py-4 transition-colors hover:text-forest"
+                    className="group flex min-h-[74px] items-center justify-between gap-4 py-4 transition-colors hover:text-deep-green"
                   >
                     <span className="flex items-baseline gap-4">
                       <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-ink/30">
@@ -101,7 +101,7 @@ export function ContactDetails(): React.ReactElement {
                       </span>
                     </span>
                     <ArrowUpRight
-                      className="h-5 w-5 shrink-0 text-ink/30 transition-[transform,color] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-forest"
+                      className="h-5 w-5 shrink-0 text-ink/30 transition-[transform,color] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-deep-green"
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />
@@ -109,6 +109,34 @@ export function ContactDetails(): React.ReactElement {
                 </li>
               ))}
             </ol>
+
+            {CONTACT.email ? (
+              <a
+                href={`mailto:${CONTACT.email}`}
+                className="group flex min-h-[70px] items-center justify-between gap-4 border-b border-ink/15 py-4 transition-colors hover:text-deep-green"
+              >
+                <span className="flex items-center gap-4">
+                  <Mail
+                    className="h-5 w-5 shrink-0 text-ink/30 transition-colors group-hover:text-deep-green"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <span>
+                    <span className="block break-all font-serif text-[clamp(1.15rem,2.5vw,1.65rem)] font-medium leading-tight tracking-[-0.02em]">
+                      {CONTACT.email}
+                    </span>
+                    <span className="mt-1.5 block font-mono text-[8px] uppercase tracking-[0.16em] text-ink/35">
+                      Email the church
+                    </span>
+                  </span>
+                </span>
+                <ArrowUpRight
+                  className="h-5 w-5 shrink-0 text-ink/30 transition-[transform,color] duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-deep-green"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+              </a>
+            ) : null}
 
             <a
               href={whatsappLink("Good day, I would like to speak with Forever Life and Grace Mission.")}

@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 const TONES: Record<VisionCard["tone"], string> = {
   green: "bg-brand-green text-ink border-brand-green",
   white: "bg-white text-ink border-ink/12",
-  mist: "bg-[#E4F4E9] text-ink border-ink/12",
-  forest: "bg-forest text-white border-white/10",
-  ink: "bg-ink text-white border-white/10",
+  mist: "bg-[#EDF4E0] text-ink border-ink/12",
+  forest: "bg-[#0A4A0B] text-white border-white/10",
+  ink: "bg-night text-white border-white/10",
 };
 
 /**
@@ -45,7 +45,7 @@ export function AboutVision(): React.ReactElement {
           <h2 className="col-span-12 max-w-[12ch] font-serif text-[clamp(2.7rem,7vw,6.6rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             The people we are <span className="italic">raising.</span>
           </h2>
-          <p className="col-span-12 max-w-[40ch] text-[16px] leading-[1.62] text-forest/75 md:col-span-4 md:col-start-9 md:text-[17px]">
+          <p className="col-span-12 max-w-[40ch] text-[16px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[17px]">
             One vision, held in six movements. Scroll through the deck and the
             statements gather behind one another like pages of the same issue.
           </p>
@@ -56,7 +56,7 @@ export function AboutVision(): React.ReactElement {
             const dark = card.tone === "forest" || card.tone === "ink";
             const bright = card.tone === "green";
             const muted = dark
-              ? "text-white/45"
+              ? "text-white/76"
               : bright
                 ? "text-night/65"
                 : "text-ink/40";
@@ -71,7 +71,7 @@ export function AboutVision(): React.ReactElement {
                 ? "text-night/15"
                 : "text-ink/10";
             const note = dark
-              ? "text-white/45"
+              ? "text-white/76"
               : bright
                 ? "text-night/70"
                 : "text-ink/40";

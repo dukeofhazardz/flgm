@@ -1,18 +1,18 @@
 import { CHURCH } from "@/data/church";
 import { CONTACT } from "@/data/contact";
 import { EVENTS } from "@/data/events";
+import { SOCIALS } from "@/data/socials";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 
 /**
  * Structured data.
  *
  * Only confirmed facts are published: the name, the address, the three
- * supplied telephone lines and the three confirmed social profiles. The email
- * address is deliberately absent because it has not been supplied, and
- * unconfirmed events never reach the Event graph.
+ * supplied telephone lines, the church email and the four published social
+ * profiles. Unconfirmed events never reach the Event graph.
  */
 
-const TELEPHONES = ["+2348089599066", "+2347068246902", "+2348037055043"];
+const TELEPHONES = CONTACT.phones.map((phone) => phone.replace(/\s/g, ""));
 
 const POSTAL_ADDRESS = {
   "@type": "PostalAddress",
@@ -23,9 +23,7 @@ const POSTAL_ADDRESS = {
   addressCountry: "NG",
 } as const;
 
-const SAME_AS = CONTACT.socials
-  .filter((social) => social.confirmed && social.url)
-  .map((social) => social.url as string);
+const SAME_AS = SOCIALS.map((social) => social.href);
 
 export const CHURCH_JSON_LD = {
   "@context": "https://schema.org",
@@ -38,6 +36,7 @@ export const CHURCH_JSON_LD = {
   description: `${CHURCH.identityLine} ${CHURCH.tagline} A church in Gwarinpa, Abuja, Nigeria.`,
   address: POSTAL_ADDRESS,
   telephone: TELEPHONES,
+  ...(CONTACT.email && CONTACT.emailConfirmed ? { email: CONTACT.email } : {}),
   sameAs: SAME_AS,
 } as const;
 

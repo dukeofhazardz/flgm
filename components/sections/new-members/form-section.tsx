@@ -32,7 +32,7 @@ export function NewMembersFormSection(): React.ReactElement {
             Visitor and new member{" "}
             <span className="italic">registration.</span>
           </h2>
-          <p className="col-span-12 max-w-[38ch] font-sans text-[15px] leading-[1.62] text-forest/70 md:col-span-4 md:col-start-9 md:text-[16px]">
+          <p className="col-span-12 max-w-[38ch] font-sans text-[15px] leading-[1.62] text-deep-green md:col-span-4 md:col-start-9 md:text-[16px]">
             {NEW_MEMBERS.form.lead}
           </p>
         </div>
@@ -56,11 +56,11 @@ export function NewMembersFormSection(): React.ReactElement {
                 className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "radial-gradient(70% 60% at 82% 12%, rgba(0,200,83,0.2) 0%, rgba(0,200,83,0.03) 50%, rgba(4,24,15,0) 78%)",
+                    "radial-gradient(70% 60% at 82% 12%, rgba(51,164,2,0.2) 0%, rgba(51,164,2,0.03) 50%, rgba(2,96,13,0) 78%)",
                 }}
               />
               <div className="relative">
-                <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/70">
+                <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
                   A note for you
                 </p>
                 <p className="mt-4 font-serif text-[clamp(1.45rem,2.7vw,2.05rem)] font-medium italic leading-[1.12] tracking-[-0.025em] text-white/90">
@@ -70,7 +70,7 @@ export function NewMembersFormSection(): React.ReactElement {
                 </p>
 
                 <div className="mt-6 border-t border-white/15 pt-5">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                     After you send
                   </p>
                   <ol className="mt-3 space-y-3">
@@ -78,7 +78,7 @@ export function NewMembersFormSection(): React.ReactElement {
                       <li key={step.title} className="flex gap-3">
                         <span
                           aria-hidden="true"
-                          className="mt-0.5 shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-white/30"
+                          className="mt-0.5 shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56"
                         >
                           {String(index + 1).padStart(2, "0")}
                         </span>
@@ -86,7 +86,7 @@ export function NewMembersFormSection(): React.ReactElement {
                           <p className="font-sans text-[13.5px] font-medium leading-[1.4] text-white/85">
                             {step.title}
                           </p>
-                          <p className="mt-0.5 font-sans text-[12.5px] leading-[1.5] text-white/45">
+                          <p className="mt-0.5 font-sans text-[12.5px] leading-[1.5] text-white/76">
                             {step.note}
                           </p>
                         </div>
@@ -96,12 +96,12 @@ export function NewMembersFormSection(): React.ReactElement {
                 </div>
 
                 <div className="mt-6 border-t border-white/15 pt-5">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/35">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
                     Prefer to call
                   </p>
                   <a
                     href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
-                    className="mt-2 inline-flex min-h-9 items-center gap-2 font-mono text-[12px] tracking-[0.04em] text-white/80 transition-colors hover:text-dawn-mint"
+                    className="mt-2 inline-flex min-h-9 items-center gap-2 font-mono text-[12px] tracking-[0.04em] text-white/94 transition-colors hover:text-dawn-mint"
                   >
                     <span className="h-1 w-1 rounded-full bg-signal-red" aria-hidden="true" />
                     {CONTACT.phones[0]}
@@ -112,7 +112,7 @@ export function NewMembersFormSection(): React.ReactElement {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 flex w-fit items-center gap-1.5 border-b border-white/25 pb-1 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/60 transition-colors hover:border-dawn-mint hover:text-dawn-mint"
+                    className="mt-1 flex w-fit items-center gap-1.5 border-b border-white/25 pb-1 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/86 transition-colors hover:border-dawn-mint hover:text-dawn-mint"
                   >
                     WhatsApp the church
                     <ArrowUpRight className="h-3 w-3" strokeWidth={1.6} aria-hidden="true" />
