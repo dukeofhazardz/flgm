@@ -65,7 +65,7 @@ export function ContactMap(): React.ReactElement {
           <div className="col-span-12 lg:col-span-7 lg:col-start-6">
             <div className="border border-ink/15 bg-white p-1.5 md:p-2">
               <div
-                className="relative h-[420px] overflow-hidden bg-night md:h-[540px]"
+                className="relative h-[420px] overflow-hidden bg-tint-white md:h-[540px]"
                 style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
               >
                 {/* Drawn fallback — always present under the embed */}
@@ -75,7 +75,7 @@ export function ContactMap(): React.ReactElement {
                   aria-hidden="true"
                   preserveAspectRatio="xMidYMid slice"
                 >
-                  <rect width="640" height="540" fill="#408609" />
+                  <rect width="640" height="540" fill="#F4F9EC" />
                   {Array.from({ length: 11 }).map((_, index) => (
                     <line
                       key={`h-${index}`}
@@ -83,7 +83,7 @@ export function ContactMap(): React.ReactElement {
                       y1={40 + index * 46}
                       x2="640"
                       y2={40 + index * 46}
-                      stroke="#C4D120"
+                      stroke="#02600D"
                       strokeWidth="0.6"
                       opacity="0.14"
                     />
@@ -95,31 +95,31 @@ export function ContactMap(): React.ReactElement {
                       y1="0"
                       x2={30 + index * 52}
                       y2="540"
-                      stroke="#C4D120"
+                      stroke="#02600D"
                       strokeWidth="0.6"
                       opacity="0.12"
                     />
                   ))}
                   <path
                     d="M0 400 L640 250"
-                    stroke="#C4D120"
+                    stroke="#02600D"
                     strokeWidth="1.4"
                     opacity="0.22"
                   />
                   <path
                     d="M120 540 L400 0"
-                    stroke="#C4D120"
+                    stroke="#02600D"
                     strokeWidth="0.9"
                     opacity="0.14"
                   />
-                  <circle cx="320" cy="286" r="54" fill="none" stroke="#C4D120" strokeWidth="0.7" opacity="0.4" />
-                  <circle cx="320" cy="286" r="16" fill="none" stroke="#C4D120" strokeWidth="0.8" opacity="0.55" />
-                  <circle cx="320" cy="286" r="4" fill="#C4D120" opacity="0.85" />
+                  <circle cx="320" cy="286" r="54" fill="none" stroke="#02600D" strokeWidth="0.7" opacity="0.4" />
+                  <circle cx="320" cy="286" r="16" fill="none" stroke="#02600D" strokeWidth="0.8" opacity="0.55" />
+                  <circle cx="320" cy="286" r="4" fill="#02600D" opacity="0.85" />
                   <text
                     x="320"
                     y="362"
                     textAnchor="middle"
-                    fill="#C4D120"
+                    fill="#02600D"
                     opacity="0.55"
                     fontFamily="var(--font-mono)"
                     fontSize="9"
@@ -143,12 +143,12 @@ export function ContactMap(): React.ReactElement {
                   Pin awaiting verification
                 </div>
 
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-wrap items-center justify-between gap-2 bg-night/80 px-4 py-3 text-white backdrop-blur-sm">
-                  <p className="flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.16em] text-white/92">
-                    <MapPin className="h-3 w-3 text-dawn-mint" strokeWidth={1.6} aria-hidden="true" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-wrap items-center justify-between gap-2 border-t border-ink/10 bg-white/90 px-4 py-3 text-ink backdrop-blur-sm">
+                  <p className="flex items-center gap-2 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/80">
+                    <MapPin className="h-3 w-3 text-deep-green" strokeWidth={1.6} aria-hidden="true" />
                     Resurrection Ground · Gwarinpa
                   </p>
-                  <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/72">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.16em] text-ink/55">
                     Entrance to be confirmed
                   </p>
                 </div>
@@ -164,7 +164,7 @@ export function ContactMap(): React.ReactElement {
                 href={MAP_DIRECTIONS}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex min-h-11 items-center gap-2 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/75 transition-colors duration-200 hover:border-ink hover:bg-night hover:text-white"
+                className="group inline-flex min-h-11 items-center gap-2 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/75 transition-colors duration-200 hover:border-ink hover:bg-mist hover:text-ink"
               >
                 Get directions
                 <ArrowUpRight

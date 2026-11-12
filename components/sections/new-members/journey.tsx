@@ -70,7 +70,7 @@ export function NewMembersJourney(): React.ReactElement {
               >
                 <span
                   aria-hidden="true"
-                  className="relative z-10 mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-ink/20 bg-mist font-mono text-[9px] tabular-nums tracking-[0.06em] text-ink/55 transition-colors duration-300 group-hover:border-ink group-hover:bg-night group-hover:text-white md:h-10 md:w-10 md:text-[10px]"
+                  className="relative z-10 mt-0.5 flex h-8 w-8 items-center justify-center rounded-full border border-ink/20 bg-mist font-mono text-[9px] tabular-nums tracking-[0.06em] text-ink/55 transition-colors duration-300 group-hover:border-brand-green group-hover:bg-brand-green group-hover:text-ink md:h-10 md:w-10 md:text-[10px]"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </span>

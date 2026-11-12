@@ -178,9 +178,9 @@ export const STEP_FIELDS: Record<
   StepTone,
   { background: string; foreground: string; dark: boolean }
 > = {
-  green: { background: "#C4D120", foreground: "#07130D", dark: false },
-  forest: { background: "#0A4A0B", foreground: "#FFFFFF", dark: true },
-  night: { background: "#02600D", foreground: "#FFFFFF", dark: true },
+  green: { background: "#F4F9EC", foreground: "#07130D", dark: false },
+  forest: { background: "#F8FCEF", foreground: "#07130D", dark: false },
+  night: { background: "#EAF1DE", foreground: "#07130D", dark: false },
   mist: { background: "#F4F9EC", foreground: "#07130D", dark: false },
   white: { background: "#FFFFFF", foreground: "#07130D", dark: false },
 };

@@ -58,10 +58,6 @@
   --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-/* In-rag layout needs room in both directions. */
-@custom-variant roomy (@media (min-width: 1280px) and (min-height: 780px));
-/* Short viewports: laptops at 125-150% scaling. */
-@custom-variant short (@media (max-height: 779px));
 /* Phones (and small tablets) held sideways: wide, but only ~320-430px tall. */
 @custom-variant landscape-short (@media (orientation: landscape) and (max-height: 520px));
 
@@ -78,10 +74,10 @@ html {
 }
 
 body {
-  /* The document opens at night, as the hero does: no white flash before
-     hydration, and overscroll stays on-brand. */
-  background: var(--color-night);
-  color: var(--color-white);
+  /* The document is a white page now: no night flash before hydration and
+     white overscroll on every browser. */
+  background: var(--color-white);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: var(--type-t4);
   line-height: var(--leading-loose);
@@ -139,87 +135,8 @@ html.lenis body {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   Hero typography.
-   Fraunces axes: wght reacts to cursor proximity, SOFT softens,
-   WONK switches the italic wildness on.
+   Outlined marquee type.
    ────────────────────────────────────────────────────────────── */
-.hero-word {
-  font-variation-settings:
-    "wght" var(--wght, 420),
-    "SOFT" var(--soft, 24),
-    "WONK" var(--wonk, 0);
-  transition: font-variation-settings 200ms cubic-bezier(0.23, 1, 0.32, 1);
-  will-change: font-variation-settings;
-}
-
-.hero-line-italic {
-  --wonk: 1;
-  font-style: italic;
-}
-
-/* Hero masthead type. The --fit multiplier is set by HomeHero from the
-   measured natural size and the space actually available in the band. */
-.hero-h1 {
-  /* Height-capped at every size: on a wide, short phone a pure vw size
-     overflows the band before JS has measured anything. */
-  font-size: calc(clamp(2.9rem, min(18.4vw, 17svh), 9rem) * var(--fit, 1));
-  line-height: 0.84;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  text-wrap: nowrap;
-}
-
-@media (min-width: 768px) {
-  .hero-h1 {
-    font-size: calc(clamp(3rem, min(12.4vw, 20svh), 13rem) * var(--fit, 1));
-    line-height: 0.82;
-  }
-}
-
-/* Landscape phones: the masthead sits in a narrow left column, so the
-   fallback is capped by width as well as by viewport height. */
-@media (orientation: landscape) and (max-height: 520px) {
-  .hero-h1 {
-    font-size: calc(min(8vw, 20svh) * var(--fit, 1));
-    line-height: 0.8;
-  }
-}
-
-/* The ghost masthead: outlined type revealed only under the cursor light. */
-.hero-ghost {
-  opacity: var(--ghost, 0);
-  transition: opacity 280ms cubic-bezier(0.23, 1, 0.32, 1);
-  -webkit-mask-image: radial-gradient(
-    circle 210px at var(--px, 62%) var(--py, 42%),
-    #000 0%,
-    rgba(0, 0, 0, 0.55) 46%,
-    transparent 72%
-  );
-  mask-image: radial-gradient(
-    circle 210px at var(--px, 62%) var(--py, 42%),
-    #000 0%,
-    rgba(0, 0, 0, 0.55) 46%,
-    transparent 72%
-  );
-  transform: translate3d(0.045em, -0.028em, 0);
-}
-
-.hero-ghost .hero-word {
-  color: transparent;
-  -webkit-text-stroke: 0.014em rgba(196,209,32, 0.9);
-  transition: none;
-}
-
-/* Cursor light on the hero. */
-.hero-spotlight {
-  background: radial-gradient(
-    340px circle at var(--px, 62%) var(--py, 42%),
-    rgba(51,164,2, 0.24) 0%,
-    rgba(51,164,2, 0.1) 38%,
-    transparent 72%
-  );
-  mix-blend-mode: screen;
-}
 
 /* Outlined marquee type. */
 .type-outline-ink {
@@ -802,10 +719,6 @@ html.lenis body {
   .live-dot,
   .caret-blink {
     animation: none !important;
-  }
-
-  .hero-word {
-    transition: none !important;
   }
 
   .custom-cursor,

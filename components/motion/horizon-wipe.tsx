@@ -120,7 +120,7 @@ export function HorizonWipe({
           borderTopLeftRadius: "50% 16%",
           borderTopRightRadius: "50% 16%",
           background:
-            "radial-gradient(120% 60% at 50% 0%, #408609 0%, #02600D 58%, #013A09 100%)",
+            "radial-gradient(120% 60% at 50% 0%, #1A2B22 0%, #07130D 58%, #020806 100%)",
           boxShadow:
             "0 -1px 0 rgba(196,209,32,0.5), 0 -18px 60px rgba(51,164,2,0.16)",
         }}

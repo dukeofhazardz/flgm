@@ -78,7 +78,7 @@ export function HomeEvents(): React.ReactElement {
       <div className="mx-auto max-w-[1680px] px-5 py-16 md:px-8 md:py-28 lg:px-10 lg:py-32">
         <header className="grid grid-cols-12 items-baseline gap-3 border-b border-ink/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-ink/45">§ 09 — Events</SectionTag>
+            <SectionTag className="text-ink/45">§ 10 - Events</SectionTag>
             <span aria-hidden="true" className="hidden h-px w-14 bg-ink/20 md:block" />
           </div>
           <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-ink/35 md:col-span-4 md:block md:text-left">

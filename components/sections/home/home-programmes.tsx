@@ -128,39 +128,28 @@ export function HomeProgrammes(): React.ReactElement {
       ref={root}
       id="programmes"
       data-section="programmes"
-      data-header-theme="dark"
-      className="relative bg-forest text-white"
+      data-header-theme="light"
+      className="relative bg-mist text-ink"
     >
-      {/* Deep field + a single green horizon light. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[70%]"
-        style={{
-          background:
-            "radial-gradient(90% 60% at 18% 0%, rgba(51,164,2,0.16) 0%, rgba(51,164,2,0.03) 42%, rgba(2,96,13,0) 72%)",
-        }}
-      />
-      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-
       <div className="relative mx-auto max-w-[1680px] px-5 pt-16 md:px-8 md:pt-24 lg:px-10 lg:pt-28">
-        <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/15 pb-5 md:gap-6">
+        <header className="grid grid-cols-12 items-baseline gap-3 border-b border-ink/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-dawn-mint/90">§ 05 — Programmes</SectionTag>
-            <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
+            <SectionTag className="text-ink/45">§ 06 — Programmes</SectionTag>
+            <span aria-hidden="true" className="hidden h-px w-14 bg-ink/20 md:block" />
           </div>
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/72 md:col-span-4 md:block md:text-left">
+          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45 md:col-span-4 md:block md:text-left">
             Six ways to grow
           </p>
-          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/72 md:col-span-2">
+          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-ink/45 md:col-span-2">
             No. 05 / 10
           </Folio>
         </header>
 
         <div className="mt-8 grid grid-cols-12 items-end gap-6 pb-8 md:mt-10">
           <h2 className="col-span-12 max-w-[20ch] font-serif text-[clamp(2.2rem,5.4vw,4.8rem)] font-medium leading-[0.94] tracking-[-0.035em] md:col-span-7">
-            Come and grow <span className="text-dawn-mint italic">with us.</span>
+            Come and grow <span className="text-brand-green italic">with us.</span>
           </h2>
-          <p className="col-span-12 max-w-[42ch] font-sans text-[15px] leading-[1.65] text-white/88 md:col-span-4 md:col-start-9">
+          <p className="col-span-12 max-w-[42ch] font-sans text-[15px] leading-[1.65] text-deep-green md:col-span-4 md:col-start-9">
             Our programmes are designed to help believers grow in grace, understand
             their identity in Christ, build meaningful relationships, and fulfil their
             divine purpose.
@@ -174,28 +163,28 @@ export function HomeProgrammes(): React.ReactElement {
         data-programmes-stage
         className="relative flex flex-col justify-center pb-14 lg:h-[100svh] lg:overflow-hidden lg:pb-0"
       >
-        <div className="mx-5 mb-4 flex items-center justify-between gap-6 border-t border-white/12 pt-3 md:mx-8 lg:mx-10">
-          <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-white/72">
-            <span ref={counter} className="hidden tabular-nums text-dawn-mint/95 lg:inline">
+        <div className="mx-5 mb-4 flex items-center justify-between gap-6 border-t border-ink/12 pt-3 md:mx-8 lg:mx-10">
+          <p className="flex items-center gap-2.5 font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45">
+            <span ref={counter} className="hidden tabular-nums text-deep-green lg:inline">
               01 / 06
             </span>
-            <span aria-hidden="true" className="hidden h-3 w-px bg-white/20 lg:block" />
+            <span aria-hidden="true" className="hidden h-3 w-px bg-ink/20 lg:block" />
             <span className="lg:hidden">Six programmes</span>
-            <span aria-hidden="true" className="text-white/48 lg:hidden">
+            <span aria-hidden="true" className="text-ink/40 lg:hidden">
               ·
             </span>
             {next ? "Next occurrence live" : "Weekly rhythm"}
           </p>
-          <p className="hidden items-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 lg:flex">
+          <p className="hidden items-center gap-3 font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45 lg:flex">
             Scroll to travel
-            <span aria-hidden="true" className="text-dawn-mint">
+            <span aria-hidden="true" className="text-brand-green">
               →
             </span>
           </p>
         </div>
 
         {/* Progress line */}
-        <div className="mx-5 hidden h-px overflow-hidden bg-white/15 md:mx-8 lg:mx-10 lg:block" aria-hidden="true">
+        <div className="mx-5 hidden h-px overflow-hidden bg-ink/12 md:mx-8 lg:mx-10 lg:block" aria-hidden="true">
           <span
             ref={progress}
             className="block h-full w-full origin-left bg-brand-green"
@@ -218,10 +207,10 @@ export function HomeProgrammes(): React.ReactElement {
                   key={programme.id}
                   data-programme-card
                   className={cn(
-                    "group relative flex shrink-0 flex-col justify-between overflow-hidden border border-white/14 bg-night/55 p-5 md:p-7",
+                    "group relative flex shrink-0 flex-col justify-between overflow-hidden border border-ink/12 bg-white p-5 md:p-7",
                     "lg:h-[64vh] lg:min-h-[460px] lg:w-[min(74vw,540px)]",
                     "transition-[transform,border-color,background-color] duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
-                    "hover:-translate-y-1 hover:border-dawn-mint/35 hover:bg-night/80"
+                    "hover:-translate-y-1 hover:border-brand-green/40 hover:bg-tint-white"
                   )}
                 >
                   <div
@@ -230,16 +219,16 @@ export function HomeProgrammes(): React.ReactElement {
                   >
                     <span
                       className="block font-serif text-[clamp(5.5rem,13vw,9.5rem)] font-medium leading-none tracking-[-0.06em] text-transparent"
-                      style={{ WebkitTextStroke: "1px rgba(196,209,32,0.2)" }}
+                      style={{ WebkitTextStroke: "1px rgba(51,164,2,0.22)" }}
                     >
                       {number}
                     </span>
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 block font-serif text-[clamp(5.5rem,13vw,9.5rem)] font-medium leading-none tracking-[-0.06em] text-dawn-mint/97 transition-[clip-path] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                      className="absolute inset-0 block font-serif text-[clamp(5.5rem,13vw,9.5rem)] font-medium leading-none tracking-[-0.06em] text-brand-green/15 transition-[clip-path] duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       style={{
                         clipPath: "inset(0 100% 0 0)",
-                        WebkitTextStroke: "1px rgba(196,209,32,0.2)",
+                        WebkitTextStroke: "1px rgba(51,164,2,0.22)",
                       }}
                     >
                       {number}
@@ -251,8 +240,8 @@ export function HomeProgrammes(): React.ReactElement {
                       className={cn(
                         "inline-flex items-center gap-2 border px-2 py-1 font-mono text-[8px] uppercase leading-none tracking-[0.12em]",
                         programme.confirmed
-                          ? "border-white/15 text-white/86"
-                          : "border-white/10 text-white/72"
+                          ? "border-ink/15 text-ink/70"
+                          : "border-ink/10 text-ink/55"
                       )}
                     >
                       {programme.confirmed ? (
@@ -271,31 +260,31 @@ export function HomeProgrammes(): React.ReactElement {
                   </div>
 
                   <div className="relative mt-8">
-                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-dawn-mint/88">
+                    <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-deep-green">
                       {programme.day}
                     </p>
-                    <h3 className="mt-3 max-w-[16ch] font-serif text-[clamp(1.75rem,2.9vw,2.7rem)] font-medium leading-[0.98] tracking-[-0.03em] text-white">
+                    <h3 className="mt-3 max-w-[16ch] font-serif text-[clamp(1.75rem,2.9vw,2.7rem)] font-medium leading-[0.98] tracking-[-0.03em] text-ink">
                       {programme.name}
                     </h3>
-                    <p className="mt-4 max-w-[44ch] font-sans text-[14.5px] leading-[1.62] text-white/82">
+                    <p className="mt-4 max-w-[44ch] font-sans text-[14.5px] leading-[1.62] text-ink/70">
                       {programme.description}
                     </p>
                   </div>
 
-                  <div className="relative mt-8 flex items-end justify-between gap-4 border-t border-white/12 pt-4">
+                  <div className="relative mt-8 flex items-end justify-between gap-4 border-t border-ink/12 pt-4">
                     <div>
-                      <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                      <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/45">
                         Time · WAT
                       </p>
                       {programme.confirmed ? (
-                        <p className="mt-1.5 font-mono text-[13px] leading-none text-dawn-mint">
+                        <p className="mt-1.5 font-mono text-[13px] leading-none text-deep-green">
                           {programme.time} WAT
                         </p>
                       ) : (
                         <Pending
                           confirmed={programme.confirmed}
                           label={programme.time}
-                          className="mt-2 justify-start border-0 bg-transparent px-0 py-0 text-[9px] tracking-[0.14em] text-dawn-mint/88"
+                          className="mt-2 justify-start border-0 bg-transparent px-0 py-0 text-[9px] tracking-[0.14em] text-crimson-text/80"
                         />
                       )}
                     </div>
@@ -303,7 +292,7 @@ export function HomeProgrammes(): React.ReactElement {
                     <Link
                       href="/events"
                       aria-label={`See ${programme.name} on the events calendar`}
-                      className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/15 text-white/90 transition-[transform,background-color,color,border-color] duration-300 hover:border-brand-green hover:bg-brand-green hover:text-ink"
+                      className="flex h-11 w-11 shrink-0 items-center justify-center border border-ink/15 text-ink/80 transition-[transform,background-color,color,border-color] duration-300 hover:border-brand-green hover:bg-brand-green hover:text-ink"
                     >
                       <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
                     </Link>
@@ -313,24 +302,24 @@ export function HomeProgrammes(): React.ReactElement {
             })}
 
             {/* End plate: a quiet close to the horizontal run. */}
-            <div className="relative hidden shrink-0 flex-col justify-between border border-dashed border-white/12 p-7 lg:flex lg:h-[64vh] lg:min-h-[460px] lg:w-[340px]">
-              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/66">
+            <div className="relative hidden shrink-0 flex-col justify-between border border-dashed border-ink/15 p-7 lg:flex lg:h-[64vh] lg:min-h-[460px] lg:w-[340px]">
+              <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45">
                 End of the week
               </p>
               <div>
-                <p className="font-serif text-[2.4rem] font-medium leading-[0.95] tracking-[-0.03em] text-dawn-mint">
+                <p className="font-serif text-[2.4rem] font-medium leading-[0.95] tracking-[-0.03em] text-brand-green">
                   Every day,
                   <br />
-                  <span className="text-white italic">better.</span>
+                  <span className="text-ink italic">better.</span>
                 </p>
-                <p className="mt-4 max-w-[26ch] font-sans text-[14px] leading-[1.6] text-white/82">
+                <p className="mt-4 max-w-[26ch] font-sans text-[14px] leading-[1.6] text-ink/70">
                   Programme times are published in West Africa Time. Unconfirmed
                   details appear only when the church supplies them.
                 </p>
               </div>
               <Link
                 href="/events"
-                className="inline-flex items-center gap-2 border-b border-signal-red pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/88 transition-colors hover:text-white"
+                className="inline-flex items-center gap-2 border-b border-signal-red pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/70 transition-colors hover:text-ink"
               >
                 Full calendar
                 <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.5} aria-hidden="true" />

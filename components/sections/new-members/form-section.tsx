@@ -49,28 +49,19 @@ export function NewMembersFormSection(): React.ReactElement {
           </div>
 
           <aside className="col-span-12 lg:col-span-4 lg:col-start-9">
-            <div className="relative overflow-hidden bg-night p-6 text-white md:p-7">
-              <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "radial-gradient(70% 60% at 82% 12%, rgba(51,164,2,0.2) 0%, rgba(51,164,2,0.03) 50%, rgba(2,96,13,0) 78%)",
-                }}
-              />
+            <div className="relative overflow-hidden border border-ink/12 bg-tint-white p-6 text-ink md:p-7">
               <div className="relative">
-                <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
+                <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-deep-green">
                   A note for you
                 </p>
-                <p className="mt-4 font-serif text-[clamp(1.45rem,2.7vw,2.05rem)] font-medium italic leading-[1.12] tracking-[-0.025em] text-white/90">
+                <p className="mt-4 font-serif text-[clamp(1.45rem,2.7vw,2.05rem)] font-medium italic leading-[1.12] tracking-[-0.025em] text-ink/85">
                   “Our desire is to help you grow in grace, understand your
                   identity in Christ, build meaningful relationships, and
                   participate in the life of the church.”
                 </p>
 
-                <div className="mt-6 border-t border-white/15 pt-5">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                <div className="mt-6 border-t border-ink/12 pt-5">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
                     After you send
                   </p>
                   <ol className="mt-3 space-y-3">
@@ -78,15 +69,15 @@ export function NewMembersFormSection(): React.ReactElement {
                       <li key={step.title} className="flex gap-3">
                         <span
                           aria-hidden="true"
-                          className="mt-0.5 shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56"
+                          className="mt-0.5 shrink-0 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/40"
                         >
                           {String(index + 1).padStart(2, "0")}
                         </span>
                         <div>
-                          <p className="font-sans text-[13.5px] font-medium leading-[1.4] text-white/85">
+                          <p className="font-sans text-[13.5px] font-medium leading-[1.4] text-ink/85">
                             {step.title}
                           </p>
-                          <p className="mt-0.5 font-sans text-[12.5px] leading-[1.5] text-white/76">
+                          <p className="mt-0.5 font-sans text-[12.5px] leading-[1.5] text-ink/65">
                             {step.note}
                           </p>
                         </div>
@@ -95,13 +86,13 @@ export function NewMembersFormSection(): React.ReactElement {
                   </ol>
                 </div>
 
-                <div className="mt-6 border-t border-white/15 pt-5">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                <div className="mt-6 border-t border-ink/12 pt-5">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
                     Prefer to call
                   </p>
                   <a
                     href={`tel:${CONTACT.phones[0].replace(/\s/g, "")}`}
-                    className="mt-2 inline-flex min-h-9 items-center gap-2 font-mono text-[12px] tracking-[0.04em] text-white/94 transition-colors hover:text-dawn-mint"
+                    className="mt-2 inline-flex min-h-9 items-center gap-2 font-mono text-[12px] tracking-[0.04em] text-ink/85 transition-colors hover:text-deep-green"
                   >
                     <span className="h-1 w-1 rounded-full bg-signal-red" aria-hidden="true" />
                     {CONTACT.phones[0]}
@@ -112,7 +103,7 @@ export function NewMembersFormSection(): React.ReactElement {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 flex w-fit items-center gap-1.5 border-b border-white/25 pb-1 font-mono text-[8.5px] uppercase tracking-[0.16em] text-white/86 transition-colors hover:border-dawn-mint hover:text-dawn-mint"
+                    className="mt-1 flex w-fit items-center gap-1.5 border-b border-ink/25 pb-1 font-mono text-[8.5px] uppercase tracking-[0.16em] text-ink/75 transition-colors hover:border-deep-green hover:text-deep-green"
                   >
                     WhatsApp the church
                     <ArrowUpRight className="h-3 w-3" strokeWidth={1.6} aria-hidden="true" />

@@ -55,7 +55,7 @@ export function ContactDetails(): React.ReactElement {
 
             <Link
               href="#visit"
-              className="group mt-6 inline-flex min-h-11 items-center gap-3 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/75 transition-colors duration-200 hover:border-ink hover:bg-night hover:text-white"
+              className="group mt-6 inline-flex min-h-11 items-center gap-3 border border-ink/25 px-4 py-2.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/75 transition-colors duration-200 hover:border-ink hover:bg-mist hover:text-ink"
             >
               See the map and directions
               <ArrowDown

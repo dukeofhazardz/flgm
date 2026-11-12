@@ -30,16 +30,15 @@ function FeaturedPlayer({ sermon }: { sermon: Sermon }): React.ReactElement {
         {sermon.youtubeId ? (
           <LiteYouTube videoId={sermon.youtubeId} title={sermon.title} />
         ) : (
-          <div className="relative aspect-video overflow-hidden bg-night">
-            <div className="absolute inset-0 flex items-center justify-center opacity-35">
-              <ArtSlot name="book" size={260} color="white" />
+          <div className="relative aspect-video overflow-hidden border border-ink/12 bg-tint-white">
+            <div className="absolute inset-0 flex items-center justify-center opacity-40">
+              <ArtSlot name="book" size={260} color="ink" />
             </div>
-            <div className="grain absolute inset-0" aria-hidden="true" />
             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/79">
+              <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-ink/50">
                 Audio message
               </p>
-              <p className="mt-2 max-w-[22ch] font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-medium leading-tight tracking-[-0.02em] text-white">
+              <p className="mt-2 max-w-[22ch] font-serif text-[clamp(1.4rem,3vw,2.2rem)] font-medium leading-tight tracking-[-0.02em] text-ink">
                 {sermon.title}
               </p>
               {sermon.audioUrl ? (
@@ -112,7 +111,7 @@ function EmptyFeature(): React.ReactElement {
 
       <figure className="col-span-12 mx-auto w-full max-w-[320px] md:col-span-4 md:col-start-9 md:mx-0 md:ml-auto md:max-w-[360px]">
         <div
-          className="relative aspect-[4/5] overflow-hidden bg-forest"
+          className="relative aspect-[4/5] overflow-hidden border border-ink/12 bg-tint-white"
           style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
         >
           <span
@@ -120,7 +119,7 @@ function EmptyFeature(): React.ReactElement {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, #02600D 0%, #408609 42%, #33A402 78%, #C4D120 100%)",
+                "linear-gradient(180deg, #F4F9EC 0%, #F8FCEF 42%, #EAF1DE 78%, #DDEBC4 100%)",
             }}
           />
           <span
@@ -128,30 +127,29 @@ function EmptyFeature(): React.ReactElement {
             className="absolute inset-0 opacity-60"
             style={{
               background:
-                "radial-gradient(70% 52% at 50% 90%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 76%)",
+                "radial-gradient(70% 52% at 50% 90%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 76%)",
             }}
           />
           <div className="absolute inset-x-0 bottom-0 flex justify-center">
             <ArtSlot
               name="book"
               size={280}
-              color="white"
-              className="translate-y-4 opacity-90"
+              color="ink"
+              className="translate-y-4 opacity-80"
             />
           </div>
           <span
             aria-hidden="true"
-            className="absolute left-2 top-10 select-none font-serif text-[8rem] font-medium leading-none text-night/20"
+            className="absolute left-2 top-10 select-none font-serif text-[8rem] font-medium leading-none text-ink/12"
           >
             00
           </span>
-          <div className="grain absolute inset-0" aria-hidden="true" />
           <div
-            className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/25"
+            className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/12"
             style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
             aria-hidden="true"
           />
-          <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
+          <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 border-t border-ink/10 bg-white/80 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-ink/70">
             <span>Fig. 01 — The Word</span>
             <span className="hidden lg:inline">Awaiting first publication</span>
           </div>

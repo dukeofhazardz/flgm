@@ -16,34 +16,23 @@ export function PrayerClose(): React.ReactElement {
     <section
       id="prayer-direct"
       data-section="prayer-close"
-      data-header-theme="dark"
-      className="relative overflow-x-clip bg-night text-white"
+      data-header-theme="light"
+      className="relative overflow-x-clip bg-mist text-ink"
     >
-      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[80vh]"
-        style={{
-          background:
-            "radial-gradient(60% 70% at 78% 100%, rgba(51,164,2,0.2) 0%, rgba(51,164,2,0.03) 48%, rgba(2,96,13,0) 78%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-[1680px] px-5 py-16 md:px-8 md:py-24 lg:px-10 lg:py-28">
         <SectionHeader
           tag="§ 03 — Direct line"
           note="Call · WhatsApp · visit"
           folio="No. 03 / 03"
-          dark
         />
 
         <div className="mt-10 grid grid-cols-12 items-end gap-x-3 gap-y-10 md:mt-14 md:gap-x-6">
           <div className="col-span-12 lg:col-span-6">
             <h2 className="max-w-[13ch] font-serif text-[clamp(2.7rem,6.6vw,6rem)] font-medium leading-[0.9] tracking-[-0.05em]">
               Prefer to speak with{" "}
-              <span className="italic text-dawn-mint">someone?</span>
+              <span className="italic text-deep-green">someone?</span>
             </h2>
-            <p className="mt-6 max-w-[44ch] font-sans text-[15px] leading-[1.65] text-white/86 md:text-[16px]">
+            <p className="mt-6 max-w-[44ch] font-sans text-[15px] leading-[1.65] text-ink/70 md:text-[16px]">
               Counselling appointments are subject to pastoral availability. Call
               or WhatsApp the church and a member of the team will help directly.
             </p>
@@ -60,18 +49,18 @@ export function PrayerClose(): React.ReactElement {
           </div>
 
           <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-            <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/66">
+            <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-ink/50">
               Enquiry lines
             </p>
-            <ol className="mt-3 border-t border-white/15">
+            <ol className="mt-3 border-t border-ink/15">
               {CONTACT.phones.map((phone, index) => (
-                <li key={phone} className="border-b border-white/12">
+                <li key={phone} className="border-b border-ink/12">
                   <a
                     href={`tel:${phone.replace(/\s/g, "")}`}
-                    className="group flex min-h-[62px] items-center justify-between gap-4 py-3 transition-colors hover:text-dawn-mint"
+                    className="group flex min-h-[62px] items-center justify-between gap-4 py-3 text-ink transition-colors hover:text-deep-green"
                   >
                     <span className="flex items-baseline gap-4">
-                      <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-white/56">
+                      <span className="font-mono text-[8px] uppercase tracking-[0.16em] text-ink/40">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className="font-serif text-[clamp(1.3rem,2.6vw,1.9rem)] font-medium leading-none tracking-[-0.02em] tabular-nums">
@@ -79,7 +68,7 @@ export function PrayerClose(): React.ReactElement {
                       </span>
                     </span>
                     <ArrowUpRight
-                      className="h-4 w-4 shrink-0 text-white/56 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-dawn-mint"
+                      className="h-4 w-4 shrink-0 text-ink/40 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-deep-green"
                       strokeWidth={1.5}
                       aria-hidden="true"
                     />
@@ -90,7 +79,7 @@ export function PrayerClose(): React.ReactElement {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-wrap items-baseline justify-between gap-3 border-t border-white/12 pt-4 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56 md:mt-20">
+        <div className="mt-14 flex flex-wrap items-baseline justify-between gap-3 border-t border-ink/12 pt-4 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/45 md:mt-20">
           <p>{CHURCH.name}</p>
           <p>{CHURCH.address}</p>
         </div>

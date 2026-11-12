@@ -88,22 +88,12 @@ export function HomeWelcome(): React.ReactElement {
       id="welcome"
       data-section="welcome"
       data-header-theme="light"
-      className="relative overflow-hidden bg-mist text-ink"
+      className="relative overflow-hidden bg-white text-ink"
     >
-      {/* A single warm horizon bleeding in from the right. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 top-0 h-[520px] w-[520px] rounded-full opacity-60 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(255,227,222,0.9) 0%, rgba(196,209,32,0.45) 45%, rgba(255,255,255,0) 72%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-[1680px] px-5 py-16 md:px-8 md:py-28 lg:px-10 lg:py-32">
         <header className="grid grid-cols-12 items-baseline gap-3 border-b border-ink/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-ink/45">§ 04 — Welcome</SectionTag>
+            <SectionTag className="text-ink/45">§ 05 — Welcome</SectionTag>
             <span aria-hidden="true" className="hidden h-px w-14 bg-ink/20 md:block" />
           </div>
           <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-ink/35 md:col-span-4 md:block md:text-left">
@@ -162,7 +152,7 @@ export function HomeWelcome(): React.ReactElement {
 
           {/* ── Pastor's note — pending, no names ── */}
           <aside className="col-span-12 lg:col-span-4 lg:col-start-9 xl:col-span-3 xl:col-start-10">
-            <div className="relative overflow-hidden bg-forest p-6 text-white md:p-7">
+            <div className="relative overflow-hidden border border-ink/12 bg-tint-white p-6 text-ink md:p-7">
               {/* Arch study, drawn in hairlines. */}
               <svg
                 viewBox="0 0 220 300"
@@ -172,41 +162,40 @@ export function HomeWelcome(): React.ReactElement {
               >
                 <path
                   d="M35 300V132C35 83 68.6 43 110 43s75 40 75 89v168"
-                  stroke="#C4D120"
+                  stroke="#02600D"
                   strokeWidth="1"
                 />
                 <path
                   d="M62 300V140c0-35 21.5-63 48-63s48 28 48 63v160"
-                  stroke="#C4D120"
+                  stroke="#02600D"
                   strokeWidth="0.6"
                   strokeDasharray="3 5"
                 />
-                <path d="M35 300h150" stroke="#C4D120" strokeWidth="1" />
+                <path d="M35 300h150" stroke="#02600D" strokeWidth="1" />
               </svg>
-              <div className="grain absolute inset-0" aria-hidden="true" />
 
               <div className="relative">
                 <div className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-signal-red" aria-hidden="true" />
-                  <SectionTag className="text-dawn-mint/92">A note from the Chief Pastor</SectionTag>
+                  <SectionTag className="text-ink/45">A note from the Chief Pastor</SectionTag>
                 </div>
 
                 <p className="mt-5 max-w-[20ch] font-serif text-[clamp(1.5rem,2.4vw,2rem)] font-medium leading-[1.05] tracking-[-0.025em]">
                   A word for the family is being prepared.
                 </p>
-                <p className="mt-3 max-w-[30ch] font-sans text-[13px] leading-[1.6] text-white/86">
+                <p className="mt-3 max-w-[30ch] font-sans text-[13px] leading-[1.6] text-ink/70">
                   This issue will carry the pastoral letter once it is approved.
                 </p>
 
                 <Pending
                   confirmed={false}
                   label="Details coming soon"
-                  className="mt-6 justify-start border-0 bg-transparent px-0 py-0 text-[10px] tracking-[0.16em] text-dawn-mint/92"
+                  className="mt-6 justify-start border-0 bg-transparent px-0 py-0 text-[10px] tracking-[0.16em] text-deep-green"
                 />
 
-                <div className="mt-8 border-t border-white/15 pt-4">
-                  <span aria-hidden="true" className="block h-px w-20 bg-dawn-mint/50" />
-                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-white/72">
+                <div className="mt-8 border-t border-ink/12 pt-4">
+                  <span aria-hidden="true" className="block h-px w-20 bg-brand-green/50" />
+                  <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.2em] text-ink/55">
                     Chief Pastor · Forever Life and Grace Mission
                   </p>
                 </div>

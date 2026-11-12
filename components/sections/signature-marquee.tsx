@@ -15,7 +15,7 @@ export function SignatureMarquee(): React.ReactElement {
 
       <div className="mx-auto flex max-w-[1680px] items-baseline justify-between gap-6 px-5 pb-2 pt-8 md:px-8 lg:px-10">
         <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink/40">
-          § 02
+          § 03
           <span className="mx-2 text-ink/20" aria-hidden="true">
             /
           </span>

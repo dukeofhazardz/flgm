@@ -74,7 +74,7 @@ export function HomeNextStep(): React.ReactElement {
             <SectionTag
               className={cn(field.dark ? "text-dawn-mint/90" : "text-ink/45")}
             >
-              § 08 — Next Step
+              § 09 - Next Step
             </SectionTag>
             <span
               aria-hidden="true"

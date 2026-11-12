@@ -37,11 +37,11 @@ export function VolunteerAreas(): React.ReactElement {
         <ol className="mt-9 border-t border-ink/20 md:mt-14">
           {VOLUNTEER.areas.map((area, index) => (
             <li key={area.id}>
-              <article className="group grid grid-cols-12 items-start gap-x-3 gap-y-3 border-b border-ink/15 py-6 transition-colors duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-night hover:text-white md:gap-x-6 md:py-8">
+              <article className="group grid grid-cols-12 items-start gap-x-3 gap-y-3 border-b border-ink/15 py-6 transition-colors duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:bg-mist md:gap-x-6 md:py-8">
                 <div className="col-span-2 flex items-baseline justify-between md:col-span-1">
                   <span
                     aria-hidden="true"
-                    className="font-serif text-[clamp(2.4rem,4.6vw,3.8rem)] font-medium leading-[0.8] tracking-[-0.06em] text-ink/25 transition-colors duration-300 group-hover:text-dawn-mint/88"
+                    className="font-serif text-[clamp(2.4rem,4.6vw,3.8rem)] font-medium leading-[0.8] tracking-[-0.06em] text-ink/25 transition-colors duration-300 group-hover:text-deep-green"
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
@@ -51,15 +51,15 @@ export function VolunteerAreas(): React.ReactElement {
                   {area.title}
                 </h3>
 
-                <p className="col-span-10 col-start-3 max-w-[48ch] font-sans text-[14px] leading-[1.6] text-deep-green transition-colors duration-300 group-hover:text-white/86 md:col-span-6 md:col-start-6 md:text-[15px]">
+                <p className="col-span-10 col-start-3 max-w-[48ch] font-sans text-[14px] leading-[1.6] text-ink/70 transition-colors duration-300 group-hover:text-ink/85 md:col-span-6 md:col-start-6 md:text-[15px]">
                   {area.note}
                 </p>
 
-                <div className="col-span-12 flex items-center justify-between border-t border-ink/10 pt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/30 transition-colors duration-300 group-hover:border-white/15 group-hover:text-white/66 md:col-span-1 md:border-t-0 md:pt-0">
+                <div className="col-span-12 flex items-center justify-between border-t border-ink/10 pt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/30 transition-colors duration-300 group-hover:border-ink/20 group-hover:text-ink/60 md:col-span-1 md:border-t-0 md:pt-0">
                   <span className="md:hidden">Area {String(index + 1).padStart(2, "0")} / 05</span>
                   <ArrowUpRight
                     aria-hidden="true"
-                    className="h-5 w-5 text-ink/30 transition-[transform,color] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-dawn-mint"
+                    className="h-5 w-5 text-ink/30 transition-[transform,color] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-deep-green"
                     strokeWidth={1.4}
                   />
                 </div>

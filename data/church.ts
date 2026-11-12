@@ -14,3 +14,13 @@ export const CHURCH: {
     "Resurrection Ground, beside Davina Hills Resort, off 1st Avenue, Gwarinpa, Abuja, Nigeria.",
   confirmed: true,
 };
+
+/**
+ * The home hero's opening statement. Kept in the data layer so the headline
+ * and subtext can be revised without touching layout code.
+ */
+export const HOME_HERO = {
+  headline: "ALL THINGS WORKING TOGETHER FOR GOOD",
+  subtext:
+    "Discover the path to purpose and spiritual growth with Pastor Hephzibah Julia.",
+} as const;

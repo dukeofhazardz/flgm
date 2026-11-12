@@ -16,21 +16,12 @@ export function ContactHero(): React.ReactElement {
     <section
       id="contact-top"
       data-section="contact-hero"
-      data-header-theme="dark"
-      className="relative overflow-x-clip bg-night text-white"
+      data-header-theme="light"
+      className="relative overflow-x-clip bg-white text-ink"
     >
-      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[76vh]"
-        style={{
-          background:
-            "radial-gradient(66% 62% at 78% 10%, rgba(51,164,2,0.18) 0%, rgba(51,164,2,0.03) 46%, rgba(2,96,13,0) 76%)",
-        }}
-      />
       <span
         aria-hidden="true"
-        className="type-outline-night pointer-events-none absolute -left-8 top-24 hidden select-none font-serif text-[15rem] font-medium italic leading-none tracking-[-0.08em] opacity-[0.1] lg:block xl:text-[20rem]"
+        className="type-outline-ink pointer-events-none absolute -left-8 top-24 hidden select-none font-serif text-[15rem] font-medium italic leading-none tracking-[-0.08em] opacity-[0.07] lg:block xl:text-[20rem]"
       >
         Visit
       </span>
@@ -40,30 +31,29 @@ export function ContactHero(): React.ReactElement {
           tag="§ 01 — Contact & location"
           note="Address · enquiry lines · service times"
           folio="No. 01 / 04"
-          dark
         />
 
         <div className="mt-10 grid grid-cols-12 items-end gap-x-3 gap-y-12 md:mt-14 md:gap-x-6 lg:mt-16">
           <div className="col-span-12 lg:col-span-7">
-            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-white/72">
+            <p className="flex items-center gap-3 font-mono text-[9px] uppercase tracking-[0.24em] text-ink/55">
               <span className="h-1.5 w-1.5 rounded-full bg-signal-red" aria-hidden="true" />
               Resurrection Ground · Gwarinpa · Abuja
             </p>
 
-            <h1 className="mt-5 font-serif text-[clamp(3rem,8.6vw,8.2rem)] font-medium leading-[0.84] tracking-[-0.055em]">
+            <h1 className="mt-5 font-serif text-[clamp(3rem,8.6vw,8.2rem)] font-medium leading-[0.84] tracking-[-0.055em] text-ink">
               <span className="block">Connect with</span>
-              <span className="block italic text-dawn-mint">Forever Life</span>
+              <span className="block italic text-deep-green">Forever Life</span>
               <span className="block">and Grace Mission.</span>
             </h1>
 
-            <p className="mt-7 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-white/90 md:text-[17px]">
+            <p className="mt-7 max-w-[46ch] font-sans text-[16px] leading-[1.65] text-ink/75 md:text-[17px]">
               We welcome you to visit us, worship with us, participate in our
               programmes, and become part of our church family.
             </p>
 
             <Link
               href="#visit"
-              className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-white/25 pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-white/90 transition-colors hover:border-brand-green hover:text-white"
+              className="mt-7 inline-flex min-h-11 items-center gap-3 border-b border-ink/25 pb-1.5 font-mono text-[9px] uppercase tracking-[0.16em] text-ink/80 transition-colors hover:border-brand-green hover:text-ink"
             >
               Plan your visit
               <ArrowDown className="h-3.5 w-3.5 text-brand-green" strokeWidth={1.6} aria-hidden="true" />
@@ -73,7 +63,7 @@ export function ContactHero(): React.ReactElement {
           {/* Location study */}
           <figure className="col-span-12 mx-auto w-full max-w-[350px] lg:col-span-4 lg:col-start-9 lg:mx-0 lg:ml-auto lg:max-w-[390px]">
             <div
-              className="relative aspect-[4/5] overflow-hidden bg-forest"
+              className="relative aspect-[4/5] overflow-hidden border border-ink/12 bg-tint-white"
               style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
             >
               <svg
@@ -84,12 +74,12 @@ export function ContactHero(): React.ReactElement {
               >
                 <defs>
                   <linearGradient id="contact-sky" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#02600D" />
-                    <stop offset="62%" stopColor="#408609" />
-                    <stop offset="100%" stopColor="#33A402" />
+                    <stop offset="0%" stopColor="#F4F9EC" />
+                    <stop offset="62%" stopColor="#F8FCEF" />
+                    <stop offset="100%" stopColor="#EAF1DE" />
                   </linearGradient>
                   <radialGradient id="contact-glow" cx="50%" cy="72%" r="56%">
-                    <stop offset="0%" stopColor="#C4D120" stopOpacity="0.45" />
+                    <stop offset="0%" stopColor="#C4D120" stopOpacity="0.4" />
                     <stop offset="100%" stopColor="#33A402" stopOpacity="0" />
                   </radialGradient>
                   <clipPath id="contact-arch">
@@ -109,9 +99,9 @@ export function ContactHero(): React.ReactElement {
                       y1={y}
                       x2="380"
                       y2={y}
-                      stroke="#C4D120"
+                      stroke="#02600D"
                       strokeWidth="0.5"
-                      opacity="0.2"
+                      opacity="0.18"
                     />
                   ))}
                   {[80, 140, 200, 260, 320].map((x) => (
@@ -121,59 +111,59 @@ export function ContactHero(): React.ReactElement {
                       y1="60"
                       x2={x}
                       y2="500"
-                      stroke="#C4D120"
+                      stroke="#02600D"
                       strokeWidth="0.5"
-                      opacity="0.16"
+                      opacity="0.14"
                     />
                   ))}
 
                   {/* Two diagonal roads */}
                   <path
                     d="M20 380 L380 250"
-                    stroke="#C4D120"
+                    stroke="#02600D"
                     strokeWidth="1.1"
-                    opacity="0.35"
+                    opacity="0.3"
                   />
                   <path
                     d="M60 500 L300 60"
-                    stroke="#C4D120"
+                    stroke="#02600D"
                     strokeWidth="0.7"
-                    opacity="0.2"
+                    opacity="0.18"
                   />
 
                   {/* Blocks */}
-                  <rect x="92" y="112" width="96" height="48" fill="#C4D120" opacity="0.06" />
-                  <rect x="272" y="112" width="60" height="48" fill="#C4D120" opacity="0.05" />
-                  <rect x="92" y="232" width="96" height="48" fill="#C4D120" opacity="0.05" />
-                  <rect x="212" y="292" width="120" height="48" fill="#C4D120" opacity="0.07" />
+                  <rect x="92" y="112" width="96" height="48" fill="#02600D" opacity="0.05" />
+                  <rect x="272" y="112" width="60" height="48" fill="#02600D" opacity="0.04" />
+                  <rect x="92" y="232" width="96" height="48" fill="#02600D" opacity="0.04" />
+                  <rect x="212" y="292" width="120" height="48" fill="#02600D" opacity="0.06" />
 
                   {/* Route to the pin */}
                   <path
                     d="M70 460 C92 430 92 402 132 388 C166 376 214 390 224 350 C234 310 206 292 224 262"
                     fill="none"
-                    stroke="#FFF3EE"
+                    stroke="#02600D"
                     strokeWidth="1.2"
                     strokeDasharray="3 6"
-                    opacity="0.85"
+                    opacity="0.7"
                   />
 
                   {/* Pin */}
-                  <circle cx="224" cy="252" r="30" fill="#02600D" stroke="#C4D120" strokeWidth="0.6" opacity="0.85" />
-                  <circle cx="224" cy="252" r="18" fill="none" stroke="#C4D120" strokeWidth="0.7" opacity="0.7" />
-                  <circle cx="224" cy="252" r="6" fill="#FFF3EE" />
+                  <circle cx="224" cy="252" r="30" fill="#FFFFFF" stroke="#02600D" strokeWidth="0.6" opacity="0.9" />
+                  <circle cx="224" cy="252" r="18" fill="none" stroke="#02600D" strokeWidth="0.7" opacity="0.6" />
+                  <circle cx="224" cy="252" r="6" fill="#FC0000" />
                   <path
                     d="M224 282 V330"
-                    stroke="#C4D120"
+                    stroke="#02600D"
                     strokeWidth="0.7"
                     strokeDasharray="2 4"
-                    opacity="0.55"
+                    opacity="0.45"
                   />
 
                   <text
                     x="56"
                     y="86"
-                    fill="#C4D120"
-                    opacity="0.55"
+                    fill="#02600D"
+                    opacity="0.6"
                     fontFamily="var(--font-mono)"
                     fontSize="8"
                     letterSpacing="2"
@@ -183,8 +173,8 @@ export function ContactHero(): React.ReactElement {
                   <text
                     x="56"
                     y="102"
-                    fill="#C4D120"
-                    opacity="0.35"
+                    fill="#02600D"
+                    opacity="0.4"
                     fontFamily="var(--font-mono)"
                     fontSize="7"
                     letterSpacing="1.6"
@@ -196,24 +186,23 @@ export function ContactHero(): React.ReactElement {
                 <path
                   d="M20 500 V238 C20 119 100 40 200 40 C300 40 380 119 380 238 V500"
                   fill="none"
-                  stroke="#C4D120"
+                  stroke="#02600D"
                   strokeWidth="1"
-                  opacity="0.5"
+                  opacity="0.45"
                 />
               </svg>
 
-              <div className="grain absolute inset-0" aria-hidden="true" />
               <div
-                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20"
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/15"
                 style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
                 aria-hidden="true"
               />
-              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 bg-night/60 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-3 border-t border-ink/10 bg-white/80 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-ink/70">
                 <span>Fig. 01 — The entrance</span>
                 <span>Pin 01</span>
               </div>
             </div>
-            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+            <figcaption className="mt-3 flex items-baseline justify-between gap-3 font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
               <span>Location study · pin to be verified</span>
               <span>Plate 01</span>
             </figcaption>
@@ -221,20 +210,20 @@ export function ContactHero(): React.ReactElement {
         </div>
 
         {/* Service times */}
-        <ol className="mt-12 grid grid-cols-1 border-t border-white/15 sm:grid-cols-3 md:mt-16">
+        <ol className="mt-12 grid grid-cols-1 border-t border-ink/15 sm:grid-cols-3 md:mt-16">
           {CONTACT.serviceTimes.map((time, index) => (
             <li
               key={time.id}
-              className="border-b border-white/12 py-4 sm:border-r sm:px-5 sm:last:border-r-0"
+              className="border-b border-ink/12 py-4 sm:border-r sm:px-5 sm:last:border-r-0"
             >
-              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/56">
+              <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/45">
                 {String(index + 1).padStart(2, "0")} — {time.day}
               </p>
               <div className="mt-1.5 flex flex-wrap items-baseline justify-between gap-2">
-                <p className="font-serif text-[clamp(1.15rem,2.2vw,1.5rem)] font-medium leading-tight tracking-[-0.02em] text-white/85">
+                <p className="font-serif text-[clamp(1.15rem,2.2vw,1.5rem)] font-medium leading-tight tracking-[-0.02em] text-ink/85">
                   {time.name}
                 </p>
-                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-dawn-mint/94">
+                <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-deep-green">
                   {time.time}
                 </p>
               </div>
@@ -242,7 +231,7 @@ export function ContactHero(): React.ReactElement {
           ))}
         </ol>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/56">
+        <div className="flex flex-wrap items-center justify-between gap-3 py-3 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/45">
           <p>{CHURCH.address}</p>
           <p>All times WAT</p>
         </div>

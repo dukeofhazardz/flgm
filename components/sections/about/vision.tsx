@@ -5,11 +5,11 @@ import { VISION_CARDS, type VisionCard } from "@/data/about";
 import { cn } from "@/lib/utils";
 
 const TONES: Record<VisionCard["tone"], string> = {
-  green: "bg-brand-green text-ink border-brand-green",
+  green: "bg-[#EAF3CE] text-ink border-ink/12",
   white: "bg-white text-ink border-ink/12",
   mist: "bg-[#EDF4E0] text-ink border-ink/12",
-  forest: "bg-[#0A4A0B] text-white border-white/10",
-  ink: "bg-night text-white border-white/10",
+  forest: "bg-[#E3EFD5] text-ink border-ink/12",
+  ink: "bg-[#DDEBC4] text-ink border-ink/12",
 };
 
 /**
@@ -53,33 +53,12 @@ export function AboutVision(): React.ReactElement {
 
         <div className="relative mt-10 md:mt-14">
           {VISION_CARDS.map((card, index) => {
-            const dark = card.tone === "forest" || card.tone === "ink";
             const bright = card.tone === "green";
-            const muted = dark
-              ? "text-white/76"
-              : bright
-                ? "text-night/65"
-                : "text-ink/40";
-            const hairline = dark
-              ? "bg-white/20"
-              : bright
-                ? "bg-night/25"
-                : "bg-ink/20";
-            const ghost = dark
-              ? "text-white/10"
-              : bright
-                ? "text-night/15"
-                : "text-ink/10";
-            const note = dark
-              ? "text-white/76"
-              : bright
-                ? "text-night/70"
-                : "text-ink/40";
-            const border = dark
-              ? "border-white/15"
-              : bright
-                ? "border-night/25"
-                : "border-ink/15";
+            const muted = bright ? "text-night/65" : "text-ink/40";
+            const hairline = bright ? "bg-night/25" : "bg-ink/20";
+            const ghost = bright ? "text-night/15" : "text-ink/10";
+            const note = bright ? "text-night/70" : "text-ink/40";
+            const border = bright ? "border-night/25" : "border-ink/15";
             return (
               <article
                 key={card.id}

@@ -1,4 +1,5 @@
 import { HomeHero } from "@/components/sections/home-hero";
+import { DawnHandoff } from "@/components/sections/dawn-handoff";
 import { SignatureMarquee } from "@/components/sections/signature-marquee";
 import { HomeVision } from "@/components/sections/home/home-vision";
 import { HomeWelcome } from "@/components/sections/home/home-welcome";
@@ -14,18 +15,19 @@ export const metadata = homeMetadata(
 );
 
 /**
- * Home — the Daybreak Edition.
+ * Home — the white edition.
  *
- * Sunrise masthead → creed ribbon → the white morning → the letter → the
- * programmes → the week → the house we are building → the next step → the
- * next three gatherings. Light and dark fields alternate; every section has
- * a section tag, a folio, and one deliberate motion moment.
+ * White hero → the identity handoff → creed ribbon → the vision → the letter →
+ * the programmes → the week → the house we are building → the next step →
+ * the next three gatherings. Sections alternate white and mist with hairlines
+ * between them; the footer is the only green field on the page.
  */
 
 export default function Home() {
   return (
     <main>
       <HomeHero />
+      <DawnHandoff />
       <SignatureMarquee />
       <HomeVision />
       <HomeWelcome />

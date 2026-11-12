@@ -164,15 +164,15 @@ export function Preloader(): React.ReactElement | null {
         className="pointer-events-none absolute left-1/2 top-[58%] z-0 h-[36vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-green/10 blur-[100px]"
       />
 
-      {/* The two night curtains form the full field until they split. */}
+      {/* The two ink curtains form the full field until they split. */}
       <div
         data-pre-left
-        className="absolute inset-y-0 left-0 z-10 w-1/2 bg-night"
+        className="absolute inset-y-0 left-0 z-10 w-1/2 bg-ink"
         style={{ clipPath: "inset(0 0 0 0)" }}
       />
       <div
         data-pre-right
-        className="absolute inset-y-0 right-0 z-10 w-1/2 bg-night"
+        className="absolute inset-y-0 right-0 z-10 w-1/2 bg-ink"
         style={{ clipPath: "inset(0 0 0 0)" }}
       />
 

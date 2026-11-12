@@ -33,8 +33,8 @@ function DirectoryCard({
           style={{
             background:
               index % 2 === 0
-                ? "linear-gradient(180deg, #02600D 0%, #408609 50%, #33A402 100%)"
-                : "linear-gradient(180deg, #408609 0%, #33A402 58%, #C4D120 100%)",
+                ? "linear-gradient(180deg, #F4F9EC 0%, #EAF1DE 50%, #DDEBC4 100%)"
+                : "linear-gradient(180deg, #F8FCEF 0%, #EAF1DE 58%, #D8E6BE 100%)",
           }}
         />
         <span
@@ -42,30 +42,29 @@ function DirectoryCard({
           className="absolute inset-0 opacity-70"
           style={{
             background:
-              "radial-gradient(62% 48% at 50% 90%, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 76%)",
+              "radial-gradient(62% 48% at 50% 90%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 76%)",
           }}
         />
         <div className="absolute inset-x-0 bottom-0 flex justify-center">
           <ArtSlot
             name={DIRECTORY_ART[index % DIRECTORY_ART.length]}
             size={220}
-            color="white"
-            className="translate-y-3 opacity-90"
+            color="ink"
+            className="translate-y-3 opacity-80"
           />
         </div>
         <span
           aria-hidden="true"
-          className="absolute left-3 top-8 select-none font-serif text-[5rem] font-medium leading-none text-white/15"
+          className="absolute left-3 top-8 select-none font-serif text-[5rem] font-medium leading-none text-ink/12"
         >
           {String(index + 1).padStart(2, "0")}
         </span>
-        <div className="grain absolute inset-0" aria-hidden="true" />
         <div
-          className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/20"
+          className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-ink/12"
           style={{ borderTopLeftRadius: 999, borderTopRightRadius: 999 }}
           aria-hidden="true"
         />
-        <p className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 bg-night/55 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-white/94">
+        <p className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between gap-2 border-t border-ink/10 bg-white/80 px-3 py-2 font-mono text-[7px] uppercase tracking-[0.16em] text-ink/70">
           <span>Portrait slot</span>
           <span>{String(index + 1).padStart(2, "0")}</span>
         </p>
@@ -187,12 +186,11 @@ export function AboutLeadership(): React.ReactElement {
             </p>
           </div>
 
-          <div className="relative mt-7 overflow-hidden bg-night p-5 text-white md:mt-9 md:p-8">
-            <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="relative mt-7 overflow-hidden border border-ink/12 bg-mist p-5 text-ink md:mt-9 md:p-8">
             <div className="relative">
               <div className="flex flex-col items-center">
-                <div className="w-full max-w-[420px] border border-white/20 bg-white/[0.04] px-5 py-4 text-center">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
+                <div className="w-full max-w-[420px] border border-ink/20 bg-white px-5 py-4 text-center">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-deep-green">
                     Oversight
                   </p>
                   <p className="mt-1 font-serif text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-tight tracking-[-0.02em]">
@@ -202,8 +200,8 @@ export function AboutLeadership(): React.ReactElement {
 
                 <span aria-hidden="true" className="block h-6 w-px bg-brand-green" />
 
-                <div className="w-full max-w-[520px] border border-white/20 bg-white/[0.04] px-5 py-4 text-center">
-                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
+                <div className="w-full max-w-[520px] border border-ink/20 bg-white px-5 py-4 text-center">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-deep-green">
                     Coordination
                   </p>
                   <p className="mt-1 font-serif text-[clamp(1.2rem,2.2vw,1.6rem)] font-medium leading-tight tracking-[-0.02em]">
@@ -213,26 +211,26 @@ export function AboutLeadership(): React.ReactElement {
 
                 <span aria-hidden="true" className="block h-6 w-px bg-brand-green" />
 
-                <div className="w-full border-t border-white/15 pt-5">
-                  <p className="text-center font-mono text-[8px] uppercase tracking-[0.2em] text-dawn-mint/92">
+                <div className="w-full border-t border-ink/15 pt-5">
+                  <p className="text-center font-mono text-[8px] uppercase tracking-[0.2em] text-deep-green">
                     Ministry and departmental leadership
                   </p>
 
-                  <ul className="mt-4 grid grid-cols-1 gap-px bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
+                  <ul className="mt-4 grid grid-cols-1 gap-px bg-ink/12 sm:grid-cols-2 lg:grid-cols-4">
                     {LEADERSHIP_DEPARTMENTS.map((department, index) => (
                       <li
                         key={department}
-                        className="flex min-h-[74px] items-start gap-2.5 bg-night px-3 py-3"
+                        className="flex min-h-[74px] items-start gap-2.5 bg-white px-3 py-3"
                       >
                         <span
                           aria-hidden="true"
                           className="mt-1 block h-1.5 w-1.5 shrink-0 bg-brand-green"
                         />
                         <div>
-                          <span className="block font-mono text-[7px] uppercase tracking-[0.16em] text-white/56">
+                          <span className="block font-mono text-[7px] uppercase tracking-[0.16em] text-ink/45">
                             {String(index + 1).padStart(2, "0")}
                           </span>
-                          <span className="mt-1 block text-[13px] leading-[1.45] text-white/94">
+                          <span className="mt-1 block text-[13px] leading-[1.45] text-ink/85">
                             {department}
                           </span>
                         </div>
@@ -243,7 +241,7 @@ export function AboutLeadership(): React.ReactElement {
               </div>
             </div>
 
-            <div className="relative mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-white/12 pt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-white/66">
+            <div className="relative mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-ink/12 pt-3 font-mono text-[8px] uppercase tracking-[0.16em] text-ink/50">
               <span>One house · shared service</span>
               <span>Structure, not a directory of names</span>
             </div>

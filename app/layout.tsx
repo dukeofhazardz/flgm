@@ -82,7 +82,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${fraunces.variable} ${hankenGrotesk.variable} ${dmMono.variable} antialiased`}
     >
-      <body className="bg-night">
+      <body className="bg-white text-ink">
         <Script
           id="flgm-preloader-seen"
           strategy="beforeInteractive"

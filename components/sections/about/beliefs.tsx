@@ -22,29 +22,19 @@ export function AboutBeliefs(): React.ReactElement {
     <section
       id="beliefs"
       data-section="about-beliefs"
-      data-header-theme="dark"
-      className="relative overflow-x-clip bg-night text-white"
+      data-header-theme="light"
+      className="relative overflow-x-clip bg-white text-ink"
     >
-      <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-96"
-        style={{
-          background:
-            "radial-gradient(72% 100% at 18% 0%, rgba(51,164,2,0.12) 0%, rgba(51,164,2,0) 72%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-[1680px] px-5 py-16 md:px-8 md:py-28 lg:px-10 lg:py-32">
-        <header className="grid grid-cols-12 items-baseline gap-3 border-b border-white/12 pb-5 md:gap-6">
+        <header className="grid grid-cols-12 items-baseline gap-3 border-b border-ink/12 pb-5 md:gap-6">
           <div className="col-span-8 flex items-baseline gap-4 md:col-span-6">
-            <SectionTag className="text-white/76">§ 05 — Our beliefs</SectionTag>
-            <span aria-hidden="true" className="hidden h-px w-14 bg-white/20 md:block" />
+            <SectionTag className="text-ink/45">§ 05 — Our beliefs</SectionTag>
+            <span aria-hidden="true" className="hidden h-px w-14 bg-ink/20 md:block" />
           </div>
-          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-4 md:block">
+          <p className="hidden font-mono text-[9px] uppercase tracking-[0.2em] text-ink/45 md:col-span-4 md:block">
             The convictions that shape the house
           </p>
-          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-white/66 md:col-span-2">
+          <Folio className="col-span-4 text-right text-[9px] uppercase tracking-[0.2em] text-ink/45 md:col-span-2">
             No. 05 / 06
           </Folio>
         </header>
@@ -53,13 +43,13 @@ export function AboutBeliefs(): React.ReactElement {
           <h2 className="col-span-12 max-w-[10ch] font-serif text-[clamp(2.8rem,7.4vw,7rem)] font-medium leading-[0.9] tracking-[-0.05em] md:col-span-7">
             What we <span className="italic">hold.</span>
           </h2>
-          <p className="col-span-12 max-w-[38ch] text-[15px] leading-[1.62] text-white/82 md:col-span-4 md:col-start-9 md:text-[16px]">
+          <p className="col-span-12 max-w-[38ch] text-[15px] leading-[1.62] text-ink/70 md:col-span-4 md:col-start-9 md:text-[16px]">
             Seven convictions, opened one at a time. The Church is built on the
             person and work of Jesus Christ, and on the Word that reveals Him.
           </p>
         </div>
 
-        <div className="mt-10 border-t border-white/20 md:mt-14">
+        <div className="mt-10 border-t border-ink/15 md:mt-14">
           {BELIEFS.map((belief, index) => {
             const isOpen = open === belief.id;
             const buttonId = `belief-button-${belief.id}`;
@@ -69,8 +59,8 @@ export function AboutBeliefs(): React.ReactElement {
               <div
                 key={belief.id}
                 className={cn(
-                  "border-b border-white/15 transition-colors duration-300",
-                  isOpen ? "bg-dawn-mint text-ink" : "bg-transparent text-white"
+                  "border-b border-ink/12 transition-colors duration-300",
+                  isOpen ? "bg-mist text-ink" : "bg-transparent text-ink"
                 )}
               >
                 <h3>
@@ -86,7 +76,7 @@ export function AboutBeliefs(): React.ReactElement {
                       aria-hidden="true"
                       className={cn(
                         "col-span-3 font-serif text-[clamp(2.8rem,7vw,7rem)] font-medium leading-[0.78] tracking-[-0.07em] tabular-nums transition-colors duration-300 md:col-span-2",
-                        isOpen ? "text-ink" : "text-white/34"
+                        isOpen ? "text-deep-green" : "text-ink/30"
                       )}
                     >
                       {String(index + 1).padStart(2, "0")}
@@ -104,13 +94,13 @@ export function AboutBeliefs(): React.ReactElement {
                     <span className="col-span-1 flex justify-end">
                       {isOpen ? (
                         <Minus
-                          className="h-6 w-6 text-ink/70"
+                          className="h-6 w-6 text-deep-green"
                           strokeWidth={1.3}
                           aria-hidden="true"
                         />
                       ) : (
                         <Plus
-                          className="h-6 w-6 text-white/72"
+                          className="h-6 w-6 text-ink/60"
                           strokeWidth={1.3}
                           aria-hidden="true"
                         />

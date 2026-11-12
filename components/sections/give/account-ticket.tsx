@@ -77,7 +77,7 @@ export function AccountTicket(): React.ReactElement {
 
         {/* ── The ticket ── */}
         <div className="relative mt-10 md:mt-14">
-          <div className="relative overflow-hidden bg-night text-white">
+          <div className="relative overflow-hidden border border-ink/15 bg-tint-white text-ink">
             <div
               className="ticket-notch left-[calc(66.666%-14px)] top-[-14px] hidden md:block"
               aria-hidden="true"
@@ -90,22 +90,12 @@ export function AccountTicket(): React.ReactElement {
             <div className="grid md:grid-cols-3">
               {/* Main ticket */}
               <div className="relative p-6 md:col-span-2 md:p-9 lg:p-11">
-                <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(60% 80% at 82% 18%, rgba(51,164,2,0.24) 0%, rgba(51,164,2,0.04) 46%, rgba(7,19,13,0) 74%)",
-                  }}
-                />
-
                 <div className="relative flex items-start justify-between gap-4">
-                  <p className="flex items-center gap-2.5 font-mono text-[8.5px] uppercase tracking-[0.2em] text-dawn-mint/94">
+                  <p className="flex items-center gap-2.5 font-mono text-[8.5px] uppercase tracking-[0.2em] text-deep-green">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand-green live-dot" aria-hidden="true" />
                     Official church account
                   </p>
-                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/56">
+                  <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/45">
                     Serial 001
                   </p>
                 </div>
@@ -113,17 +103,17 @@ export function AccountTicket(): React.ReactElement {
                 <p className="relative mt-7 font-serif text-[clamp(1.7rem,3.4vw,2.7rem)] font-medium leading-[1.02] tracking-[-0.03em]">
                   {GIVING.accountName}
                 </p>
-                <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/76">
+                <p className="mt-2 font-mono text-[9px] uppercase tracking-[0.2em] text-ink/55">
                   {GIVING.bank}
-                  <span className="mx-2 text-white/38" aria-hidden="true">
+                  <span className="mx-2 text-ink/25" aria-hidden="true">
                     /
                   </span>
                   Account number
                 </p>
 
-                <div className="relative mt-5 border-y border-white/15 py-5 md:py-7">
+                <div className="relative mt-5 border-y border-ink/12 py-5 md:py-7">
                   <p
-                    className="select-all font-serif text-[clamp(2.55rem,6.7vw,5.1rem)] font-medium leading-[0.82] tracking-[0.1em] tabular-nums text-dawn-mint"
+                    className="select-all font-serif text-[clamp(2.55rem,6.7vw,5.1rem)] font-medium leading-[0.82] tracking-[0.1em] tabular-nums text-deep-green"
                     aria-label={`Account number ${GIVING.accountNumber}`}
                   >
                     {GIVING.accountNumber}
@@ -153,23 +143,22 @@ export function AccountTicket(): React.ReactElement {
                       {GIVING.accountNumber}
                     </span>
                   </button>
-                  <p className="max-w-[30ch] font-mono text-[8px] uppercase leading-[1.7] tracking-[0.14em] text-white/66">
+                  <p className="max-w-[30ch] font-mono text-[8px] uppercase leading-[1.7] tracking-[0.14em] text-ink/50">
                     No card details are collected on this website.
                   </p>
                 </div>
               </div>
 
               {/* Stub */}
-              <div className="relative border-t border-dashed border-white/20 p-6 md:col-span-1 md:border-l md:border-t-0 md:p-8">
-                <div className="grain pointer-events-none absolute inset-0" aria-hidden="true" />
+              <div className="relative border-t border-dashed border-ink/20 p-6 md:col-span-1 md:border-l md:border-t-0 md:p-8">
                 <div className="relative flex h-full flex-col justify-between gap-8">
                   <div>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-white/66">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.2em] text-ink/50">
                       Forever Life
                       <br />
                       and Grace Mission
                     </p>
-                    <p className="mt-5 font-serif text-[clamp(1.5rem,2.6vw,2.1rem)] font-medium italic leading-[1.05] tracking-[-0.02em] text-white/85">
+                    <p className="mt-5 font-serif text-[clamp(1.5rem,2.6vw,2.1rem)] font-medium italic leading-[1.05] tracking-[-0.02em] text-ink/80">
                       Building for generations.
                     </p>
                   </div>
@@ -177,35 +166,35 @@ export function AccountTicket(): React.ReactElement {
                   <div>
                     <div
                       aria-hidden="true"
-                      className="flex h-12 items-end gap-[3px] opacity-50"
+                      className="flex h-12 items-end gap-[3px] opacity-40"
                     >
                       {[3, 7, 2, 9, 4, 8, 3, 6, 2, 7, 4, 9, 3, 5, 8, 2, 6, 4, 7, 3].map(
                         (height, index) => (
                           <span
                             key={index}
-                            className="block w-[3px] bg-dawn-mint"
+                            className="block w-[3px] bg-deep-green"
                             style={{ height: `${height * 6}px` }}
                           />
                         )
                       )}
                     </div>
-                    <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                    <p className="mt-3 font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
                       Moniepoint MFB
-                      <span className="mx-1.5 text-white/15" aria-hidden="true">
+                      <span className="mx-1.5 text-ink/20" aria-hidden="true">
                         /
                       </span>
                       Nigeria
                     </p>
                   </div>
 
-                  <div className="space-y-2 border-t border-white/12 pt-4">
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                  <div className="space-y-2 border-t border-ink/12 pt-4">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
                       Approved channel
                     </p>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
                       Voluntary giving
                     </p>
-                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-white/66">
+                    <p className="font-mono text-[8px] uppercase tracking-[0.18em] text-ink/50">
                       Church-supplied details
                     </p>
                   </div>
